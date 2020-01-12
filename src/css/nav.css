@@ -1,0 +1,9 @@
+.nav{
+    display: block;
+}
+
+.nav ul li{
+    display: inline;
+    margin: 1vh 2vh;
+    color: rgb(75, 75, 75);
+}
