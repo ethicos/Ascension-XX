@@ -16,9 +16,9 @@ class CountDown extends React.Component {
     render(){
         return (
             <div className="timer">
-                <span>{this.state.days}</span> :
-                <span>{this.state.hours}</span> :
-                <span>{this.state.minutes}</span> :
+                <span>{this.state.days}</span>:
+                <span>{this.state.hours}</span>:
+                <span>{this.state.minutes}</span>:
                 <span>{this.state.seconds}</span> 
             </div>
         )
