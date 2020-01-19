@@ -1,0 +1,53 @@
+@import "./var.css";
+
+body{
+    background-color: var(--color-dark);
+    color: var(--color-text-dark);
+    overflow-x: hidden;
+}
+.gec-home{
+    background-image: url("../images/gec.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 80vh;
+}
+.gec-home-dark{
+    background-image: url("../images/gec-night.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 80vh;
+}
+
+.dyuthi-date{
+    width: fit-content;
+    color: #000;
+    font-size: 5vh;
+    margin: 0 auto;
+    padding-top: 20vh;
+}
+.dyuthi-title{
+    width: fit-content;
+    color: var(--dyuthi-color);
+    font-size: 10vh;
+    margin: 0 auto;
+}
+.dyuthi-title > .xx{
+    font-size: 15vh;
+}
+.dyuthi-tagline{
+    color: #000;
+    font-size: 5vh;
+    padding: 0 30vh;
+    margin: 0;
+}
+
+.dyuthi-info{
+    width: fit-content;
+    color: #000;
+    font-size: 2.5vh;
+    padding: 0 30vh;
+    text-align: center;
+    margin: 0 auto;
+}

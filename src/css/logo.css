@@ -3,6 +3,12 @@
     margin: 8vh auto 0;
 }
 
+.logo-inline{
+    display: inline-block;
+    margin: 0 10vh;
+    vertical-align: middle;
+}
+
 .logo-default{
     width: auto;
     height: auto;

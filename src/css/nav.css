@@ -1,9 +1,41 @@
+@import "./var.css";
+
+
+body{
+    background-color: var(--color-light);
+    color: var(--color-text-light);
+}
 .nav{
     display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+.nav ul{
+    padding: none;
+    padding-inline-start: 0px;
+}
+.nav ul li {
+    list-style-type: none;
+    display: inline;
 }
 
-.nav ul li{
+.nav ul li a{
     display: inline;
-    margin: 1vh 2vh;
-    color: rgb(75, 75, 75);
+    text-decoration: none;
+    margin: 1vh 3vh;
+    padding: 1.5vh 5px;
+    color: var(--color-text-light);
+    border-radius: 5px;
+}
+.nav ul li a:hover{
+    border-radius: 0;
+    padding: 1.5vh 5px;
+    border-bottom: dashed 2px var(--color-text-light);
+}
+
+.nav ul li a.active{
+    border-radius: 0;
+    color: var(--dyuthi-color);
+    padding: 1.5vh 5px;
+    border-bottom: dashed 2px var(--dyuthi-color);
 }

@@ -1,5 +1,13 @@
+
+@font-face {
+    font-family: dyuthiFont;
+    src: url("swatch.ttf");
+}
 body{
-    background: linear-gradient(rgb(34, 34, 34), rgb(24, 24, 24), #000);
+    font-family: dyuthiFont;
+}
+body{
+    
 }
 .title{
     width: fit-content;

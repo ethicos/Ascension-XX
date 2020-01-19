@@ -5,6 +5,9 @@ import './css/logo.css';
 class Logo extends React.Component {
   render(){
     var classNames = "logo ";
+    if(this.props.isInline){
+      classNames = "logo-inline ";
+    }
     switch(this.props.size){
         case 0:
             classNames += "logo-small";
