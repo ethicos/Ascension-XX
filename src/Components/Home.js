@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import p5 from 'p5';
 // import sketch from './sketches/sketch';
@@ -38,6 +38,10 @@ class Home extends React.Component {
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
+        // this.setState({y : setInterval( this.moveClouds, 50) });
+    }
+
+    handleLoader(){
         this.setState({y : setInterval( this.moveClouds, 50) });
     }
 
@@ -56,7 +60,7 @@ class Home extends React.Component {
 
 
 
-                <div className="mountain" id="mountain">  
+                <div className="mountain" id="mountain" onLoad={this.handleLoader.bind(this)}>
                     <div id="cloud1" className="cloud">
                         <img src={cloud}/>
                     </div>
