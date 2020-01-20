@@ -24,7 +24,27 @@ class Nav extends React.Component {
     this.setLoaded = this.setLoaded.bind(this);
   }
   componentDidMount(){
-    
+    // const activate = (el)=>{
+    //   // el.parent.classList.add("active");
+    //   console.log("active", el.id);
+    // }
+    // const activateLink = (el)=>{
+    //   console.log(window.location.pathname)
+    //   if( window.location.pathname == "/about" && el.id == "about"){
+    //       activate(el);
+    //   }else if( window.location.pathname == "/proshows" && el.id == "proshows"){
+    //       activate(el);
+    //   }else if(window.location.pathname == "/events" && el.id == "events"){
+    //       activate(el);
+    //   }else if(window.location.pathname == "/contacts" && el.id == "contacts"){
+    //       activate(el);
+    //   }
+    // }
+    // let el = document.getElementsByClassName("link");
+    // console.log(el);
+    // for( let e of el){
+    //   e.addEventListener("click", (x)=>{ activateLink(e)});
+    // }
   }
   setLoaded(){
     this.setState({
@@ -39,13 +59,13 @@ class Nav extends React.Component {
                   <li>
                     <Link to="/about" 
                           className={window.location.pathname == "/about"?"active":""}>
-                            <span id="about">ABOUT</span>
+                            <span class="link" id="about">ABOUT</span>
                           </Link>
                   </li>
                   <li>
                     <Link to="/proshows"
                           className={window.location.pathname == "/proshows"?"active":""}>
-                            <span>PRO SHOWS</span>
+                            <span class="link" id="proshows">PRO SHOWS</span>
                           </Link>
                   </li>
                   <li> 
@@ -54,13 +74,13 @@ class Nav extends React.Component {
                   <li>
                     <Link to="/events"
                           className={window.location.pathname == "/events"?"active":""}>
-                            <span>EVENTS</span>
+                            <span class="link" id="events">EVENTS</span>
                           </Link>
                     </li>
                   <li>
                     <Link to="/contact"
                           className={window.location.pathname == "/contact"?"active":""}>
-                            <span>CONTACT</span>
+                            <span class="link" id="contact">CONTACT</span>
                           </Link>
                     </li>
               </ul>

@@ -3,6 +3,7 @@ import logo from './assets/images/logo.png';
 import arch from './assets/images/gec-arch.png';
 import gecArch from './assets/images/arch-cropped.svg';
 import './assets/css/about.css';
+import './assets/css/animate.css';
 
 class About extends React.Component {
     constructor(){
@@ -10,9 +11,7 @@ class About extends React.Component {
     }
     render(){
         return (
-            
-            <div class="row about">
-                
+            <div class="row about fade-in">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <img src={gecArch} className="gec-arch"/>   
                 </div>
@@ -27,11 +26,7 @@ class About extends React.Component {
                          Quis nulla officia nisi dolore exercitation in eu ea nostrud quis consequat amet laborum id. 
                          Dolor cillum eiusmod veniam est nisi esse deserunt et exercitation ad sit adipisicing ullamco.</p>
                 </div>
-                
-                
-
             </div>
-        
         );
     }
 }

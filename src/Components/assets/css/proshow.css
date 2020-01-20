@@ -6,11 +6,11 @@
     background-color: #fff;
     z-index: 10;
 }
-.rotateLF{
+.rotatePrevExit{
     animation: rotateL .5s alternate;
     animation-fill-mode: forwards;
 }
-.rotateLB{
+.rotatePrevEntry{
     animation: rotateLBack .5s alternate;
     animation-fill-mode: forwards;
 }

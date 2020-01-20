@@ -1,10 +1,11 @@
-
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css';
 @font-face {
     font-family: dyuthiFont;
     src: url("swatch.ttf");
 }
 body{
     font-family: dyuthiFont;
+    letter-spacing: 1.5px;
 }
 body{
     

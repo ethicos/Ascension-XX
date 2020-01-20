@@ -4,6 +4,7 @@ import p5 from 'p5';
 // import sketch from './sketches/sketch';
 import './assets/css/home.css';
 import './assets/css/clouds.css';
+import './assets/css/animate.css';
 import cloud from './assets/images/cl1.png';
 import cloud1 from './assets/images/cl2.png';
 import cloud2 from './assets/images/cl3.png';
@@ -48,11 +49,12 @@ class Home extends React.Component {
         if( this.state.y != null )
             clearInterval(this.state.y);
         this.fadeOut();
+        document.getElementById("home").classList.add("fade-out");
     }
 
     render(){
         return (
-            <div className="gec-home" id="home">
+            <div className="gec-home fade-in" id="home">
                 <p className="dyuthi-date">Feb 20 21 22 23</p>
                 <h1 className="dyuthi-title dyuthi-title-dark">dyuthi <span className="xx">XX</span></h1>
                 <p className="dyuthi-info">The National Level Multi Fest <br/>

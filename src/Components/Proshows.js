@@ -2,6 +2,7 @@ import React from 'react';
 import Show from './Show';
 
 import './assets/css/proshow.css';
+import './assets/css/animate.css';
 
 class Proshows extends React.Component {
     constructor(){
@@ -44,22 +45,22 @@ class Proshows extends React.Component {
         const currentImage = document.getElementById( this.state.showIdList[this.state.currentShowIndex]);
         if(dir==-1){
             // rotate current image right
-            let x = addClass(currentImage, "rotateLF");
+            let x = addClass(currentImage, "rotatePrevExit");
             if(x){
                 addClass(currentImage, "rotateRB");
             }
             // rotate next image right
-            removeAllClasses(currentImage, "rotateLF", "show-img");
+            removeAllClasses(currentImage, "rotatePrevEntry", "show-img");
         }
         else if(dir==1){
             // rotate current image left
-            let x = addClass(currentImage, "rotateLB");
+            let x = addClass(currentImage, "rotatePrevEntry");
             if(x){
                 addClass(currentImage, "rotateRF");
             }
             
             // rotate next image left
-            removeAllClasses(currentImage, "rotateLB", "show-img");
+            removeAllClasses(currentImage, "rotatePrevEntry", "show-img");
         }
     }
     render(){
@@ -76,7 +77,7 @@ class Proshows extends React.Component {
 
         return (
             
-            <div class="row">
+            <div class="row fade-in">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 column">
                     <span className="prev-show" onClick={()=> this.changeImage(-1) }>Prev</span>   
                 </div>
