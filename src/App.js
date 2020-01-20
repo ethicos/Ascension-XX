@@ -30,7 +30,7 @@ class App extends React.Component {
     render(){
         return (
             <div>
-                <Nav loaded={this.state.loaded} callback={this.setLoaded}/>
+                <Nav/>
             </div>
         );
     }

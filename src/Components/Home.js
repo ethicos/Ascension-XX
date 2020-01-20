@@ -39,16 +39,16 @@ class Home extends React.Component {
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
-        console.log("loaded", this.props.loaded);
-        // if(!this.props.loaded){
+        if(!this.props.loaded){
             this.setState({y : setInterval( this.moveClouds, 50) });
-        // }
+        }
     }
 
     componentWillUnmount(){
         if( this.state.y != null )
             clearInterval(this.state.y);
         this.fadeOut();
+        this.props.setLoaded(true);
         document.getElementById("home").classList.add("fade-out");
     }
 
@@ -60,7 +60,7 @@ class Home extends React.Component {
                 <p className="dyuthi-info">The National Level Multi Fest <br/>
                 Organised by GEC Thrissur</p>
 
-                {/* {!this.props.loaded ? */}
+                {!this.props.loaded ?
                     <div className="mountain" id="mountain">  
                         <div id="cloud1" className="cloud">
                             <img src={cloud}/>
@@ -75,9 +75,7 @@ class Home extends React.Component {
                             <img src={cloud3}/>
                         </div>
                     </div>
-                {/* : <></>} */}
-                {/* {this.props.setLoaded(true)} */}
-    }
+                : <></>}
             </div>
         );
     }
