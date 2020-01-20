@@ -39,6 +39,8 @@ class Nav extends React.Component {
     for(let e of elements){
       e.classList.remove("active");
     }
+    if( linkText == "home")
+      return;
     let el = document.getElementById(linkText);
     let parent = el.parentElement;
     parent.classList.add("active");
@@ -80,7 +82,7 @@ class Nav extends React.Component {
           
           <Switch>
             <Route exact path="/">
-              <Home loaded={this.state.loaded} setLoaded={this.setLoaded}/>
+              <Home loaded={this.state.loaded} setLoaded={this.setLoaded} setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/about">
               <About setCurrentLink={this.setCurrentLink}/>

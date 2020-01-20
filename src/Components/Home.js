@@ -39,6 +39,7 @@ class Home extends React.Component {
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
+        this.props.setCurrentLink("home");
         if(!this.props.loaded){
             this.setState({y : setInterval( this.moveClouds, 50) });
         }
