@@ -1,0 +1,41 @@
+@import "./var.css";
+
+
+body{
+    background-color: var(--color-light);
+    color: var(--color-text-light);
+}
+.nav{
+    display: block;
+    width: fit-content;
+    margin: 1vh auto;
+}
+.nav ul{
+    padding: none;
+    padding-inline-start: 0px;
+}
+.nav ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+.nav ul li a , .nav ul li a > span{
+    display: inline;
+    text-decoration: none;
+    margin: 1vh 3vh;
+    padding: 1.5vh 5px;
+    color: var(--color-text-light);
+    border-radius: 5px;
+}
+.nav ul li a:hover > span{
+    border-radius: 0;
+    padding: 1.5vh 5px;
+    border-bottom: dashed 2px var(--color-text-light);
+}
+
+.nav ul li a.active > span{
+    border-radius: 0;
+    color: var(--dyuthi-color);
+    padding: 1.5vh 5px;
+    border-bottom: dashed 2px var(--dyuthi-color);
+}

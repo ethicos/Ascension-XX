@@ -1,21 +1,30 @@
-import React, {Component} from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react';
+import Nav from './Components/Nav';
+// import CountDown from './CountDown';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-// import logo from './logo.svg';
-import Main from './components/Main/Main'
-import Events from './routes/Events/Events';
+  
+import './Components/assets/css/app.css';
 
-class App extends Component {
-
-    render(){        
+class App extends React.Component {
+    constructor(){
+        super();
+    }
+    componentDidMount(){
+        document.getElementById("loader").style.display = "none";
+    }
+    render(){
         return (
-            <Switch>
-                <Route path="/events" component={Events} />
-                <Route path="/" exact component={Main} />  
-            </Switch>
+            <div>
+                <Nav/>
+            </div>
         );
     }
-
 }
 
 export default App;

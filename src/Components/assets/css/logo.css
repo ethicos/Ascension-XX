@@ -1,0 +1,27 @@
+.logo{
+    display: block;
+    margin: 8vh auto 0;
+}
+
+.logo-inline{
+    display: inline-block;
+    margin: 0 10vh;
+    vertical-align: middle;
+}
+
+.logo-default{
+    width: auto;
+    height: auto;
+}
+
+.logo-large{
+    height: 40vh;
+}
+
+.logo-medium{
+    height: 20vh;
+}
+
+.logo-small{
+    height: 10vh;
+}

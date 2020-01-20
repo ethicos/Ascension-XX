@@ -1,0 +1,42 @@
+
+@font-face {
+    font-family: dyuthiFont;
+    src: url("swatch.ttf");
+}
+body{
+    font-family: dyuthiFont;
+}
+body{
+    
+}
+.title{
+    width: fit-content;
+    font-size: 4vh;
+    text-align: center;
+    font-weight: normal;
+    margin: 5vh auto;
+    padding: 5px 5px;
+    border-radius: 5px;
+    line-height: 4vh;
+    color: #fff;
+}
+
+.event-date{
+    color: #fff;
+    width: fit-content;
+    margin: 20vh auto;
+    display: block;
+    font-size: 3vh;
+    text-align: center;
+}
+.event-date .insta a{
+    color: rgb(134, 134, 134);
+    font-size: 2vh;
+    display: block;
+    margin-top: 3vh;
+    text-decoration: none;
+}
+.event-date .gect{
+    color: rgb(207, 207, 207);
+    font-size: 2.2vh;
+}
