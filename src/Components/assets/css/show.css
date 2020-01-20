@@ -7,8 +7,58 @@
 .show-img{
     display: block;
     margin: 5vh auto 0;
+    height: 25vh;
 }
 
-.about-title{
-    color: var(--dyuthi-color);
+.show-title{
+    color: var(--color-text-light);
+    font-size: 5vh;
+    width: fit-content;
+    margin: 2vh auto 5vh;
+}
+
+.show-date{
+    color: var(--color-text-light);
+    font-size: 3vh;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.show-book{
+    color: var(--color-text-light);
+    font-size: 3vh;
+    border-radius: 10px;
+    display: block;
+    margin: 5vh auto;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.show-book > a{
+    text-decoration: none;
+    color: var(--color-text-light);
+}
+.show-book > a:hover{
+    border-radius: 0;
+    padding: 1px 1px;
+    border-bottom: dashed 2px var(--color-text-light);
+}
+
+.prev-show{
+    display: block;
+    position: relative;
+    top: 50%;
+    float: right;
+}
+
+.next-show{
+    display: block;
+    position: relative;
+    top: 50%;
+    float: left;
+}
+
+.column{
+    
 }
