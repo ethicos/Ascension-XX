@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/nav.css';
+import './nav.css';
 
 class Nav extends React.Component {
   render(){
@@ -9,7 +9,7 @@ class Nav extends React.Component {
                 <li>HOME</li>
                 <li>ABOUT</li>
                 <li>PRO SHOWS</li>
-                <li>EVENTS</li>
+                <li onClick={this.props.eventsClicked}>EVENTS</li>
                 <li>CONTACT</li>
             </ul>
         </nav>

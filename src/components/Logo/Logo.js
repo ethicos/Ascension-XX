@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './images/logo.png';
-import './css/logo.css';
+import logo from '../../images/logo.png';
+import './logo.css';
 
-class Logo extends React.Component {
-  render(){
+const Logo = (props) =>  {
+
     var classNames = "logo ";
-    switch(this.props.size){
+    switch(props.size){
         case 0:
             classNames += "logo-small";
             break;
@@ -19,9 +19,8 @@ class Logo extends React.Component {
             classNames += "logo-default";
       }
       return (
-        <img src={logo} className={classNames} />
-      )
-    }
+        <img src={logo} className={classNames} alt="Dyuthi XX"/>
+      );
 }
 
 export default Logo;

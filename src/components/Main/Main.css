@@ -1,5 +1,7 @@
-body{
+.Main{
     background: linear-gradient(rgb(34, 34, 34), rgb(24, 24, 24), #000);
+    height: 100vh;
+    overflow-y: hidden;
 }
 .title{
     width: fit-content;
