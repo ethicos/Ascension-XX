@@ -1,0 +1,15 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "./var.css";
+
+.about{
+    margin-top: 15vh;
+    padding-right: 10vh;
+}
+.gec-arch{
+    margin-top: 5vh;
+    height: 40vh;
+}
+
+.about-title{
+    color: var(--dyuthi-color);
+}

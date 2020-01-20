@@ -1,13 +1,13 @@
 import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import p5 from 'p5';
-import sketch from './sketches/sketch';
-import './css/home.css';
-import './css/clouds.css';
-import cloud from './images/cl1.png';
-import cloud1 from './images/cl2.png';
-import cloud2 from './images/cl3.png';
-import cloud3 from './images/cl4.png';
+// import sketch from './sketches/sketch';
+import './assets/css/home.css';
+import './assets/css/clouds.css';
+import cloud from './assets/images/cl1.png';
+import cloud1 from './assets/images/cl2.png';
+import cloud2 from './assets/images/cl3.png';
+import cloud3 from './assets/images/cl4.png';
 
 
 // function Home(){
@@ -29,12 +29,21 @@ class Home extends React.Component {
     constructor(){
         super();
         this.moveClouds = this.moveClouds.bind(this);
+        this.fadeOut = this.fadeOut.bind(this);
+        this.state = {
+            y : null
+        };
     }
 
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
-        let y = setInterval( this.moveClouds, 500);
+        this.setState({y : setInterval( this.moveClouds, 50) });
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.state.y);
+        this.fadeOut();
     }
 
     render(){
@@ -65,7 +74,13 @@ class Home extends React.Component {
         );
     }
 
+    fadeOut(){
+    
+    }
+
     moveClouds(){
+        const LEFT_THRESHOLD = 120;
+        const TOP_THRESHOLD = 120;
         /* clouds 1 & 2 move to the left 
            clouds 3 & 4 to the right */
          for(let i = 1; i < 5; i++){
@@ -76,20 +91,19 @@ class Home extends React.Component {
            var top =  window.getComputedStyle(cloud, null).getPropertyValue("top");
            
             let topValue = parseInt(top);
-            console.log("top", top);
-            topValue = topValue - 20;
+
+            topValue = topValue - TOP_THRESHOLD;
             top = topValue + "px";
           
            cloud.style.top = top;
            
            var left = window.getComputedStyle(cloud, null).getPropertyValue("left");
              let leftValue = parseInt(left);
-             console.log("left " ,left);
            
             if(i < 3){
-            leftValue = leftValue - 30;
+            leftValue = leftValue - LEFT_THRESHOLD;
             }else {
-            leftValue = leftValue + 30;
+            leftValue = leftValue + LEFT_THRESHOLD;
             }
             left = leftValue + "px";
         

@@ -5,13 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 import Home from './Home';
 import About from './About';
 import Proshows from './Proshows';
 import Events from './Events';
 import Contact from './Contact';
-import './css/nav.css';
+import './assets/css/nav.css';
 import Logo from './Logo';
 
 class Nav extends React.Component {
@@ -25,45 +26,55 @@ class Nav extends React.Component {
               <ul>
                   <li>
                     <Link to="/about" 
-                          className={window.location.pathname == "/about"?"active":""}>ABOUT</Link>
+                          className={window.location.pathname == "/about"?"active":""}>
+                            <span id="about">ABOUT</span>
+                          </Link>
                   </li>
                   <li>
                     <Link to="/proshows"
-                          className={window.location.pathname == "/proshows"?"active":""}>PRO SHOWS</Link>
+                          className={window.location.pathname == "/proshows"?"active":""}>
+                            <span>PRO SHOWS</span>
+                          </Link>
                   </li>
                   <li> 
-                  <Logo size={0} isInline={true}/> 
+                  <Link to="/"><Logo size={0} isInline={true}/> </Link>
                   </li>
                   <li>
                     <Link to="/events"
-                          className={window.location.pathname == "/events"?"active":""}>EVENTS</Link>
+                          className={window.location.pathname == "/events"?"active":""}>
+                            <span>EVENTS</span>
+                          </Link>
                     </li>
                   <li>
                     <Link to="/contact"
-                          className={window.location.pathname == "/contact"?"active":""}>CONTACT</Link>
+                          className={window.location.pathname == "/contact"?"active":""}>
+                            <span>CONTACT</span>
+                          </Link>
                     </li>
               </ul>
           </nav>
+          
           <Switch>
             <Route exact path="/">
-                <Home/>
+              <Home/>
             </Route>
             <Route path="/about">
-                <About/>
+              <About/>
             </Route>
             <Route path="/proshows">
-                <Proshows/>
+              <Proshows/>
             </Route>
             <Route path="/events">
-                <Events/>
+              <Events/>
             </Route>
             <Route path="/contact">
-                <Contact/>
+              <Contact/>
             </Route>
         </Switch> 
+
       </Router>
       )
-    }
+      }
 }
 
 export default Nav;

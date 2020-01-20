@@ -28,11 +28,57 @@
     -->
     <title>dyuthi XX</title>
     <style>
+      /* The Loader */
+
+      .loader {
+          /* Size and position */
+          position: relative;
+          width: 160px;
+          height: 160px;
+          margin: 160px auto; /* centering */
       
+          /* Styles */
+          border-radius: 80%;
+          border: 10px solid transparent;
+          border-top: 10px solid rgba(80,80,80,0.8); /* sector 
+        */
+        
+        
+
+          opacity: 0.5;
+          
+          animation: rota 2.5s infinite linear;
+
+        z-index: 11;
+      }
+
+      .loader:after {
+          content: "";
+          
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          top: -80px;
+          margin: 80px auto;
+          
+          /* Styles */
+          border-radius: 80%;
+          border: 40px solid transparent;
+          box-shadow: 0 0 0 10px rgba(52, 235, 229,0.7); /* track */
+      }
+
+
+
+      /* Animation */
+      @keyframes rota {
+          from { }
+          to { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="loader" id="loader"></div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

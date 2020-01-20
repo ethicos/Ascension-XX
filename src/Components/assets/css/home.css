@@ -3,7 +3,7 @@
 body{
     background-color: var(--color-dark);
     color: var(--color-text-dark);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .gec-home{
     background-image: url("../images/gec.png");
