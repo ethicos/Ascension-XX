@@ -22,34 +22,26 @@ class Nav extends React.Component {
       loaded: false
     };
     this.setLoaded = this.setLoaded.bind(this);
+    this.setCurrentLink = this.setCurrentLink.bind(this);
   }
   componentDidMount(){
-    // const activate = (el)=>{
-    //   // el.parent.classList.add("active");
-    //   console.log("active", el.id);
-    // }
-    // const activateLink = (el)=>{
-    //   console.log(window.location.pathname)
-    //   if( window.location.pathname == "/about" && el.id == "about"){
-    //       activate(el);
-    //   }else if( window.location.pathname == "/proshows" && el.id == "proshows"){
-    //       activate(el);
-    //   }else if(window.location.pathname == "/events" && el.id == "events"){
-    //       activate(el);
-    //   }else if(window.location.pathname == "/contacts" && el.id == "contacts"){
-    //       activate(el);
-    //   }
-    // }
-    // let el = document.getElementsByClassName("link");
-    // console.log(el);
-    // for( let e of el){
-    //   e.addEventListener("click", (x)=>{ activateLink(e)});
-    // }
+   
   }
   setLoaded(){
     this.setState({
       loaded: true
     });
+  }
+
+  setCurrentLink(linkText){
+    // remove from all other links
+    var elements = document.querySelectorAll("nav>ul>li>a");
+    for(let e of elements){
+      e.classList.remove("active");
+    }
+    let el = document.getElementById(linkText);
+    let parent = el.parentElement;
+    parent.classList.add("active");
   }
   render(){
       return (
@@ -91,16 +83,16 @@ class Nav extends React.Component {
               <Home loaded={this.state.loaded} setLoaded={this.setLoaded}/>
             </Route>
             <Route path="/about">
-              <About/>
+              <About setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/proshows">
-              <Proshows/>
+              <Proshows setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/events">
-              <Events/>
+              <Events setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/contact">
-              <Contact/>
+              <Contact setCurrentLink={this.setCurrentLink}/>
             </Route>
         </Switch> 
 

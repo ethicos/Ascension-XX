@@ -13,6 +13,9 @@ class Proshows extends React.Component {
         };
         this.changeImage = this.changeImage.bind(this);
     }
+    componentDidMount(){
+        this.props.setCurrentLink("proshows");
+    }
     changeImage(dir){
         const getIndex = (index)=>{
             if( index >= this.state.showIdList.length )

@@ -8,6 +8,9 @@ class Contact extends React.Component {
     constructor(){
         super();
     }
+    componentDidMount(){
+        this.props.setCurrentLink("contact");
+    }
     render(){
         return (
             <div className="fade-in">

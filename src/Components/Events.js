@@ -9,7 +9,9 @@ class Events extends React.Component {
     constructor(){
         super();
     }
-
+    componentDidMount(){
+        this.props.setCurrentLink("events");
+    }
     render(){
         console.log(this.props);
         return (     

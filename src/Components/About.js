@@ -9,6 +9,9 @@ class About extends React.Component {
     constructor(){
         super();
     }
+    componentDidMount(){
+        this.props.setCurrentLink("about");
+    }
     render(){
         return (
             <div class="row about fade-in">
