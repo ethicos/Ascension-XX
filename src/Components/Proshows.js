@@ -1,4 +1,5 @@
 import React from 'react';
+import Show from './Show';
 
 class Proshows extends React.Component {
     constructor(){
@@ -6,7 +7,7 @@ class Proshows extends React.Component {
     }
     render(){
         return (
-            <div>Proshows</div>
+            <Show/>
         );
     }
 }

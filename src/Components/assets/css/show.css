@@ -1,0 +1,14 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "./var.css";
+
+.show{
+    margin-top: 5vh;
+}
+.show-img{
+    display: block;
+    margin: 5vh auto 0;
+}
+
+.about-title{
+    color: var(--dyuthi-color);
+}

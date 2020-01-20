@@ -38,11 +38,15 @@ class Home extends React.Component {
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
-        this.setState({y : setInterval( this.moveClouds, 50) });
+        console.log("loaded", this.props.loaded);
+        // if(!this.props.loaded){
+            this.setState({y : setInterval( this.moveClouds, 50) });
+        // }
     }
 
     componentWillUnmount(){
-        clearInterval(this.state.y);
+        if( this.state.y != null )
+            clearInterval(this.state.y);
         this.fadeOut();
     }
 
@@ -54,22 +58,24 @@ class Home extends React.Component {
                 <p className="dyuthi-info">The National Level Multi Fest <br/>
                 Organised by GEC Thrissur</p>
 
-
-
-                <div className="mountain" id="mountain">  
-                    <div id="cloud1" className="cloud">
-                        <img src={cloud}/>
+                {/* {!this.props.loaded ? */}
+                    <div className="mountain" id="mountain">  
+                        <div id="cloud1" className="cloud">
+                            <img src={cloud}/>
+                        </div>
+                        <div id="cloud2" class="cloud">
+                            <img src={cloud1}/>
+                        </div>
+                        <div id="cloud3" class="cloud">
+                            <img src={cloud2}/>
+                        </div>
+                        <div id="cloud4" class="cloud">
+                            <img src={cloud3}/>
+                        </div>
                     </div>
-                    <div id="cloud2" class="cloud">
-                        <img src={cloud1}/>
-                    </div>
-                    <div id="cloud3" class="cloud">
-                        <img src={cloud2}/>
-                    </div>
-                    <div id="cloud4" class="cloud">
-                        <img src={cloud1}/>
-                    </div>
-                </div>
+                {/* : <></>} */}
+                {/* {this.props.setLoaded(true)} */}
+    }
             </div>
         );
     }
@@ -86,6 +92,8 @@ class Home extends React.Component {
          for(let i = 1; i < 5; i++){
            var cloud = 
            document.getElementById("cloud" + i);
+           if ( cloud == null)
+                continue
            cloud.style.transitionTimingFunction = "ease-out";
            cloud.style.transitionDuration = "700ms";
            var top =  window.getComputedStyle(cloud, null).getPropertyValue("top");

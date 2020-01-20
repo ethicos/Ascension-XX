@@ -18,6 +18,18 @@ import Logo from './Logo';
 class Nav extends React.Component {
   constructor(){
     super();
+    this.state = {
+      loaded: false
+    };
+    this.setLoaded = this.setLoaded.bind(this);
+  }
+  componentDidMount(){
+    
+  }
+  setLoaded(){
+    this.setState({
+      loaded: true
+    });
   }
   render(){
       return (
@@ -56,7 +68,7 @@ class Nav extends React.Component {
           
           <Switch>
             <Route exact path="/">
-              <Home/>
+              <Home loaded={this.state.loaded} setLoaded={this.setLoaded}/>
             </Route>
             <Route path="/about">
               <About/>
