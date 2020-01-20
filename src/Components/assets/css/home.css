@@ -9,6 +9,7 @@ body{
     background-image: url("../images/gec.png");
     background-position: bottom;
     background-repeat: no-repeat;
+    background-size: contain;
     width: auto;
     height: 80vh;
 }

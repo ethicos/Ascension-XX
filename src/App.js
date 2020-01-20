@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from './Components/Nav';
 // import CountDown from './CountDown';
 import {
@@ -14,6 +14,15 @@ import './Components/assets/css/app.css';
 class App extends React.Component {
     constructor(){
         super();
+        this.state = {
+            loaded: false
+        };
+        this.setLoaded = this.setLoaded.bind(this);
+    }
+    setLoaded(st){
+        this.setState({
+            loaded: st
+        });
     }
     componentDidMount(){
         document.getElementById("loader").style.display = "none";
@@ -21,7 +30,7 @@ class App extends React.Component {
     render(){
         return (
             <div>
-                <Nav/>
+                <Nav loaded={this.state.loaded} callback={this.setLoaded}/>
             </div>
         );
     }
