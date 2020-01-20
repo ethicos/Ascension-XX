@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './images/logo.png';
-import './css/countdown.css';
+// import logo from './images/logo.png';
+import './countdown.css';
 
 class CountDown extends React.Component {
     constructor(){
@@ -13,16 +13,7 @@ class CountDown extends React.Component {
         };
         this.updateTimer = this.updateTimer.bind(this);
     }
-    render(){
-        return (
-            <div className="timer">
-                <span>{this.state.days}</span>:
-                <span>{this.state.hours}</span>:
-                <span>{this.state.minutes}</span>:
-                <span>{this.state.seconds}</span> 
-            </div>
-        )
-    }
+    
     componentDidMount(){
         setInterval( this.updateTimer, 1000);
     }
@@ -58,6 +49,17 @@ class CountDown extends React.Component {
             minutes: minutes,
             seconds: seconds,
         });
+    }
+
+    render(){
+        return (
+            <div className="timer">
+                <span>{this.state.days}</span>:
+                <span>{this.state.hours}</span>:
+                <span>{this.state.minutes}</span>:
+                <span>{this.state.seconds}</span> 
+            </div>
+        )
     }
 }
 

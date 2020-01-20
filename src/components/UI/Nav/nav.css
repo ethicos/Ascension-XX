@@ -2,8 +2,14 @@
     display: block;
 }
 
+.nav ul{
+    margin: 0;
+    padding: 2vh;
+}
+
 .nav ul li{
     display: inline;
     margin: 1vh 2vh;
     color: rgb(75, 75, 75);
+    cursor: default;
 }
