@@ -6,7 +6,7 @@
     background: var(--color-light);
     box-shadow: 0 0 1.5px var(--color-shadow-light);
     color: var(--color-text-light);
-    padding: 20px 0;
+    padding: 10px 0 20px;
     width: 100%;
     position: fixed;
     bottom: 0px;

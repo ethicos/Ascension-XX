@@ -1,8 +1,12 @@
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 @import "./var.css";
 
+html, body{
+    overflow-x: hidden !important;
+    overflow-y:scroll !important;
+}
 .about{
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     margin-top: 15vh;
     padding-right: 10vh;
 }

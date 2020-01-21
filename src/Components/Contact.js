@@ -14,7 +14,7 @@ class Contact extends React.Component {
     }
     render(){
         return (
-            <div className="fade-in">
+            <div className="fade-in contact-sec">
                 <div class="row contact">
                     {this.props.isMobile?
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

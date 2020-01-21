@@ -10,7 +10,7 @@ class About extends React.Component {
         super();
     }
     componentDidMount(){
-        this.props.setCurrentLink("about");
+        // this.props.setCurrentLink("about");
     }
     render(){
         return (

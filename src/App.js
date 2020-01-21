@@ -11,6 +11,7 @@ import {
   
 import './Components/assets/css/app.css';
 import BottomNav from './Components/BottomNav';
+import About from "./Components/About";
 
 class App extends React.Component {
     constructor(){

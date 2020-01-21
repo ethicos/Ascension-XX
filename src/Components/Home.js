@@ -40,9 +40,9 @@ class Home extends React.Component {
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
         this.props.setCurrentLink("home");
-        if(!this.props.loaded){
-            this.setState({y : setInterval( this.moveClouds, 50) });
-        }
+        // if(!this.props.loaded){
+        //     this.setState({y : setInterval( this.moveClouds, 50) });
+        // }
         // this.setState({y : setInterval( this.moveClouds, 50) });
     }
 
@@ -67,23 +67,8 @@ class Home extends React.Component {
                 Organised by GEC Thrissur</p>
 
 
-
-                <div className="mountain" id="mountain" onLoad={this.handleLoader.bind(this)}>
-                    <div id="cloud1" className="cloud">
-                        <img src={cloud}/>
-                    </div>
-                    <div id="cloud2" class="cloud">
-                        <img src={cloud1}/>
-                    </div>
-                    <div id="cloud3" class="cloud">
-                        <img src={cloud2}/>
-                    </div>
-                    <div id="cloud4" class="cloud">
-                        <img src={cloud1}/>
-                    </div>
-                </div>
                 {!this.props.loaded ?
-                    <div className="mountain" id="mountain">
+                    <div className="mountain" id="mountain"  onLoad={this.handleLoader.bind(this)}>
                         <div id="cloud1" className="cloud">
                             <img src={cloud}/>
                         </div>

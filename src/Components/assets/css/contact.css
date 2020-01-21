@@ -1,6 +1,9 @@
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 @import "./var.css";
 
+.contact-sec{
+    margin-bottom: 20vh;
+}
 .contact{
     margin-top: 15vh;
     padding-left: 10vh;
@@ -60,5 +63,12 @@
     }   
     .contact-title{
         margin-top: 5vh;
+    }
+    .contact-footer{
+        padding: 0 3vh;
+        text-align: left;
+    }
+    .contact-email{
+        margin: 3vh 0;
     }
 }
