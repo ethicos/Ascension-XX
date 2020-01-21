@@ -10,6 +10,7 @@ import {
 
   
 import './Components/assets/css/app.css';
+import BottomNav from './Components/BottomNav';
 
 class App extends React.Component {
     constructor(){
@@ -28,11 +29,11 @@ class App extends React.Component {
         document.getElementById("loader").style.display = "none";
     }
     render(){
-        return (
-            <div>
-                <Nav loaded={this.state.loaded} callback={this.setLoaded}/>
-            </div>
-        );
+        const isMobile = window.innerWidth <= 1024;
+        if( isMobile )
+            return <BottomNav/>;
+        else 
+            return <Nav/>;
     }
 }
 

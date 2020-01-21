@@ -1,0 +1,15 @@
+@import './var.css';
+
+.events-title{
+    margin-top: 10vh;
+    text-align: center;
+    color: var(--dyuthi-color);
+}
+
+.events-desc{
+    margin: 10vh auto;
+    color: var(--color-shadow-light);
+    font-size: 3vh;
+    text-align: center;
+    width: fit-content;
+}

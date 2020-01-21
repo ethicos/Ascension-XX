@@ -22,14 +22,28 @@ class Nav extends React.Component {
       loaded: false
     };
     this.setLoaded = this.setLoaded.bind(this);
+    this.setCurrentLink = this.setCurrentLink.bind(this);
   }
   componentDidMount(){
-    
+   
   }
   setLoaded(){
     this.setState({
       loaded: true
     });
+  }
+
+  setCurrentLink(linkText){
+    // remove from all other links
+    var elements = document.querySelectorAll("nav>ul>li>a");
+    for(let e of elements){
+      e.classList.remove("active");
+    }
+    if( linkText == "home")
+      return;
+    let el = document.getElementById(linkText);
+    let parent = el.parentElement;
+    parent.classList.add("active");
   }
   render(){
       return (
@@ -39,13 +53,13 @@ class Nav extends React.Component {
                   <li>
                     <Link to="/about" 
                           className={window.location.pathname == "/about"?"active":""}>
-                            <span id="about">ABOUT</span>
+                            <span class="link" id="about">ABOUT</span>
                           </Link>
                   </li>
                   <li>
                     <Link to="/proshows"
                           className={window.location.pathname == "/proshows"?"active":""}>
-                            <span>PRO SHOWS</span>
+                            <span class="link" id="proshows">PRO SHOWS</span>
                           </Link>
                   </li>
                   <li> 
@@ -54,13 +68,13 @@ class Nav extends React.Component {
                   <li>
                     <Link to="/events"
                           className={window.location.pathname == "/events"?"active":""}>
-                            <span>EVENTS</span>
+                            <span class="link" id="events">EVENTS</span>
                           </Link>
                     </li>
                   <li>
                     <Link to="/contact"
                           className={window.location.pathname == "/contact"?"active":""}>
-                            <span>CONTACT</span>
+                            <span class="link" id="contact">CONTACT</span>
                           </Link>
                     </li>
               </ul>
@@ -68,19 +82,19 @@ class Nav extends React.Component {
           
           <Switch>
             <Route exact path="/">
-              <Home loaded={this.state.loaded} setLoaded={this.setLoaded}/>
+              <Home loaded={this.state.loaded} setLoaded={this.setLoaded} setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/about">
-              <About/>
+              <About setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/proshows">
-              <Proshows/>
+              <Proshows setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/events">
-              <Events/>
+              <Events setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/contact">
-              <Contact/>
+              <Contact setCurrentLink={this.setCurrentLink}/>
             </Route>
         </Switch> 
 

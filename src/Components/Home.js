@@ -4,6 +4,7 @@ import p5 from 'p5';
 // import sketch from './sketches/sketch';
 import './assets/css/home.css';
 import './assets/css/clouds.css';
+import './assets/css/animate.css';
 import cloud from './assets/images/cl1.png';
 import cloud1 from './assets/images/cl2.png';
 import cloud2 from './assets/images/cl3.png';
@@ -38,6 +39,10 @@ class Home extends React.Component {
     componentDidMount(){
         // const sk = new p5(sketch);
         // document.getElementById("mountain").addEventListener("mousemove", this.moveClouds);
+        this.props.setCurrentLink("home");
+        if(!this.props.loaded){
+            this.setState({y : setInterval( this.moveClouds, 50) });
+        }
         // this.setState({y : setInterval( this.moveClouds, 50) });
     }
 
@@ -46,13 +51,16 @@ class Home extends React.Component {
     }
 
     componentWillUnmount(){
-        clearInterval(this.state.y);
+        if( this.state.y != null )
+            clearInterval(this.state.y);
         this.fadeOut();
+        this.props.setLoaded(true);
+        document.getElementById("home").classList.add("fade-out");
     }
 
     render(){
         return (
-            <div className="gec-home" id="home">
+            <div className="gec-home fade-in" id="home">
                 <p className="dyuthi-date">Feb 20 21 22 23</p>
                 <h1 className="dyuthi-title dyuthi-title-dark">dyuthi <span className="xx">XX</span></h1>
                 <p className="dyuthi-info">The National Level Multi Fest <br/>
@@ -74,6 +82,22 @@ class Home extends React.Component {
                         <img src={cloud1}/>
                     </div>
                 </div>
+                {!this.props.loaded ?
+                    <div className="mountain" id="mountain">
+                        <div id="cloud1" className="cloud">
+                            <img src={cloud}/>
+                        </div>
+                        <div id="cloud2" class="cloud">
+                            <img src={cloud1}/>
+                        </div>
+                        <div id="cloud3" class="cloud">
+                            <img src={cloud2}/>
+                        </div>
+                        <div id="cloud4" class="cloud">
+                            <img src={cloud3}/>
+                        </div>
+                    </div>
+                : <></>}
             </div>
         );
     }
@@ -90,6 +114,8 @@ class Home extends React.Component {
          for(let i = 1; i < 5; i++){
            var cloud = 
            document.getElementById("cloud" + i);
+           if ( cloud == null)
+                continue
            cloud.style.transitionTimingFunction = "ease-out";
            cloud.style.transitionDuration = "700ms";
            var top =  window.getComputedStyle(cloud, null).getPropertyValue("top");
