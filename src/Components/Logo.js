@@ -18,6 +18,9 @@ class Logo extends React.Component {
         case 2:
             classNames += "logo-large";
             break;
+        case -1:
+            classNames += "logo-xsmall";
+            break;
         default:
             classNames += "logo-default";
       }

@@ -9,6 +9,32 @@
     animation-fill-mode: forwards;
 }
 
+.slide-up{
+    animation: slideUp 1s alternate;
+    animation-fill-mode: forwards;
+}
+.slide-down{
+    animation: slideDown 1s alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -15vh;
+    }
+    100% {
+        bottom: 5vh;
+    }
+}
+@keyframes slideDown {
+    0% {
+        bottom: 5vh;
+    }
+    100% {
+        bottom: -15vh;
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

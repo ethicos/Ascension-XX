@@ -1,5 +1,6 @@
 import React from 'react';
 import './assets/css/contact.css';
+import arch from './assets/images/arch.svg';
 import gecArch from './assets/images/arch-cropped.svg';
 
 import './assets/css/animate.css';
@@ -15,6 +16,12 @@ class Contact extends React.Component {
         return (
             <div className="fade-in">
                 <div class="row contact">
+                    {this.props.isMobile?
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <img src={arch} className="gec-arch"/>   
+                        </div>:
+                        <></>
+                    }
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <h2 className="contact-title">
                             Feel free to <br/>
@@ -52,9 +59,12 @@ class Contact extends React.Component {
                         </div>
                         <br/>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src={gecArch} className="gec-arch"/>   
-                    </div>
+                    {this.props.isMobile?
+                        <></>:
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <img src={gecArch} className="gec-arch"/>   
+                        </div>
+                    }
                 </div>
                 <div class="row contact-footer">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">

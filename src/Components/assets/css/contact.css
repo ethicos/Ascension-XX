@@ -52,3 +52,13 @@
 .contact-footer{
     padding: 0 10vh;
 }
+
+@media only screen and (max-width: 1280px){
+    .contact{
+        margin-top: 0vh !important;
+        padding: 5vh 3vh !important;
+    }   
+    .contact-title{
+        margin-top: 5vh;
+    }
+}

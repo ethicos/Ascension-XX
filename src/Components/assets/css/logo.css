@@ -25,3 +25,9 @@
 .logo-small{
     height: 10vh;
 }
+.logo-xsmall{
+    height: 5vh;
+    width: auto;
+    display: block;
+    margin: 0 auto !important;
+}
