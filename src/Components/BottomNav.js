@@ -98,27 +98,24 @@ class BottomNav extends React.Component {
                             </Link>
                         </div>
                     </div>
-
-                    <div className="content-sec">
-                        <Switch>
-                            <Route exact path="/">
-                                <Home loaded={this.state.loaded} setLoaded={this.setLoaded} 
-                                setCurrentLink={this.setCurrentLink} isMobile={true}/>
-                            </Route>
-                            <Route path="/about">
-                                <About setCurrentLink={this.setCurrentLink} isMobile={true}/>
-                            </Route>
-                            <Route path="/proshows">
-                                <Proshows setCurrentLink={this.setCurrentLink} isMobile={true}/>
-                            </Route>
-                            <Route path="/events">
-                                <Events setCurrentLink={this.setCurrentLink} isMobile={true}/>
-                            </Route>
-                            <Route path="/contact">
-                                <Contact setCurrentLink={this.setCurrentLink} isMobile={true}/>
-                            </Route>
-                        </Switch> 
-                    </div>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home loaded={this.state.loaded} setLoaded={this.setLoaded} 
+                            setCurrentLink={this.setCurrentLink} isMobile={true}/>
+                        </Route>
+                        <Route path="/about">
+                            <About setCurrentLink={this.setCurrentLink} isMobile={true}/>
+                        </Route>
+                        <Route path="/proshows">
+                            <Proshows setCurrentLink={this.setCurrentLink} isMobile={true}/>
+                        </Route>
+                        <Route path="/events">
+                            <Events setCurrentLink={this.setCurrentLink} isMobile={true}/>
+                        </Route>
+                        <Route path="/contact">
+                            <Contact setCurrentLink={this.setCurrentLink} isMobile={true}/>
+                        </Route>
+                    </Switch> 
                 </Router>
       );
     }

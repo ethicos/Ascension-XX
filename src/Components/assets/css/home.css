@@ -62,7 +62,7 @@ body{
       }
     .gec-home{
         background-size: contain;
-        background-position: 0% 90%;
+        background-position: bottom;
     }
     .dyuthi-title{
         font-size: 7vh;

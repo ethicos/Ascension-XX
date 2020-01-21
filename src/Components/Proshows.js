@@ -12,17 +12,32 @@ class Proshows extends React.Component {
             showIdList: ["show1", "show2", "show3", "show4"]
         };
         this.changeImage = this.changeImage.bind(this);
+        this.getIndex = this.getIndex.bind(this);
     }
     componentDidMount(){
         this.props.setCurrentLink("proshows");
     }
+    getIndex(index){
+        if( index >= this.state.showIdList.length )
+            return 0;
+        else if( index < 0)
+            return this.state.showIdList.length-1;
+        return index;
+    }
     changeImage(dir){
-        const getIndex = (index)=>{
-            if( index >= this.state.showIdList.length )
-                return 0;
-            else if( index < 0)
-                return this.state.showIdList.length-1;
-            return index;
+        const updateIndex = (inc)=>{
+            let newIndex = this.state.currentShowIndex;
+            if( inc > 0 && this.state.currentShowIndex >= this.state.showIdList.length-1 ){
+                newIndex = 0;
+            }else if( inc < 0 && this.state.currentShowIndex <= 0){
+                newIndex = this.state.showIdList.length - 1;
+            }else{
+                newIndex += inc;
+            }
+            console.log("update to ", newIndex)
+            this.setState({
+                currentShowIndex: newIndex
+            });
         }
         const addClass = (element, classNm)=>{
             if(!element.classList.contains(classNm)){
@@ -45,25 +60,30 @@ class Proshows extends React.Component {
                     element.classList.remove(classnm);
             }
         }
-        const currentImage = document.getElementById( this.state.showIdList[this.state.currentShowIndex]);
+        const currentImage = document.getElementById( this.state.showIdList[this.getIndex(this.state.currentShowIndex)]);
+        console.log(currentImage)
         if(dir==-1){
-            // rotate current image right
-            let x = addClass(currentImage, "rotatePrevExit");
-            if(x){
-                addClass(currentImage, "rotateRB");
-            }
-            // rotate next image right
-            removeAllClasses(currentImage, "rotatePrevEntry", "show-img");
+            // exit current
+            addClass(currentImage, "currentExitOnPrev");
+
+            // entry prev
+            const prevImage = document.getElementById( this.state.showIdList[this.getIndex(this.state.currentShowIndex-1)]);
+            addClass(currentImage, "nextEntryOnPrev");
+
+            removeAllClasses(currentImage, "currentExitOnPrev", "show-img");
+            removeAllClasses(prevImage, "nextEntryOnPrev", "show-img");
+            updateIndex(-1);
         }
         else if(dir==1){
-            // rotate current image left
-            let x = addClass(currentImage, "rotatePrevEntry");
-            if(x){
-                addClass(currentImage, "rotateRF");
-            }
+            // exit current
+            addClass(currentImage, "currentEntryOnNext");
             
-            // rotate next image left
-            removeAllClasses(currentImage, "rotatePrevEntry", "show-img");
+            // entry next
+            const nextImage = document.getElementById( this.state.showIdList[this.getIndex(this.state.currentShowIndex+1)]);
+            addClass(currentImage, "nextEntryOnNext");
+            removeAllClasses(currentImage, "currentEntryOnNext", "show-img");
+            removeAllClasses(nextImage, "currentEntryOnNext", "show-img");
+            updateIndex(1);
         }
     }
     render(){
@@ -81,15 +101,26 @@ class Proshows extends React.Component {
         return (
             
             <div class="row fade-in">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 column">
-                    <span className="prev-show" onClick={()=> this.changeImage(-1) }>Prev</span>   
+                {this.props.isMobile?
+                    <></>:
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 column">
+                        <span className="prev-show" onClick={()=> this.changeImage(-1) }>Prev</span>   
+                    </div>
+                }
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 showSection">
+                    {showList[this.getIndex(this.state.currentShowIndex-1)]} 
+                    {showList[this.getIndex(this.state.currentShowIndex)]}
+                    {showList[this.getIndex(this.state.currentShowIndex+1)]}
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 showSection">
-                    {showList[0]}
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 column">
-                    <span className="next-show" onClick={()=> this.changeImage(1) }>Next</span>   
-                </div>
+                {this.props.isMobile?
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 column">
+                        <span className="prev-show" onClick={()=> this.changeImage(-1) }>Prev</span>   
+                        <span className="next-show" onClick={()=> this.changeImage(1) }>Next</span>   
+                    </div>:
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 column">
+                        <span className="next-show" onClick={()=> this.changeImage(1) }>Next</span>   
+                    </div>
+                }
                 
             </div>
         );

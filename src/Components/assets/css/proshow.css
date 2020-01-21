@@ -1,11 +1,28 @@
 .showSection{
-    z-index: -1;
+    
 }
 
 .column{
     background-color: #fff;
     z-index: 10;
 }
+.currentExitOnPrev{   /* move towards right*/
+    animation: moveUp .5s alternate;
+    animation-fill-mode: forwards;
+}
+.nextEntryOnPrev{  /* move right */
+    animation: moveUp .5s alternate;
+    animation-fill-mode: forwards;
+}
+.nextEntryOnNext{  /* move left */
+    animation: moveDown .5s alternate;
+    animation-fill-mode: forwards;
+}
+.currentExitOnNext{
+  animation: moveDown .5s alternate;
+  animation-fill-mode: forwards;
+}
+
 .rotatePrevExit{
     animation: rotateL .5s alternate;
     animation-fill-mode: forwards;
@@ -24,24 +41,24 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes rotateL {
+@keyframes moveUp {
     0% {
-      transform: rotate(0deg) translateX(0px) translateY(0px);
+      transform: translateY(0vw);
       opacity: 1;
     }
     100% {
-      transform: rotate(-90deg) translateX(-500px) translateY(-500px);
+      transform: translateY(120vw);
       opacity: 0;
     }
   }
   
-  @keyframes rotateLBack {
+  @keyframes moveDown {
     0% {
-        transform: rotate(-90deg) translateX(-500px) translateY(-500px);
+        transform: translateY(120vw);
         opacity: 0;
     }
     100% {
-        transform: rotate(0deg) translateX(0px) translateY(0px);
+        transform: translateY(0vw);
         opacity: 1;
     }
   }
@@ -66,4 +83,17 @@
         transform: rotate(-90deg) translateX(-500px) translateY(-500px);
         opacity: 0;
     }
+  }
+
+  @media only screen and (max-width: 1280px){
+      .column{
+        display: grid !important;
+        grid-column-gap: 10px;
+        grid-template-columns: auto auto;
+        justify-content: space-evenly;
+        margin-top: 5vh;
+        position: fixed !important;
+        bottom: 20vh !important;
+        left: 0vh !important;
+      }
   }

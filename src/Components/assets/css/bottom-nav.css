@@ -19,7 +19,7 @@
 }
 .bottom-nav-text{
     height: fit-content;
-    font-size: 1.3vh;
+    font-size: 2.3vw;
     padding: 10px 15px;
     border-radius: 10px;
 }
@@ -30,9 +30,7 @@ a > .bottom-nav-text{
     color: var(--color-text-light);
     text-decoration: none;
 }
-.active span{
-    background-color: var(--color-disabled-light);
-}
+
 .bottomNavRow{
     height: 3vh;
     display: grid;
@@ -41,11 +39,11 @@ a > .bottom-nav-text{
     justify-content: space-evenly;
 }
 .logo-sec{
-    width: 8vh;
-    height: 8vh;
+    width: 7vh;
+    height: 7vh;
     background-color: var(--color-light);
     box-shadow: 0 0 2px var(--color-shadow-light);
-    padding: 10px;
+    padding: 1.3vh;
     border-radius: 50%;
     position: relative;
     bottom: 5vh;
@@ -55,7 +53,10 @@ a > .bottom-nav-text{
         display: block;
     }
     .content-sec{
-        margin-bottom: 10vh !important;
-        overflow-y: scroll;
+        display: block;
+        height: 80vh;
+    }
+    .active span{
+        background-color: var(--color-disabled-light);
     }
 }
