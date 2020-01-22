@@ -3,12 +3,10 @@ import './assets/js/proshow'
 import React from 'react';
 import Show from './Show';
 
-import snapchat from './assets/images/snapchat.png';
 import ProshowPC from './ProshowPC'
 import ProShowMobile from './ProShowMobile'
 import './assets/css/proshow.css';
 import './assets/css/animate.css';
-import arch from './assets/images/arch.svg'
 // import  './assets/css/style.css'
 import $ from 'jquery';
 window.jQuery = $;

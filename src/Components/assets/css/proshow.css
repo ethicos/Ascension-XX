@@ -17,6 +17,10 @@
 }
 
 @media only screen and (max-width: 1280px)  {
+    html, body{
+      overflow-x:hidden !important;
+      overflow-y:scroll !important;
+    }
     .carousel {
 
         margin-top : 10vh;

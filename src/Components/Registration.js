@@ -13,7 +13,7 @@ class Registration extends Component {
     }
 
     modalClosedHandler = () => {
-        window.location.href = '/events';
+        window.location.href = '/events/general';
     }
 
     render() { 
