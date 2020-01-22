@@ -12,12 +12,12 @@ body {
     touch-action: none;
 }
 
-body {
+.sponsor-div {
     overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background: #111;
+    /*background: #111;*/
     -webkit-perspective: 1000px;
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
