@@ -4,11 +4,10 @@ import React from 'react';
 import Show from './Show';
 
 import snapchat from './assets/images/snapchat.png';
-import proShowSmall from "./proShowSmall";
-import proShowBig from './proShowBig'
+import ProshowPC from './ProshowPC'
+import ProShowMobile from './ProShowMobile'
 import './assets/css/proshow.css';
 import './assets/css/animate.css';
-import './assets/css/proshow.css'
 import arch from './assets/images/arch.svg'
 // import  './assets/css/style.css'
 import $ from 'jquery';
@@ -68,7 +67,7 @@ class Proshows extends React.Component {
                     <section id="dg-container" className="dg-container">
                         <div className="carousel">
 
-                            {isMobile ? <proShowSmall/>:<proShowBig/> }
+                            {isMobile ? <ProShowMobile/>:<ProshowPC/> }
 
                         </div>
                     </section>

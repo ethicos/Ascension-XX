@@ -1,7 +1,7 @@
 import React from "react";
 
 
-let proShowSmall = function () {
+let ProShowPC = function () {
 
     return(
         <div>
@@ -14,4 +14,4 @@ let proShowSmall = function () {
 
 }
 
-export default proShowSmall
+export default ProShowPC
