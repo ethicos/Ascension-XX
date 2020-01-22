@@ -7,4 +7,6 @@
     --color-text-light: #333333;
     --color-shadow-light: #504e4e;
     --color-disabled-light: rgb(231, 231, 231);
+    --color-disabled-light1: rgba(231, 231, 231, 0.521);
+    --color-active-tab: #a90c3554;
 }

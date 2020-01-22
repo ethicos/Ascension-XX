@@ -34,8 +34,8 @@ a > .bottom-nav-text{
 .bottomNavRow{
     height: 3vh;
     display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: auto auto auto auto auto;
+    grid-column-gap: 1px;
+    grid-template-columns: auto auto auto auto auto auto auto;
     justify-content: space-evenly;
 }
 .logo-sec{

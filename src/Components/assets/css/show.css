@@ -2,9 +2,11 @@
 @import "./var.css";
 
 .show{
-    margin-top: 5vh;
-    margin-bottom: 30vh;
-    display: inline-block;
+    /* margin-top: 5vh; */
+    /* width: 100vw !important; */
+    /* display: inline-block !important;
+    position: relative; 
+    float: left; */
 }
 .show-img{
     display: block;

@@ -1,0 +1,19 @@
+@import "./var.css";
+
+.tab-row{
+    width: fit-content;
+    margin: 5vh auto;
+}
+.tab{
+    color: var(--color-text-light);
+    background-color: var(--color-disabled-light1);
+    padding: 10px 15px;
+    margin: 0 5vh 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.activeTab {
+    background-color: var(--color-active-tab);
+    /* color: var(--color-text-dark); */
+    border: none;
+}

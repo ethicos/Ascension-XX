@@ -14,6 +14,8 @@ import Events from './Events';
 import Contact from './Contact';
 import './assets/css/nav.css';
 import Logo from './Logo';
+import Workshops from './Workshops';
+import Sponsors from './Sponsors';
 
 class Nav extends React.Component {
   constructor(){
@@ -62,6 +64,12 @@ class Nav extends React.Component {
                             <span class="link" id="proshows">PRO SHOWS</span>
                           </Link>
                   </li>
+                  <li>
+                    <Link to="/workshops"
+                          className={window.location.pathname == "/workshops"?"active":""}>
+                            <span class="link" id="workshops">WORKSHOPS</span>
+                          </Link>
+                  </li>
                   <li> 
                   <Link to="/"><Logo size={0} isInline={true}/> </Link>
                   </li>
@@ -69,6 +77,12 @@ class Nav extends React.Component {
                     <Link to="/events"
                           className={window.location.pathname == "/events"?"active":""}>
                             <span class="link" id="events">EVENTS</span>
+                          </Link>
+                    </li>
+                  <li>
+                    <Link to="/sponsors"
+                          className={window.location.pathname == "/sponsors"?"active":""}>
+                            <span class="link" id="sponsors">SPONSORS</span>
                           </Link>
                     </li>
                   <li>
@@ -90,8 +104,14 @@ class Nav extends React.Component {
             <Route path="/proshows">
               <Proshows setCurrentLink={this.setCurrentLink}/>
             </Route>
+            <Route path="/workshops">
+              <Workshops setCurrentLink={this.setCurrentLink}/>
+            </Route>
             <Route path="/events">
               <Events setCurrentLink={this.setCurrentLink}/>
+            </Route>
+            <Route path="/sponsors">
+              <Sponsors setCurrentLink={this.setCurrentLink}/>
             </Route>
             <Route path="/contact">
               <Contact setCurrentLink={this.setCurrentLink}/>

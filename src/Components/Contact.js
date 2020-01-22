@@ -32,29 +32,40 @@ class Contact extends React.Component {
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Mohammed Arshad"
-                                    des="Convenor"
-                                    number="+91 98765 43210"/>
+                                    name="Mohammed Arshad P"
+                                    des="Chairman"
+                                    number="+91 96562 25585"/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Smera KV"
-                                    des="Joint Convenor"
-                                    number="+91 98765 43210"/>
+                                    name="Aashminath K M"
+                                    des="Vice Chairperson"
+                                    number="+91 83019 15150"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Roshan Tomy"
-                                    des="Secretary"
-                                    number="+91 98765 43210"/>
+                                    name="Adhil Falah"
+                                    des="Gen. Secretary"
+                                    number="+91 90486 63434"/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Swathy Krishna"
-                                    des="Joint Secretary"
-                                    number="+91 98765 43210"/>
+                                    name="Roshan Tomy"
+                                    des="Fine Arts Secretary"
+                                    number="+91 95396 02566"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <ContactCard 
+                                    name="Sayooj P"
+                                    des="Sponsorship Committee Convener"
+                                    number="+91 98461 35482"/>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                
                             </div>
                         </div>
                         <br/>

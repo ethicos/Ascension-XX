@@ -23,6 +23,7 @@ html, body{
     .about{
         margin-top: 5vh !important;
         padding: 5vh !important;
+        margin-bottom: 5vh;
     }
     .gec-arch{
         display: block;

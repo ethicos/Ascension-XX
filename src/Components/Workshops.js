@@ -5,12 +5,12 @@ import gecArch from './assets/images/arch-cropped.svg';
 import './assets/css/about.css';
 import './assets/css/animate.css';
 
-class About extends React.Component {
+class Workshops extends React.Component {
     constructor(){
         super();
     }
     componentDidMount(){
-        this.props.setCurrentLink("about");
+        this.props.setCurrentLink("workshops");
     }
     render(){
         return (
@@ -37,4 +37,4 @@ class About extends React.Component {
     }
 }
 
-export default About;
+export default Workshops;

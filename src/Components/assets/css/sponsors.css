@@ -1,0 +1,27 @@
+@import "./var.css";
+
+.sponsor{
+    margin-top: 5vh;
+}
+.sponsor-page-title{
+    color: var(--dyuthi-color);
+    font-size: 5vh;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.sponsor-row{
+    
+}
+.sponsor-item{
+    height: 10vh;
+}
+
+.sponsor-big{
+    height: 25vh;
+}
+.sponsor-medium{
+    height: 15vh;
+}
+.sponsor-small{
+    height: 10vh;
+}

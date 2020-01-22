@@ -71,4 +71,16 @@
     .contact-email{
         margin: 3vh 0;
     }
+    .contact-name{
+        font-size: 2.5vh;
+    }
+    .contact-designation{
+        font-size: 1.5vh;
+    }
+    .contact-number{
+        font-size: 2vh;
+    }
+    .contact-email{
+        font-size: 2vh;
+    }
 }
