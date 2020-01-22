@@ -90,7 +90,7 @@ class BottomNav extends React.Component {
                                     <Logo size={-1} isInline={true} />
                                 </Link>
                             </span>
-                            <Link to="/events">
+                            <Link to="/events/general">
                                 <span id="events" className="bottom-nav-text">Events</span>
                             </Link>
                             <Link to="/contact">

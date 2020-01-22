@@ -1,0 +1,52 @@
+@import "./var.css";
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.3);
+    padding: 20vh 30vw;
+    z-index: 99;
+};
+.closeBtn{
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: var(--color-disabled-light);
+}
+.fade-in{
+    animation: fadeIn .5s alternate;
+    animation-fill-mode: forwards;
+}
+.fade-out{
+    animation: fadeOut .5s alternate;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/*   
+.backdrop > div{
+    background-color: #fff !important;
+    border-radius: 5px;
+    max-width: 500px;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    z-index: 1000;
+} */

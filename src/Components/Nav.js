@@ -74,8 +74,7 @@ class Nav extends React.Component {
                   <Link to="/"><Logo size={0} isInline={true}/> </Link>
                   </li>
                   <li>
-                    <Link to="/events"
-                          className={window.location.pathname == "/events"?"active":""}>
+                    <Link to="/events/general">
                             <span class="link" id="events">EVENTS</span>
                           </Link>
                     </li>
