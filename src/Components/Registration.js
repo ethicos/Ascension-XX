@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Aux from './Aux';
 import Modal from './Modal';
 import Logo from './Logo';
+import GoogleJoin from './GoogleJoin';
 import './assets/css/Registration.css';
 
 class Registration extends Component {
@@ -23,6 +24,7 @@ class Registration extends Component {
                         <Logo size={0}/>
                         <h3>Login to Dyuthi</h3>
                         <span>Login to Dyuthi with your Google Account for Event Registration</span>
+                        <GoogleJoin />
                     </div>
                 </Modal>
             </Aux>

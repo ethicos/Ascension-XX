@@ -1,0 +1,28 @@
+button {
+    width: 125px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+}
+
+.googleBtn {
+    width: 225px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+  
+.googleBtn img {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+button:hover {
+    color: rgb(61, 122, 252);
+}
