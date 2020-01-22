@@ -1,6 +1,8 @@
 import React from 'react';
 import Show from './Show';
 
+import snapchat from './assets/images/snapchat.png';
+
 import './assets/css/proshow.css';
 import './assets/css/animate.css';
 
@@ -146,42 +148,21 @@ class Proshows extends React.Component {
 
     render(){
         const isMobile = this.props.isMobile;
-        if( isMobile ){
-            return (
-                <div className="row fade-in">
-                    <div id="showSec" className="showSection">
-                    <Show title="Pro show 1" date="20 Feb" time="5 pm onwards" 
-                        bookLink="http://google.com" showID={this.state.showIdList[0]} 
-                        isActive={this.state.currentShowIndex==0}/>,
-                    <Show title="Pro show 2" date="21 Feb" time="6 pm onwards" 
-                        bookLink="http://google.com" showID={this.state.showIdList[1]} 
-                        isActive={this.state.currentShowIndex==1}/>,
-                    <Show title="Pro show 3" date="22 Feb" time="4 pm onwards" 
-                        bookLink="http://google.com" showID={this.state.showIdList[2]} 
-                        isActive={this.state.currentShowIndex==2}/>
+        return (
+            <div className="container1">
+                <section id="dg-container" className="dg-container">
+                    <div className="dg-wrapper">
+                        <img src={snapchat} alt="image05"/>
+                        <img src={snapchat} alt="image06"/>
+                        <img src={snapchat} alt="image07"/>
                     </div>
-
-                    <div className="changeBtnSec">
-                            <span className="changeBtn" onClick={()=>this.changeShow(-1)}>Prev</span>
-                            <span className="changeBtn" onClick={()=>this.changeShow(1)}>Next</span>
-                    </div>                    
-                </div>
-            );
-        }else{
-            return (
-                <div class="row fade-in">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            {this.showList[0]} 
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            {this.showList[1]} 
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            {this.showList[2]} 
-                    </div>
-                </div>
-            );
-        }
+                    <nav>	
+                        <span className="dg-prev">&lt;</span>
+                        <span className="dg-next">&gt;</span>
+                    </nav>
+                </section>
+            </div>
+        );
     }
 }
 
