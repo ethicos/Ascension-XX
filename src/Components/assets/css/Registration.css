@@ -1,0 +1,9 @@
+.ModalInner h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ModalInner span {
+    display: block;
+    text-align: center;
+}
