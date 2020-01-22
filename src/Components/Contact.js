@@ -2,6 +2,7 @@ import React from 'react';
 import './assets/css/contact.css';
 import arch from './assets/images/arch.svg';
 import gecArch from './assets/images/arch-cropped.svg';
+import unionBench from './assets/images/union.svg';
 
 import './assets/css/animate.css';
 
@@ -18,7 +19,7 @@ class Contact extends React.Component {
                 <div class="row contact">
                     {this.props.isMobile?
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <img src={arch} className="gec-arch"/>   
+                            <img src={unionBench} className="gec-arch"/>   
                         </div>:
                         <></>
                     }
@@ -73,7 +74,7 @@ class Contact extends React.Component {
                     {this.props.isMobile?
                         <></>:
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <img src={gecArch} className="gec-arch"/>   
+                            <img src={unionBench} className="gec-arch"/>   
                         </div>
                     }
                 </div>
