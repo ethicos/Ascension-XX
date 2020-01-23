@@ -14,12 +14,16 @@ class Sponsors extends React.Component {
     }
 
     componentDidMount() {
-        this.props.setCurrentLink("sponsors");
+        if(!this.props.isMobile)
+            this.props.setCurrentLink("sponsors");
         this.animationEffect();
     }
 
     animationEffect() {
         var radius = 340; // how big of the radius
+        if( this.props.isMobile){
+            radius = 200;
+        }
         var autoRotate = true; // auto rotate or not
         var rotateSpeed = -60; // unit: seconds/360 degrees
         var imgWidth = 120; // width of images (unit: px)
@@ -158,7 +162,7 @@ class Sponsors extends React.Component {
         return (
             <div className="sponsor fade-in">
                 <div class="container">
-                    {/*<h2 className="sponsor-page-title">Sponsors</h2>*/}
+                    {this.props.isMobile ? <h2 className="sponsor-page-title">Sponsors</h2> : <></>}
                     {/*{this.getSponsors()}*/}
                     <div className="sponser-div">
                         <div id="drag-container">
