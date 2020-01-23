@@ -21,7 +21,8 @@ class About extends React.Component {
                 <div className="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         {this.props.isMobile?
-                            <img src={arch} className="gec-arch"/>:
+                                <Sponsors isMobile={true}/>:
+                            // <img src={arch} className="gec-arch"/>:
                             <img src={gecArch} className="gec-arch"/>   }
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -37,9 +38,6 @@ class About extends React.Component {
                             Dolor cillum eiusmod veniam est nisi esse deserunt et exercitation ad sit adipisicing ullamco.</p>
                     </div>
                 </div>
-                {this.props.isMobile?
-                    <Sponsors isMobile={true}/>:
-                    <></>}
             </div>
         );
     }

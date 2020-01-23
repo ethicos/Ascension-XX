@@ -8,8 +8,8 @@ class Sponsors extends React.Component {
     constructor() {
         super();
         this.sponsorList = [
-            <SponsorItem img={snap} size={2}/>,
-            <SponsorItem img={snap} size={2}/>
+            <img src={snap} alt=""/>,
+            <img src={snap} alt=""/>
         ];
     }
 
@@ -22,10 +22,10 @@ class Sponsors extends React.Component {
     animationEffect() {
         var radius = 340; // how big of the radius
         if( this.props.isMobile){
-            radius = window.innerWidth * 0.6;
+            radius = window.innerWidth * 0.2 * this.sponsorList.length;
         }
         var autoRotate = true; // auto rotate or not
-        var rotateSpeed = -60; // unit: seconds/360 degrees
+        var rotateSpeed = -20; // unit: seconds/360 degrees
         var imgWidth = 120; // width of images (unit: px)
         var imgHeight = 170; // height of images (unit: px)
 
@@ -162,13 +162,13 @@ class Sponsors extends React.Component {
         return (
             <div className="sponsor fade-in" style={this.props.isMobile?{marginBottom:'30vh'}:{}}>
                 <div class="container">
-                    {this.props.isMobile ? <h2 className="sponsor-page-title">Sponsors</h2> : <></>}
                     {/*{this.getSponsors()}*/}
                     <div className="sponser-div">
                         <div id="drag-container">
                             <div id="spin-container">
-                                <img src={snap} alt=""/>
-                                <img src={snap} alt=""/>
+                                {this.sponsorList}
+                                {this.sponsorList}
+                                {this.sponsorList}
                                 {/* <img src={arch} alt=""/>
                                 <img src={arch} alt=""/>
                                 <img src={arch} alt=""/>
