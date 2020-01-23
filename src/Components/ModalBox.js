@@ -14,31 +14,23 @@ class ModalBox extends React.Component {
         <div className="backdrop fade-in">
           <div className="modal-style">
             <span className="closeBtn" 
-            onClick={this.props.onClose}
-            style={
-                {
-                    position: 'relative',
-                    top: '0',
-                    left: '100%',
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '50%',
-                    backgroundColor: '#ccc',
-                    cursor: 'pointer',
-                    padding: '5px 7px',
-                    color: '#fff',
-                    fontSize: '2vh'
-                }
-            }>
+            onClick={this.props.onClose}>
                 x
             </span>
             <h3>{this.props.event.title}</h3>
             <p>
+                <span className="fee-sec">{this.props.event.fee}</span>
                 {this.props.event.desc}
             </p>
   
             <div className="footer">
-              <Link to="/events/register">Register Now</Link>
+              {this.props.isWorkshop?
+                <div className="event-contact">
+                  <span>{this.props.event.contactPerson}</span>
+                  <span>{this.props.event.contactNo}</span>
+                </div>:
+                <Link to="/events/register">Register Now</Link>
+              }
             </div>
           </div>
         </div>

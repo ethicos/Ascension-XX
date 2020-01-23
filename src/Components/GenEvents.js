@@ -14,7 +14,7 @@ class GenEvents extends Component {
         super(props);
         this.state = {
             events: [{
-                        title: "Fortitudo",
+                        title: "Last Man Standing",
                         desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
                         poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
                     },{
@@ -54,7 +54,7 @@ class GenEvents extends Component {
     }
     render() { 
         return ( 
-            <div className="events gen-events fade-in">
+            <div className="events fade-in">
                 {this.getEvents()}
             </div>
          );
