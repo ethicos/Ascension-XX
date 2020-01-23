@@ -17,6 +17,13 @@
     min-height: 40vh;
     border-radius: 10px;
 }
+.footer > a{
+    
+}
+.footer > a:hover{
+    padding-bottom: 5px;
+    border-bottom: 2px dashed var(--color-text-light);
+}
 
 .closeBtn{
     position: absolute;

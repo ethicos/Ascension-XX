@@ -6,7 +6,7 @@ import {
 
 import TabbedLayout from './TabbedLayout';
 
-import './assets/css/events.css';
+import './assets/css/animate.css';
 
 class DeptEvents extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class DeptEvents extends Component {
     }
     render() { 
         return ( 
-            <div>
+            <div className="fade-in">
                 
             </div>
          );

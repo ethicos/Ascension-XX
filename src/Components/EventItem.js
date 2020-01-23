@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 import './assets/css/events.css';
-import arch from './assets/images/nucleya1.jpg';
+import './assets/css/animate.css';
 
 class EventItem extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class EventItem extends Component {
     render() { 
         return ( 
             <div className="event-item" onClick={()=>this.props.modalToggle(this.props.event)}>
-                <img src={this.props.event.poster} className="event-poster"/>
+                <img src={this.props.event.poster} className="event-poster fade-in"/>
                 <span className="event-title">
                     {this.props.event.title}
                 </span>

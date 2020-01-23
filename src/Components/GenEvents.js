@@ -7,7 +7,7 @@ import {
 import TabbedLayout from './TabbedLayout';
 import EventItem from './EventItem';
 
-// import './assets/css/events.css';
+import './assets/css/animate.css';
 
 class GenEvents extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class GenEvents extends Component {
     }
     render() { 
         return ( 
-            <div className="events gen-events">
+            <div className="events gen-events fade-in">
                 {this.getEvents()}
             </div>
          );
