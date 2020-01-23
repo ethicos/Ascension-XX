@@ -66,7 +66,6 @@ class EventPage extends Component {
                     {this.props.isMobile? <Route exact path="/events/workshops">
                                             <Workshops
                                                 isMobile={this.props.isMobile}
-                                                modalToggle={this.toggleModal}
                                                 updateCurrentPage={this.updateCurrentPage}/>
                                         </Route>
                                         : <></>}
