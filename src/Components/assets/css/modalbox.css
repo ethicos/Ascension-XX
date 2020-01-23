@@ -9,7 +9,15 @@
     background-color: rgba(0,0,0,0.3);
     padding: 20vh 30vw;
     z-index: 99;
-};
+}
+.modal-style{
+    background-color: #fff;
+    padding: 5vh 8vh;
+    max-width: 60vw;
+    min-height: 40vh;
+    border-radius: 10px;
+}
+
 .closeBtn{
     position: absolute;
     top: 0;
@@ -38,6 +46,20 @@
     }
     100%{
         opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 1280px){
+    .backdrop{
+        padding: 20vh 10vw;
+        z-index: 99;
+    }
+    .modal-style{
+        background-color: #fff;
+        padding: 5vh 8vh;
+        max-width: 100%;
+        min-height: 100%;
+        border-radius: 10px;
     }
 }
 /*   

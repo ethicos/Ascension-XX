@@ -17,3 +17,22 @@
     /* color: var(--color-text-dark); */
     border: none;
 }
+a{
+    color: var(--color-text-light) !important;
+}
+
+@media only screen and (max-width: 1280px){
+    .event-title-phone{
+        margin: 5vh 8vw 3vh;
+    }
+    .tab-row{
+        display: grid;
+        margin: 2vh auto 5vh;
+        grid-template-columns: auto auto auto;
+    }
+    .tab{
+        font-size: 1.5vh;
+        margin: 0 1vh 0 0;
+        padding: 10px 10px;
+    }
+}

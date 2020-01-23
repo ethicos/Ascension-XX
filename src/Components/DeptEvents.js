@@ -12,6 +12,9 @@ class DeptEvents extends Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount(){
+        this.props.updateCurrentPage(1);
+    }
     render() { 
         return ( 
             <div>

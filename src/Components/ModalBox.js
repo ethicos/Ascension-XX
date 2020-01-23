@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './assets/css/modalbox.css';
@@ -11,15 +12,7 @@ class ModalBox extends React.Component {
       }
       return (
         <div className="backdrop fade-in">
-          <div style={
-            {
-                backgroundColor: '#fff',
-                padding: '5vh 8vh',
-                maxWidth: '60vw',
-                minHeight: '40vh',
-                borderRadius: '10px'
-            }
-          }>
+          <div className="modal-style">
             <span className="closeBtn" 
             onClick={this.props.onClose}
             style={
@@ -45,6 +38,7 @@ class ModalBox extends React.Component {
             </p>
   
             <div className="footer">
+              <Link to="/events/register">Register Now</Link>
             </div>
           </div>
         </div>

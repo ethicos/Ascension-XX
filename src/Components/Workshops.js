@@ -10,7 +10,11 @@ class Workshops extends React.Component {
         super();
     }
     componentDidMount(){
-        this.props.setCurrentLink("workshops");
+        if( this.props.isMobile ){
+            this.props.updateCurrentPage(2);
+        }else{
+            this.props.setCurrentLink("workshops");
+        }   
     }
     render(){
         return (

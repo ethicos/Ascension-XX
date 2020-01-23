@@ -18,7 +18,9 @@ class Events extends React.Component {
             <div className="fade-in">
                 <Switch>
                     <Route exact path="/events/register" component={Register} />
-                    <Route path="/events" component={EventPage}/>
+                    <Route path="/events" >
+                        <EventPage isMobile={this.props.isMobile}/>
+                    </Route>
                 </Switch>         
             </div>
         );

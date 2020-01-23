@@ -39,7 +39,8 @@
 }
 
 .event-title{
-    width: fit-content;
+    /* width: fit-content; */
+    width: 10vw !important;
     float: right;
     font-size: 3vh;
     font-weight: bolder;
@@ -70,5 +71,21 @@
     html, body{
         overflow-x:hidden !important;
         overflow-y:scroll !important;
+    }
+    .event-title{
+        width: 30vw !important;
+        word-wrap: break-word;
+        hyphens: auto;
+        float: right;
+        font-size: 2vh;
+        font-weight: bolder;
+        position: absolute;
+        left: 10em;
+        bottom: 3em;
+        background-color: var(--color-text-light);
+        color: var(--color-text-dark);
+        padding: 5px 10px;
+        transform: scale(0);  
+        transition: transform 250ms ease-in-out;
     }
 }

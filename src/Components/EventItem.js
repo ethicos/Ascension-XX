@@ -10,10 +10,10 @@ class EventItem extends Component {
     }
     render() { 
         return ( 
-            <div className="event-item" onClick={()=>this.props.modalToggle({title:"Fortitudo", desc: "hello world"})}>
-                <img src={arch} className="event-poster"/>
+            <div className="event-item" onClick={()=>this.props.modalToggle(this.props.event)}>
+                <img src={this.props.event.poster} className="event-poster"/>
                 <span className="event-title">
-                    Fortitudo
+                    {this.props.event.title}
                 </span>
                 <div className="event-border"></div>
             </div>
