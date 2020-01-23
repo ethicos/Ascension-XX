@@ -515,7 +515,7 @@ const jQuery = $;
 //
 // })( jQuery );
 
-var proshow_names = ['coming soon' , 'suraj snathosh' , 'anne'];
+var proshow_names = ['coming soon' , 'suraj santhosh' , 'anne amie'];
 var proshow_des = ['' , 'Live concert' , 'live concert']
 var current = 1;
 ;(function ($) {
@@ -1001,6 +1001,9 @@ var current = 1;
             // alert(proshow_names[(current+itemPosition)%3])
             if(!isMobile){
                 head_div.fadeOut(500 , function () {
+                    if( current <= 0 ){
+                        current = 3;
+                    }
                     heading.html(proshow_names[(current+itemPosition)%3]);
                     sub_heading.html(proshow_des[(current+itemPosition)%3]);
                     head_div.fadeIn(1000);
