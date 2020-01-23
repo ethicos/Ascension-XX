@@ -1007,6 +1007,8 @@ var current = 1;
                     // heading.addClass('fade-in-head');
 
                     current += itemPosition;
+                    // alert(current)
+
                 });
             }
 

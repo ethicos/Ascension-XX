@@ -14,8 +14,8 @@ import React from "react";
 //
 // }
 //
-import ss from './assets/images/ss dyuthi.jpg';
-import anne from './assets/images/anne amie.jpg';
+import ss from './assets/images/sooraj santhosh.jpg';
+import anne from './assets/images/anne_amie.jpeg';
 import yellow from './assets/images/yello.png';
 import ProShowMobile from "./ProShowMobile";
 
