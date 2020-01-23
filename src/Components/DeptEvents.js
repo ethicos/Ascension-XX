@@ -95,7 +95,7 @@ class DeptEvents extends Component {
         let row = [];
         let dept = [];
         for( let deptEvent of this.state.events){
-            view.push(<h3 className="dept-title">{deptEvent.dept}</h3>)
+            // view.push()
             for( let event of deptEvent.events){
                 row.push(<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <EventItem 
@@ -115,6 +115,7 @@ class DeptEvents extends Component {
                             </div>);
                 row = [];
             }
+            dept.push(<h3 className="dept-title">{deptEvent.dept}</h3>);
             dept.push(<div className="events">{view}</div>);
             view = []
         }
@@ -126,7 +127,7 @@ class DeptEvents extends Component {
     }
     render() { 
         return ( 
-            <div className="fade-in">
+            <div className="dept-events fade-in">
                 {this.getEvents()}
             </div>
          );

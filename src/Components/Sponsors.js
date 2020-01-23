@@ -22,7 +22,7 @@ class Sponsors extends React.Component {
     animationEffect() {
         var radius = 340; // how big of the radius
         if( this.props.isMobile){
-            radius = 200;
+            radius = window.innerWidth * 0.6;
         }
         var autoRotate = true; // auto rotate or not
         var rotateSpeed = -60; // unit: seconds/360 degrees
@@ -160,7 +160,7 @@ class Sponsors extends React.Component {
     render() {
 
         return (
-            <div className="sponsor fade-in">
+            <div className="sponsor fade-in" style={this.props.isMobile?{marginBottom:'30vh'}:{}}>
                 <div class="container">
                     {this.props.isMobile ? <h2 className="sponsor-page-title">Sponsors</h2> : <></>}
                     {/*{this.getSponsors()}*/}

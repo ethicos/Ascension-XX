@@ -1,7 +1,7 @@
 @import './var.css';
 
 .events{
-    margin: 10vh 10vh;
+    margin: 5vh 10vh;
 }
 
 .event-row{
@@ -112,8 +112,11 @@
         width: fit-content; */
         margin: 1vh 12vw 10vh;
     }
+    .dept-events{
+        margin-top: 10vh;
+    }
     .dept-title{
         font-size: 4vh;
-        margin: 4vh 8vw 5vh;
+        margin: 4vh 8vw 2vh;
     }
 }

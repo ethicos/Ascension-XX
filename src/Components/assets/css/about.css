@@ -26,6 +26,7 @@ html, body{
     }
     .about{
         margin-top: 5vh !important;
+        margin-bottom: 10vh !important;
         padding: 5vh !important;
         margin-bottom: 5vh;
     }
