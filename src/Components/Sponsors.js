@@ -167,12 +167,13 @@ class Sponsors extends React.Component {
                     <div className="sponser-div">
                         <div id="drag-container">
                             <div id="spin-container">
+                                <img src={snap} alt=""/>
+                                <img src={snap} alt=""/>
+                                {/* <img src={arch} alt=""/>
                                 <img src={arch} alt=""/>
                                 <img src={arch} alt=""/>
                                 <img src={arch} alt=""/>
-                                <img src={arch} alt=""/>
-                                <img src={arch} alt=""/>
-                                <img src={arch} alt=""/>
+                                <img src={arch} alt=""/> */}
 
 
 
