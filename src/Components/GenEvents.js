@@ -53,11 +53,16 @@ class GenEvents extends Component {
         this.props.updateCurrentPage(0);
     }
     render() { 
-        return ( 
-            <div className="events fade-in">
-                {this.getEvents()}
+        return (
+            <div>
+                <h3 className="page-title">Coming Soon</h3>
             </div>
-         );
+        )
+        // return ( 
+        //     <div className="events fade-in">
+        //         {this.getEvents()}
+        //     </div>
+        //  );
     }
 }
  

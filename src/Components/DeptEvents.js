@@ -126,11 +126,14 @@ class DeptEvents extends Component {
         this.props.updateCurrentPage(1);
     }
     render() { 
-        return ( 
-            <div className="dept-events fade-in">
-                {this.getEvents()}
-            </div>
-         );
+        return (
+            <h3 className="page-title">coming soon</h3>
+        )
+        // return ( 
+        //     <div className="dept-events fade-in">
+        //         {this.getEvents()}
+        //     </div>
+        //  );
     }
 }
  

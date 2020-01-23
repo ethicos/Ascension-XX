@@ -3,6 +3,12 @@
 .events{
     margin: 5vh 10vh;
 }
+.page-title{
+    width: fit-content;
+    display: block;
+    margin: 10vh auto;
+    color: var(--dyuthi-color);
+}
 
 .event-row{
     margin: 10vh 0;
