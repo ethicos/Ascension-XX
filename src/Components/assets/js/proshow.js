@@ -515,7 +515,9 @@ const jQuery = $;
 //
 // })( jQuery );
 
-
+var proshow_names = ['coming soon' , 'suraj snathosh' , 'anne'];
+var proshow_des = ['' , 'Live concert' , 'live concert']
+var current = 1;
 ;(function ($) {
     'use strict';
 
@@ -699,6 +701,8 @@ const jQuery = $;
             data.items = data.itemsContainer.find('img');
             for (var i = 0; i < data.totalItems; i++) {
                 data.items[i] = $(data.items[i]);
+                // proshow_names.push('sss')
+                // alert(i)
             }
 
             // May need to set the horizon if it was set to auto
@@ -762,6 +766,8 @@ const jQuery = $;
 
             // We are in effect rotating the carousel, so we need to set that
             data.carouselRotationsLeft = 1;
+
+            console.log(data.items)
 
             // Center item
             moveItem(data.items[options.startingItem-1], 0);
@@ -985,8 +991,25 @@ const jQuery = $;
          * to get the clicked item to the center, or will fire the custom event
          * the user passed in if the center item is clicked
          */
+        var head_div = $('.proshow-heading');
+        var heading = $('#proshow-h2');
+        var sub_heading  = $('#proshow-sub');
         $(this).find('img').bind("click", function () {
             var itemPosition = $(this).data().currentPosition;
+            // alert(itemPosition)
+            // alert(proshow_names[(current+itemPosition)%3])
+            head_div.fadeOut(500 , function () {
+                heading.html(proshow_names[(current+itemPosition)%3]);
+                sub_heading.html(proshow_des[(current+itemPosition)%3]);
+                head_div.fadeIn(1000);
+                // heading.addClass('fade-in-head');
+
+                current += itemPosition;
+            });
+            // heading.removeClass('fade-in-head')
+
+
+            // alert(proshow_names[itemPosition])
 
             if (options.imageNav == false) {
                 return;
