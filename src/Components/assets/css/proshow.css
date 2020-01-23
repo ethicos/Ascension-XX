@@ -1,5 +1,25 @@
 /* CSS reset */
 
+.proshow-container{
+
+    display: flex;
+    justify-content: center;
+
+    /*margin-top:10vh;*/
+
+}
+
+.proshow-heading{
+    /*text-align: center;*/
+    display: flex;
+
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    margin-top:5vh;
+    margin-bottom: -50px;
+}
+
 .carousel {
 
     margin: 20vh;
@@ -12,8 +32,8 @@
 .carousel img {
     /*display: hidden; !* hide images until carousel prepares them *!*/
     cursor: pointer; /* not needed if you wrap carousel items in links */
-    /*width: 300px;*/
-    /*height: 150px;*/
+    width: 600px;
+    height: 300px;
 }
 
 @media only screen and (max-width: 1280px)  {
@@ -23,15 +43,47 @@
     }
     .carousel {
 
-        margin-top : 10vh;
+        margin-top : 40vh;
+        /*margin-right : 2vh;*/
         /*display: flex;*/
         /*justify-content: center;*/
         width:10px;
         height: 10px;
         /*display: relative;*/
     }
+    .carousel img{
+        width : 300px;
+        height: 400px;
+    }
 }
 
+.fade-in-head{
+    animation: fadeIn 3s alternate;
+    animation-fill-mode: forwards;
+}
+.fade-out{
+    animation: fadeOut 1s alternate;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 
 /* .showSection{

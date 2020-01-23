@@ -62,13 +62,7 @@ class Proshows extends React.Component {
                 {/*    </nav>*/}
                 {/*</section>*/}
                 <div className="container">
-                    <section id="dg-container" className="dg-container">
-                        <div className="carousel">
-
-                            {isMobile ? <ProShowMobile/>:<ProshowPC/> }
-
-                        </div>
-                    </section>
+                    {isMobile ? <ProShowMobile/>:<ProshowPC/>}
                 </div>
             </div>
     );}
