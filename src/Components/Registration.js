@@ -8,7 +8,6 @@ import fireconfig from '../config/firebase.config';
 import Aux from './Aux';
 import Modal from './Modal';
 import Logo from './Logo';
-// import GoogleJoin from './GoogleJoin';
 import './assets/css/Registration.css';
 
 firebase.initializeApp(fireconfig);
