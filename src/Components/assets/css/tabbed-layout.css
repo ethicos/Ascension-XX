@@ -1,0 +1,38 @@
+@import "./var.css";
+
+.tab-row{
+    width: fit-content;
+    margin: 5vh auto;
+}
+.tab{
+    color: var(--color-text-light);
+    background-color: var(--color-disabled-light1);
+    padding: 10px 15px;
+    margin: 0 5vh 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.activeTab {
+    background-color: var(--color-active-tab);
+    /* color: var(--color-text-dark); */
+    border: none;
+}
+a{
+    color: var(--color-text-light) !important;
+}
+
+@media only screen and (max-width: 1280px){
+    .event-title-phone{
+        margin: 5vh 8vw 3vh;
+    }
+    .tab-row{
+        display: grid;
+        margin: 2vh auto 5vh;
+        grid-template-columns: auto auto auto;
+    }
+    .tab{
+        font-size: 1.5vh;
+        margin: 0 1vh 0 0;
+        padding: 10px 10px;
+    }
+}

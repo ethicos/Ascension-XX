@@ -22,10 +22,11 @@ body{
 .nav ul li a , .nav ul li a > span{
     display: inline;
     text-decoration: none;
-    margin: 1vh 3vh;
+    margin: 1vh 1vh;
     padding: 1.5vh 5px;
     color: var(--color-text-light);
     border-radius: 5px;
+    font-size: 2vh;
 }
 .nav ul li a:hover > span{
     border-radius: 0;

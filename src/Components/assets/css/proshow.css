@@ -1,0 +1,222 @@
+/* CSS reset */
+
+.proshow-container{
+
+    display: flex;
+    justify-content: center;
+
+    /*margin-top:10vh;*/
+
+}
+
+.proshow-heading{
+    /*text-align: center;*/
+    display: flex;
+
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    margin-top:5vh;
+    margin-bottom: -50px;
+}
+
+.carousel {
+
+    margin: 20vh;
+    width:  800px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    /*display: relative;*/
+}
+.carousel img {
+    /*display: hidden; !* hide images until carousel prepares them *!*/
+    cursor: pointer; /* not needed if you wrap carousel items in links */
+    width: 600px;
+    height: 300px;
+}
+
+@media only screen and (max-width: 1280px)  {
+    html, body{
+      overflow-x:hidden !important;
+      overflow-y:scroll !important;
+    }
+    .carousel {
+
+        margin-top : 40vh;
+        /*margin-right : 2vh;*/
+        /*display: flex;*/
+        /*justify-content: center;*/
+        width:10px;
+        height: 10px;
+        /*display: relative;*/
+    }
+    .carousel img{
+        width : 300px;
+        height: 400px;
+    }
+}
+
+.fade-in-head{
+    animation: fadeIn 3s alternate;
+    animation-fill-mode: forwards;
+}
+.fade-out{
+    animation: fadeOut 1s alternate;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* .showSection{
+    width: 300vw;
+    position: relative; 
+    float: left;
+    overflow-x: scroll;
+    display: flex;
+    flex-flow: row;
+    scroll-behavior: smooth;
+}
+.changeBtnSec{
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.changeBtn{
+  padding: 10px;
+}
+.column{
+    background-color: #fff;
+    z-index: 10;
+}
+.currentExitOnPrev{   /* move towards right
+    animation: moveRight .5s alternate;
+    animation-fill-mode: forwards;
+}
+.nextEntryOnPrev{  /* move right 
+    animation: moveLeft .5s alternate;
+    animation-fill-mode: forwards;
+}
+.nextEntryOnNext{  /* move left 
+    animation: moveRightInv .5s alternate;
+    animation-fill-mode: forwards;
+}
+.currentExitOnNext{
+  animation: moveLeftInv .5s alternate;
+  animation-fill-mode: forwards;
+}
+
+.rotatePrevExit{
+    animation: rotateL .5s alternate;
+    animation-fill-mode: forwards;
+}
+.rotatePrevEntry{
+    animation: rotateLBack .5s alternate;
+    animation-fill-mode: forwards;
+}
+
+.rotateRF{
+    animation: rotateR .5s alternate;
+    animation-fill-mode: forwards;
+}
+.rotateRB{
+    animation: rotateRBack .5s alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveLeft {
+    0% {
+      transform: translateX(0vw);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120vw);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes moveLeftInv {
+    0% {
+        transform: translateX(120vw);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+  }
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0vw);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-120vw);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes moveRightInv {
+    0% {
+        transform: translateX(-120vw);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0vw);
+        opacity: 1;
+    }
+  }
+
+  @keyframes rotateR {
+    0% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(90deg) translateX(500px) translateY(500px);
+        opacity: 0;
+      }
+  }
+  
+  @keyframes rotateRBack {
+    0% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-90deg) translateX(-500px) translateY(-500px);
+        opacity: 0;
+    }
+  }
+
+  @media only screen and (max-width: 1280px){
+      .column{
+        display: grid !important;
+        grid-column-gap: 10px;
+        grid-template-columns: auto auto;
+        justify-content: space-evenly;
+        margin-top: 5vh;
+        position: fixed !important;
+        bottom: 20vh !important;
+        left: 0vh !important;
+      }
+  } */

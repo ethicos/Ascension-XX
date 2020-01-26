@@ -1,0 +1,90 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "./var.css";
+
+.contact-sec{
+    margin-bottom: 20vh;
+}
+.contact{
+    margin-top: 15vh;
+    padding-left: 10vh;
+}
+.gec-arch{
+    margin-top: 5vh;
+    height: 40vh;
+}
+
+.contact-title{
+    color: var(--dyuthi-color);
+}
+
+.contact-card{
+    padding: 4vh 1vh ;
+}
+
+.contact-email{
+    color: var(--color-text-light);
+    font-size: 3vh;
+    letter-spacing: 2px;
+}
+
+.contact-email > a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-name{
+    color: var(--color-text-light);
+    font-size: 3vh;
+}
+
+.contact-designation{
+    color: var(--color-shadow-light);
+    font-size: 2vh;
+    display: block;
+}
+
+.contact-number{
+    color: var(--color-shadow-light);
+    font-size: 2.8vh;
+    letter-spacing: 1.5px;
+}
+.non-dyuthi{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.contact-footer{
+    padding: 0 10vh;
+}
+
+@media only screen and (max-width: 1280px){
+    html, body{
+        overflow-x:hidden !important;
+        overflow-y:scroll !important;
+    }
+    .contact{
+        margin-top: 0vh !important;
+        padding: 5vh 3vh !important;
+    }   
+    .contact-title{
+        margin-top: 5vh;
+    }
+    .contact-footer{
+        padding: 0 3vh;
+        text-align: left;
+    }
+    .contact-email{
+        margin: 3vh 0;
+    }
+    .contact-name{
+        font-size: 2.5vh;
+    }
+    .contact-designation{
+        font-size: 1.5vh;
+    }
+    .contact-number{
+        font-size: 2vh;
+    }
+    .contact-email{
+        font-size: 2vh;
+    }
+}

@@ -1,0 +1,62 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "./var.css";
+
+.bottomnav{
+    display: none;
+    background: var(--color-light);
+    box-shadow: 0 0 1.5px var(--color-shadow-light);
+    color: var(--color-text-light);
+    padding: 10px 0 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 7;
+}
+.bottom-nav-icon{
+    width: 3vh;
+    height: auto;
+}
+.bottom-nav-text{
+    height: fit-content;
+    font-size: 2.3vw;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+a:hover{
+    text-decoration: none;
+}
+a > .bottom-nav-text{
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+.bottomNavRow{
+    height: 3vh;
+    display: grid;
+    grid-column-gap: 1px;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    justify-content: space-evenly;
+}
+.logo-sec{
+    width: 7vh;
+    height: 7vh;
+    background-color: var(--color-light);
+    box-shadow: 0 0 2px var(--color-shadow-light);
+    padding: 1.3vh;
+    border-radius: 50%;
+    position: relative;
+    bottom: 5vh;
+}
+@media only screen and (max-width: 1280px){
+    .bottomnav{
+        display: block;
+    }
+    .content-sec{
+        display: block;
+        height: 80vh;
+    }
+    .active span{
+        background-color: var(--color-disabled-light);
+    }
+}

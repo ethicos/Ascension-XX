@@ -4,11 +4,10 @@
     src: url("swatch.ttf");
 }
 body{
-    font-family: dyuthiFont;
+    font-family: dyuthiFont !important;
+    letter-spacing: 1.5px;
 }
-body{
-    
-}
+
 .title{
     width: fit-content;
     font-size: 4vh;
