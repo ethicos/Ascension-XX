@@ -20,7 +20,8 @@ class Registration extends Component {
             isUserCreated: true,
             user: null,
             tempCollege: '',
-            tempMobile: ''
+            tempMobile: '',
+            tempName: ''
          }
     }
 
@@ -43,6 +44,7 @@ class Registration extends Component {
                         if (snapshot.val() !== null) {
                             this.setState({user: snapshot.val()})
                         }else{
+                            this.setState({tempName: user.displayName});
                             this.setState({isUserCreated: false});
                         }
                     }).catch(e => console.log(e));
@@ -62,13 +64,17 @@ class Registration extends Component {
         this.setState({tempMobile: event.target.value});
     }
 
+    nameChangeHandler = (event) => {
+        this.setState({tempName: event.target.value});
+    }
+
     formSubmitHandler = (event) => {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
             const currentUser = firebase.auth().currentUser;
             firebase.database().ref('/participants/'+currentUser.uid)
                 .set({
-                    name: currentUser.displayName,
+                    name: this.state.tempName,
                     email: currentUser.email,
                     mobile: this.state.tempMobile,
                     college: this.state.tempCollege
@@ -100,6 +106,11 @@ class Registration extends Component {
                         <Logo size={0}/>
                         <h3>Fill Your Personal Details</h3>
                         <form className="SignupForm">
+                            <input 
+                                type="text" 
+                                placeholder="Your Name"
+                                value={this.state.tempName} 
+                                onChange={this.nameChangeHandler}/>
                             <input 
                                 type="text" 
                                 placeholder="Enter College Name"
