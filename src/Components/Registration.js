@@ -20,7 +20,8 @@ class Registration extends Component {
             isUserCreated: true,
             user: null,
             tempCollege: '',
-            tempMobile: ''
+            tempMobile: '',
+            tempName: ''
          }
     }
 
@@ -41,8 +42,9 @@ class Registration extends Component {
                 firebase.database().ref('/participants/'+user.uid)
                     .once('value').then((snapshot) => {
                         if (snapshot.val() !== null) {
-                            this.setState({user: snapshot.val()})
+                            this.setState({user: snapshot.val()});
                         }else{
+                            this.setState({tempName: user.displayName});
                             this.setState({isUserCreated: false});
                         }
                     }).catch(e => console.log(e));
@@ -54,27 +56,47 @@ class Registration extends Component {
         window.location.href = '/events/general';
     }
 
+    capitalize = (str) => {
+        let splitStr = str.toLowerCase().split(' ');
+        for (let i = 0; i < splitStr.length; i++){
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+        }
+        return splitStr.join(' ');
+    }
+
     collegeNameChangeHandler = (event) => {
-        this.setState({tempCollege: event.target.value});
+        let tpClg = this.capitalize(event.target.value);
+        this.setState({tempCollege: tpClg});
     }
 
     mobileNumberChangeHandler = (event) => {
         this.setState({tempMobile: event.target.value});
     }
 
+    nameChangeHandler = (event) => {
+        let tpNm = this.capitalize(event.target.value);
+        this.setState({tempName: tpNm});
+    }
+
     formSubmitHandler = (event) => {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
             const currentUser = firebase.auth().currentUser;
-            firebase.database().ref('/participants/'+currentUser.uid)
-                .set({
-                    name: currentUser.displayName,
-                    email: currentUser.email,
-                    mobile: this.state.tempMobile,
-                    college: this.state.tempCollege
-                }).then((data) => {
-                    this.setState({isUserCreated: true});
-                }).catch(e => console.log(e));
+            firebase.database().ref('/participants').once('value')
+                .then((snapshot) => {
+                    let dyId = Object.keys(snapshot.val()).length+1;
+                    dyId = 'DY'+dyId.toString().padStart(4, '0');
+                    firebase.database().ref('/participants/'+currentUser.uid)
+                        .set({
+                            dyuthi_id: dyId,
+                            name: this.state.tempName,
+                            email: currentUser.email,
+                            mobile: this.state.tempMobile,
+                            college: this.state.tempCollege
+                        }).then((data) => {
+                            this.setState({isUserCreated: true});
+                        }).catch(e => console.log(e));
+                }).catch(er => console.log(er));      
         }else{
             alert("Enter Valid Mobile Number without country code");
             this.setState({tempMobile: ''});
@@ -100,6 +122,11 @@ class Registration extends Component {
                         <Logo size={0}/>
                         <h3>Fill Your Personal Details</h3>
                         <form className="SignupForm">
+                            <input 
+                                type="text" 
+                                placeholder="Your Name"
+                                value={this.state.tempName} 
+                                onChange={this.nameChangeHandler}/>
                             <input 
                                 type="text" 
                                 placeholder="Enter College Name"
