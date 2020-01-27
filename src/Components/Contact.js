@@ -17,7 +17,7 @@ class Contact extends React.Component {
                 <div class="row contact">
                     {this.props.isMobile?
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <img src={fullGec} className="gec-arch"/>   
+                            <img src={fullGec} className="gec-arch fade-in"/>   
                         </div>:
                         <></>
                     }
@@ -72,7 +72,7 @@ class Contact extends React.Component {
                     {this.props.isMobile?
                         <></>:
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <img src={fullGec} className="gec-arch"/>   
+                            <img src={fullGec} className="gec-arch fade-in"/>   
                         </div>
                     }
                 </div>

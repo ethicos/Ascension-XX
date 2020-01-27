@@ -515,8 +515,8 @@ const jQuery = $;
 //
 // })( jQuery );
 
-var proshow_names = ['coming soon' , 'suraj santhosh' , 'anne amie'];
-var proshow_des = ['' , 'Live concert' , 'live concert']
+var proshow_names = ['Coming Soon' , 'sooraj santhosh' , 'anne amie', 'lagori'];
+var proshow_des = ['' , 'Live concert' , 'live concert', 'live concert']
 var current = 1;
 ;(function ($) {
     'use strict';
@@ -1002,11 +1002,11 @@ var current = 1;
             if(!isMobile){
                 head_div.fadeOut(500 , function () {
                     if( current <= 0 ){
-                        current = 3;
+                        current = 4;
                     }
-                    heading.html(proshow_names[(current+itemPosition)%3]);
-                    sub_heading.html(proshow_des[(current+itemPosition)%3]);
-                    head_div.fadeIn(1000);
+                    heading.html(proshow_names[(current+itemPosition)%4]);
+                    sub_heading.html(proshow_des[(current+itemPosition)%4]);
+                    head_div.fadeIn(500);
                     // heading.addClass('fade-in-head');
 
                     current += itemPosition;

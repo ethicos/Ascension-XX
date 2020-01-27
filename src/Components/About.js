@@ -28,14 +28,15 @@ class About extends React.Component {
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <h2 className="about-title">Describing the vibe is <br/> the toughest part !!</h2>
                         <p className="about-desc">
-                            Id amet ea adipisicing magna fugiat ullamco laborum pariatur exercitation ad minim ut proident aute.
-                            Magna velit eu eu excepteur occaecat ad officia irure culpa consequat et non incididunt sunt. 
-                            Quis nulla officia nisi dolore exercitation in eu ea nostrud quis consequat amet laborum id. 
-                            Dolor cillum eiusmod veniam est nisi esse deserunt et exercitation ad sit adipisicing ullamco.<br/>
-                            Quis nulla officia nisi dolore exercitation in eu ea nostrud quis consequat amet laborum id. 
-                            Dolor cillum eiusmod veniam est nisi esse deserunt et exercitation ad sit adipisicing ullamco.
-                            Quis nulla officia nisi dolore exercitation in eu ea nostrud quis consequat amet laborum id. 
-                            Dolor cillum eiusmod veniam est nisi esse deserunt et exercitation ad sit adipisicing ullamco.</p>
+                        Dyuthi is one of the most prominent and celebrated platforms of the year, attracting the talented and energetic youth from all over the South.
+
+                        It is 'the' spot where all kinds of students from anywhere and everywhere congregates to explore, innovate and create.
+                         
+                        This time, students get to showcase not just their winsome cultural talents, but also their adept technical flair, ensuring that every student gets to portray his inner talents, be what it may.
+
+                        For students all over Kerala, Dyuthi has become the beacon for an exuberant rendezvous of art and technology.
+
+                        With this diverse multitude honing in, GEC becomes a gala of  competence and energy, creating memorable moments to treasure enduringly.</p>
                     </div>
                 </div>
             </div>
