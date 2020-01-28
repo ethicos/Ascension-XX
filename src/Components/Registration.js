@@ -39,8 +39,10 @@ class Registration extends Component {
         firebase.auth().onAuthStateChanged(user => {
             this.setState({isSignedIn: !!user});
             if (!!user){
+                document.getElementById("loader").style.display = "block";
                 firebase.database().ref('/participants/'+user.uid)
                     .once('value').then((snapshot) => {
+                        document.getElementById("loader").style.display = "none";
                         if (snapshot.val() !== null) {
                             this.setState({user: snapshot.val()});
                         }else{
