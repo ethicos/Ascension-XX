@@ -20,7 +20,7 @@ class ModalBox extends React.Component {
             <h3>{this.props.event.title}</h3>
             <p>
                 <span className="fee-sec">{this.props.event.fee}</span>
-                {this.props.event.desc}
+                <span dangerouslySetInnerHTML={{__html: this.props.event.desc}} />
             </p>
   
             <div className="footer">
