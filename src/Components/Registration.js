@@ -78,6 +78,22 @@ class Registration extends Component {
         this.setState({tempName: tpNm});
     }
 
+    formatDyuthiId = (did) => {
+        let final;
+        const digs = did.toString().length;
+        switch (digs) {
+            case 1:
+                final = 'DYT00'+did;
+                break;
+            case 2:
+                final = 'DYT0'+did;
+                break;
+            default:
+                final = 'DYT'+did;
+        }
+        return final;
+    }
+
     formSubmitHandler = (event) => {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
@@ -85,7 +101,7 @@ class Registration extends Component {
             firebase.database().ref('/participants').once('value')
                 .then((snapshot) => {
                     let dyId = Object.keys(snapshot.val()).length+1;
-                    dyId = 'DY'+dyId.toString().padStart(4, '0');
+                    dyId = this.formatDyuthiId(dyId);
                     firebase.database().ref('/participants/'+currentUser.uid)
                         .set({
                             dyuthi_id: dyId,
