@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.b477ce32.chunk.css",
-    "main.js": "/static/js/main.114f3dc2.chunk.js",
-    "main.js.map": "/static/js/main.114f3dc2.chunk.js.map",
+    "main.css": "/static/css/main.ae65cee7.chunk.css",
+    "main.js": "/static/js/main.7793bfa8.chunk.js",
+    "main.js.map": "/static/js/main.7793bfa8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.db521de0.js",
     "runtime-main.js.map": "/static/js/runtime-main.db521de0.js.map",
-    "static/js/2.79d2f68b.chunk.js": "/static/js/2.79d2f68b.chunk.js",
-    "static/js/2.79d2f68b.chunk.js.map": "/static/js/2.79d2f68b.chunk.js.map",
+    "static/js/2.aa09da00.chunk.js": "/static/js/2.aa09da00.chunk.js",
+    "static/js/2.aa09da00.chunk.js.map": "/static/js/2.aa09da00.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1137cbb4db0e6a169965baf255e33f99.js": "/precache-manifest.1137cbb4db0e6a169965baf255e33f99.js",
+    "precache-manifest.2c63f4260e8af587b61eb8f204a689d0.js": "/precache-manifest.2c63f4260e8af587b61eb8f204a689d0.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.b477ce32.chunk.css.map": "/static/css/main.b477ce32.chunk.css.map",
-    "static/js/2.79d2f68b.chunk.js.LICENSE": "/static/js/2.79d2f68b.chunk.js.LICENSE",
+    "static/css/main.ae65cee7.chunk.css.map": "/static/css/main.ae65cee7.chunk.css.map",
+    "static/js/2.aa09da00.chunk.js.LICENSE": "/static/js/2.aa09da00.chunk.js.LICENSE",
+    "static/media/3d.jpg": "/static/media/3d.8c059b50.jpg",
     "static/media/Google.svg": "/static/media/Google.3ec228d3.svg",
     "static/media/ai.jpg": "/static/media/ai.7ba7d8fa.jpg",
     "static/media/anne amie.jpg": "/static/media/anne amie.72c385cb.jpg",
@@ -29,6 +30,7 @@
     "static/media/home.css": "/static/media/gec.3b20ee3f.png",
     "static/media/hacking-workshop.jpg": "/static/media/hacking-workshop.cc6e8bee.jpg",
     "static/media/inst.jpg": "/static/media/inst.c02090d2.jpg",
+    "static/media/julia-pc.jpg": "/static/media/julia-pc.54cc1e08.jpg",
     "static/media/lagori-pc.jpg": "/static/media/lagori-pc.a6c26501.jpg",
     "static/media/lagori.jpg": "/static/media/lagori.f3235b13.jpg",
     "static/media/logo.png": "/static/media/logo.e22fa062.png",
@@ -41,8 +43,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.db521de0.js",
-    "static/js/2.79d2f68b.chunk.js",
-    "static/css/main.b477ce32.chunk.css",
-    "static/js/main.114f3dc2.chunk.js"
+    "static/js/2.aa09da00.chunk.js",
+    "static/css/main.ae65cee7.chunk.css",
+    "static/js/main.7793bfa8.chunk.js"
   ]
 }
