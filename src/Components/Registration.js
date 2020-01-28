@@ -98,9 +98,9 @@ class Registration extends Component {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
             const currentUser = firebase.auth().currentUser;
-            firebase.database().ref('/participants').once('value')
+            firebase.database().ref('/participant_count').once('value')
                 .then((snapshot) => {
-                    let dyId = Object.keys(snapshot.val()).length+1;
+                    let dyId = snapshot.val()+1;
                     dyId = this.formatDyuthiId(dyId);
                     firebase.database().ref('/participants/'+currentUser.uid)
                         .set({
@@ -109,8 +109,12 @@ class Registration extends Component {
                             email: currentUser.email,
                             mobile: this.state.tempMobile,
                             college: this.state.tempCollege
-                        }).then((data) => {
-                            this.setState({isUserCreated: true});
+                        }).then(() => {
+                            firebase.database().ref('/participant_count')
+                                .set(snapshot.val()+1)
+                                .then(() => {
+                                    this.setState({isUserCreated: true});
+                                }).catch(em => console.log(em));
                         }).catch(e => console.log(e));
                 }).catch(er => console.log(er));      
         }else{
