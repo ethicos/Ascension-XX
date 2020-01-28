@@ -18,6 +18,7 @@ import ss from './assets/images/sooraj santhosh.jpg';
 import anne from './assets/images/anne_amie.jpeg';
 import yellow from './assets/images/yello.png';
 import lagori from './assets/images/lagori-pc.jpg';
+import julia from './assets/images/julia-pc.jpg';
 import ProShowMobile from "./ProShowMobile";
 
 let ProShowPC = function () {
@@ -43,7 +44,7 @@ let ProShowPC = function () {
                     <img src={ss} alt="Sooraj Santhosh"/>
                     <img src={anne} alt="Anne Amie"/>
                     <img src={lagori} alt="Lagori"/>
-                    <img src={yellow} alt="coming soon"/>
+                    <img src={julia} alt="Julia Bliss"/>
 
                 </div>
             </section>

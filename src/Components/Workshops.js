@@ -5,6 +5,7 @@ import './assets/css/events.css';
 import './assets/css/animate.css';
 import hacking from './assets/images/hacking-workshop.jpg';
 import ai from './assets/images/ai.jpg';
+import wrkshop3d from './assets/images/3d.jpg';
 
 class Workshops extends React.Component {
     constructor(props){
@@ -24,6 +25,13 @@ class Workshops extends React.Component {
                         poster: ai,
                         contactPerson: "Athul M R",
                         contactNo: "+91 94004 10209"
+                    },{
+                        title: "3d design & 3d printing",
+                        fee: "Registration fee: ₹ 600",
+                        desc: "There used to be those days when people were in awe of replication of images and sceneries. It used to be manual, depending a whole lot on human artistry and this very baffling tradition found an automated successor in 2D printers, capable of reproducing images in colour as well as black and white. However, the future had a very unbelievable invention in hand, which could replicate objects as well-the 3D printer. \n3D Printing, which is an Additive Manufacturing technique creates physical objects from virtual 3D CAD models by depositing successive layers of material. On February 8th, Infusory Designs is conducting a workshop on 3D Design and 3D Printing which’ll cover the following topics :- \n* Developing ideas into prototypes\n* Constructing 3D model of your prototype\n* Learning basics of 3D printing\n* Familiarizing the parts of 3D printer\n<a href=\"https://bit.ly/2NNzQAj\">https://bit.ly/2NNzQAj</a>",
+                        poster: wrkshop3d,
+                        contactPerson: "Vijay A",
+                        contactNo: "+91 94477 09775"
                     }]
         }
         this.getEvents = this.getEvents.bind(this);
