@@ -8,6 +8,7 @@ import fireconfig from '../config/firebase.config';
 import Aux from './Aux';
 import Modal from './Modal';
 import Logo from './Logo';
+import EventCards from './EventCards';
 import './assets/css/Registration.css';
 
 firebase.initializeApp(fireconfig);
@@ -39,12 +40,15 @@ class Registration extends Component {
         firebase.auth().onAuthStateChanged(user => {
             this.setState({isSignedIn: !!user});
             if (!!user){
+                document.getElementById("root").style.display = "none";
                 document.getElementById("loader").style.display = "block";
                 firebase.database().ref('/participants/'+user.uid)
                     .once('value').then((snapshot) => {
                         document.getElementById("loader").style.display = "none";
+                        document.getElementById("root").style.display = "block";
                         if (snapshot.val() !== null) {
                             this.setState({user: snapshot.val()});
+                            console.log(snapshot.val());
                         }else{
                             this.setState({tempName: user.displayName});
                             this.setState({isUserCreated: false});
@@ -139,7 +143,7 @@ class Registration extends Component {
                             firebaseAuth={firebase.auth()}/>
                     </div>
                 </Modal>
-                <Modal show={!this.state.isUserCreated}>
+                <Modal show={!this.state.isUserCreated}  modalClosed={this.modalClosedHandler}>
                     <div className="ModalInner">
                         <Logo size={0}/>
                         <h3>Fill Your Personal Details</h3>
@@ -166,6 +170,7 @@ class Registration extends Component {
                         </form>
                     </div>
                 </Modal>
+                <EventCards show={this.state.isUserCreated}/>
             </Aux>
          );
     }
