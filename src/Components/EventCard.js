@@ -26,9 +26,9 @@ class EventCard extends Component {
                     <h3>
                         {this.props.data.eventname}
                     </h3>
-                    <h5>
+                    {/* <h5>
                         {this.props.data.dept}
-                    </h5>
+                    </h5> */}
                     <p>Fee: 
                         {this.props.data.fee}
                     </p>

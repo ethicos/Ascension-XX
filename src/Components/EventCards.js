@@ -52,12 +52,19 @@ class EventCards extends Component {
     componentDidMount = () => {
         firebase.database().ref('/events')
             .once('value').then((snapshot) => {
-                console.log(snapshot.val());
                 this.setState({events: snapshot.val()});
             }).catch(e => console.log(e));
     }
 
     render() {
+        let cardComponent = null;
+        if (this.state.events !== null){
+            cardComponent = Object.keys(this.state.events)
+                            .map(evKey => {
+                                return <EventCard data={this.state.events[evKey]} key={evKey}/>
+                            });
+        }
+        
         return ( 
             this.props.show ?
             <div className="EventCards">
@@ -66,12 +73,7 @@ class EventCards extends Component {
                     <h6>{this.props.user !== null ? 'Your Dyuthi Id : '+this.props.user.dyuthi_id: ''}</h6>
                 </div>
                 <div className="row">
-                    <EventCard data={this.state.e1} />
-                    <EventCard data={this.state.e2} />
-                    <EventCard data={this.state.e3} />
-                    <EventCard data={this.state.e4} />
-                    <EventCard data={this.state.e5} />
-                    <EventCard data={this.state.e6} />
+                    {cardComponent}
                 </div>
             </div>
             : null
