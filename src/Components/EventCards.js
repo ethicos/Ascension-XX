@@ -4,48 +4,14 @@ import firebase from 'firebase';
 
 import EventCard from './EventCard';
 import './assets/css/EventCards.css';
+import { array } from 'prop-types';
 
 class EventCards extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             events: null,
-            e1: {
-                eventname: 'Laberynth',
-                fee: 500,
-                dept: 'GENERAL',
-                eid: 'e001' 
-            },
-            e2: {
-                eventname: 'Best Manager',
-                fee: 300,
-                dept: 'GENERAL',
-                eid: 'e002'
-            },
-            e3: {
-                eventname: 'One Night Code',
-                fee: 150,
-                dept: 'CSE',
-                eid: 'e003'
-            },
-            e4: {
-                eventname: 'Android Maestro',
-                fee: 200,
-                dept: 'CSE',
-                eid: 'e004'
-            },
-            e5: {
-                eventname: 'Line Follower',
-                fee: 150,
-                dept: 'ECE',
-                eid: 'e005'
-            },
-            e6: {
-                eventname: 'Junk War',
-                fee: 200,
-                dept: 'MECH',
-                eid: 'e006'
-            }
+            selected_events: []
          }
     }
 
@@ -56,12 +22,32 @@ class EventCards extends Component {
             }).catch(e => console.log(e));
     }
 
+    eventAddedListener = (eid) => {
+        let event_regs = this.state.selected_events;
+        event_regs.push(eid);
+        this.setState({selected_events: event_regs});
+        console.log(this.state.selected_events);  
+    }
+
+    eventRemovedListener = (eid) => {
+        let event_regs = this.state.selected_events;
+        const index = event_regs.indexOf(eid);
+        if (index > -1) {
+            event_regs.splice(index, 1);
+        }
+        console.log(this.state.selected_events); 
+    }
+
     render() {
         let cardComponent = null;
         if (this.state.events !== null){
             cardComponent = Object.keys(this.state.events)
                             .map(evKey => {
-                                return <EventCard data={this.state.events[evKey]} key={evKey}/>
+                                return <EventCard 
+                                            data={this.state.events[evKey]} 
+                                            key={evKey}
+                                            eventAddedListener={this.eventAddedListener}
+                                            eventRemovedListener={this.eventRemovedListener}/>
                             });
         }
         

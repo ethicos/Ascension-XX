@@ -15,11 +15,14 @@ class EventCard extends Component {
     }
 
     addToCartHandler = () => {
-        console.log("Add to cart Pressed "+this.props.data.eid);
+        const eventAddedListener = this.props.eventAddedListener;
+        eventAddedListener(this.props.data.eid);
         this.setState({isClicked: true});
     }
 
     removeFromCartHandler = () => {
+        const eventRemovedListener = this.props.eventRemovedListener;
+        eventRemovedListener(this.props.data.eid);
         this.setState({isClicked: false});
     }
 
