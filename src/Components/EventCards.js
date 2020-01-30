@@ -61,6 +61,10 @@ class EventCards extends Component {
         return ( 
             this.props.show ?
             <div className="EventCards">
+                <div className="participant-data">
+                    <h4>{this.props.user !== null ? 'Hello '+this.props.user.name : ''}</h4>
+                    <h6>{this.props.user !== null ? 'Your Dyuthi Id : '+this.props.user.dyuthi_id: ''}</h6>
+                </div>
                 <div className="row">
                     <EventCard data={this.state.e1}/>
                     <EventCard data={this.state.e2}/>
