@@ -32,3 +32,45 @@
     background: white !important;
     color: #A90C35 !important;
 }
+
+.learn-more {
+    font-size: smaller;
+    color: #1D8DF0;
+    cursor: pointer;
+}
+
+.learn-more:hover {
+    font-weight: bold;
+}
+
+.modal-inner {
+    padding: 5px;
+}
+
+.modal-inner h3{
+    text-align: center;
+}
+
+.event-description {
+    overflow-y: scroll;
+    max-height: 320px;
+}
+
+.one-line {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.one-line div {
+    display: inline-block;
+}
+
+.left {
+    text-align: left;
+    width: 50%;
+}
+
+.right {
+    text-align: right;
+    width: 50%;
+}
