@@ -9,7 +9,43 @@ class EventCards extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            events: null
+            events: null,
+            e1: {
+                eventname: 'Laberynth',
+                fee: 500,
+                dept: 'GENERAL',
+                eid: 'e001' 
+            },
+            e2: {
+                eventname: 'Best Manager',
+                fee: 300,
+                dept: 'GENERAL',
+                eid: 'e002'
+            },
+            e3: {
+                eventname: 'One Night Code',
+                fee: 150,
+                dept: 'CSE',
+                eid: 'e003'
+            },
+            e4: {
+                eventname: 'Android Maestro',
+                fee: 200,
+                dept: 'CSE',
+                eid: 'e004'
+            },
+            e5: {
+                eventname: 'Line Follower',
+                fee: 150,
+                dept: 'ECE',
+                eid: 'e005'
+            },
+            e6: {
+                eventname: 'Junk War',
+                fee: 200,
+                dept: 'MECH',
+                eid: 'e006'
+            }
          }
     }
 
@@ -26,15 +62,12 @@ class EventCards extends Component {
             this.props.show ?
             <div className="EventCards">
                 <div className="row">
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
-                    <EventCard />
+                    <EventCard data={this.state.e1}/>
+                    <EventCard data={this.state.e2}/>
+                    <EventCard data={this.state.e3}/>
+                    <EventCard data={this.state.e4}/>
+                    <EventCard data={this.state.e5}/>
+                    <EventCard data={this.state.e6}/>
                 </div>
             </div>
             : null

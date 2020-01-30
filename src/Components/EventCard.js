@@ -2,14 +2,20 @@ import React from 'react';
 
 import './assets/css/EventCard.css';
 
-const EventCard = (props) => {
+const EventCard = (props) => {  
     return ( 
         <div class="EventCard">
-            <img src="https://www.quackit.com/pix/samples/23m.jpg" alt="Sample" />
             <div class="text">
-                <h3>Seamlessly visualize quality</h3>
-                <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                <button>Here's why</button>
+                <h3>
+                    {props.data.eventname}
+                </h3>
+                <h5>
+                    {props.data.dept}
+                </h5>
+                <p>Fee: 
+                    {props.data.fee}
+                </p>
+                <button>add to cart</button>
             </div>
         </div>
      );

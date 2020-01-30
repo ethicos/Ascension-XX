@@ -3,6 +3,7 @@
     margin: 10px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    border-radius: 15px;
 }
 
 .EventCard img{
@@ -10,13 +11,19 @@
 }
 
 .EventCard .text {
-    padding: 0 20px 20px;
+    padding: 20px 20px 20px;
+    text-align: center;
 }
 
 .EventCard .text > button {
-    background: gray;
-    border: 0;
+    background: #A90C35;
+    border: 1px solid #A90C35;
     color: white;
     padding: 10px;
     width: 100%;
+}
+
+.EventCard .text > button:hover{
+    background: white;
+    color: #A90C35;
 }
