@@ -1,0 +1,11 @@
+.EventCards {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.EventCards .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+}

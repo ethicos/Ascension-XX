@@ -48,7 +48,6 @@ class Registration extends Component {
                         document.getElementById("root").style.display = "block";
                         if (snapshot.val() !== null) {
                             this.setState({user: snapshot.val()});
-                            console.log(snapshot.val());
                         }else{
                             this.setState({tempName: user.displayName});
                             this.setState({isUserCreated: false});
