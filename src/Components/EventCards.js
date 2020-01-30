@@ -66,12 +66,12 @@ class EventCards extends Component {
                     <h6>{this.props.user !== null ? 'Your Dyuthi Id : '+this.props.user.dyuthi_id: ''}</h6>
                 </div>
                 <div className="row">
-                    <EventCard data={this.state.e1}/>
-                    <EventCard data={this.state.e2}/>
-                    <EventCard data={this.state.e3}/>
-                    <EventCard data={this.state.e4}/>
-                    <EventCard data={this.state.e5}/>
-                    <EventCard data={this.state.e6}/>
+                    <EventCard data={this.state.e1} />
+                    <EventCard data={this.state.e2} />
+                    <EventCard data={this.state.e3} />
+                    <EventCard data={this.state.e4} />
+                    <EventCard data={this.state.e5} />
+                    <EventCard data={this.state.e6} />
                 </div>
             </div>
             : null

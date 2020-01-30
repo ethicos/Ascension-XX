@@ -23,7 +23,12 @@
     width: 100%;
 }
 
-.EventCard .text > button:hover{
+.EventCard .text > button:hover {
     background: white;
     color: #A90C35;
+}
+
+.clicked {
+    background: white !important;
+    color: #A90C35 !important;
 }
