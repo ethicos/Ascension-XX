@@ -107,18 +107,19 @@ class Registration extends Component {
                 .then((snapshot) => {
                     let dyId = snapshot.val()+1;
                     dyId = this.formatDyuthiId(dyId);
+                    const tempUser = {
+                        dyuthi_id: dyId,
+                        name: this.state.tempName,
+                        email: currentUser.email,
+                        mobile: this.state.tempMobile,
+                        college: this.state.tempMobile
+                    }
                     firebase.database().ref('/participants/'+currentUser.uid)
-                        .set({
-                            dyuthi_id: dyId,
-                            name: this.state.tempName,
-                            email: currentUser.email,
-                            mobile: this.state.tempMobile,
-                            college: this.state.tempCollege
-                        }).then(() => {
+                        .set(tempUser).then(() => {
                             firebase.database().ref('/participant_count')
                                 .set(snapshot.val()+1)
                                 .then(() => {
-                                    this.setState({isUserCreated: true});
+                                    this.setState({isUserCreated: true, user: tempUser});
                                 }).catch(em => console.log(em));
                         }).catch(e => console.log(e));
                 }).catch(er => console.log(er));      
@@ -169,7 +170,9 @@ class Registration extends Component {
                         </form>
                     </div>
                 </Modal>
-                <EventCards show={this.state.isUserCreated}/>
+                <EventCards 
+                    show={this.state.isUserCreated}
+                    user={this.state.user}/>
             </Aux>
          );
     }
