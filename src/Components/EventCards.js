@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 
 import EventCard from './EventCard';
+import GoDown from './GoDown';
 import './assets/css/EventCards.css';
-import { array } from 'prop-types';
 
 class EventCards extends Component {
     constructor(props) {
@@ -61,6 +61,7 @@ class EventCards extends Component {
                 <div className="row">
                     {cardComponent}
                 </div>
+                <GoDown />
             </div>
             : null
          );

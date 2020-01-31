@@ -1,0 +1,60 @@
+.GoDown {
+    z-index: 50;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #A90C35;
+    color: white !important;
+    font-weight: 800;
+    text-align: center;
+    font-size: 24px;
+    /* Animation */
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.GoDown:hover {
+    cursor: pointer;
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+}
+
+.GoDown div {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+i {
+    border: solid white;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 5px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+@keyframes bounce {
+	0%, 100% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0);
+    }
+    50% {
+        -webkit-transform: translateY(-7.5px);
+		-ms-transform:     translateY(-7.5px);
+		transform:         translateY(-7.5px);
+    }
+}
