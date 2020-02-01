@@ -21,14 +21,17 @@ class EventCards extends Component {
         firebase.database().ref('/events')
             .once('value').then((snapshot) => {
                 this.setState({events: snapshot.val()});
-            }).catch(e => console.log(e));
+            }).catch(e => console.log(e.message));
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        return nextProps.show;
     }
 
     eventAddedListener = (eid) => {
         let event_regs = this.state.cart;
         event_regs.push(eid);
         this.setState({cart: event_regs});
-        console.log(this.state.cart);  
     }
 
     eventRemovedListener = (eid) => {
@@ -37,7 +40,6 @@ class EventCards extends Component {
         if (index > -1) {
             event_regs.splice(index, 1);
         }
-        console.log(this.state.cart); 
     }
 
     togglePaymentHandler = () => {
@@ -48,7 +50,21 @@ class EventCards extends Component {
         }
     }
 
-    render() {
+    checkoutHandler = () => {
+        if (this.state.cart.length !== 0) {
+            firebase.database().ref('/participants/'+this.props.user.uid).update({
+                events: this.state.cart
+            }).then(() => {
+                window.location.href = '/events/general';
+            }).catch(e => console.log(e.message));
+        }else {
+            alert("Select Events First!!");
+        }
+        
+    }
+
+    render() { 
+        console.log(this.props.user);
         let cardComponent = null;
         if (this.state.events !== null){
             cardComponent = Object.keys(this.state.events)
@@ -84,11 +100,11 @@ class EventCards extends Component {
                             <label for="switcher-2"></label>
                         </span>
                     </div>  
-                    <button class="proceed-button">Proceed</button>
+                    <button class="proceed-button" onClick={this.checkoutHandler}>Confirm Checkout</button>
                 </div>
             </div>
             : null
-         );
+        );
     }
 }
  

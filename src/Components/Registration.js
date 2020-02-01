@@ -52,7 +52,7 @@ class Registration extends Component {
                             this.setState({tempName: user.displayName});
                             this.setState({isUserCreated: false});
                         }
-                    }).catch(e => console.log(e));
+                    }).catch(e => console.log(e.message));
             }
         })
     }
@@ -108,11 +108,12 @@ class Registration extends Component {
                     let dyId = snapshot.val()+1;
                     dyId = this.formatDyuthiId(dyId);
                     const tempUser = {
+                        uid: currentUser.uid,
                         dyuthi_id: dyId,
                         name: this.state.tempName,
                         email: currentUser.email,
                         mobile: this.state.tempMobile,
-                        college: this.state.tempMobile
+                        college: this.state.tempCollege
                     }
                     firebase.database().ref('/participants/'+currentUser.uid)
                         .set(tempUser).then(() => {
@@ -120,9 +121,9 @@ class Registration extends Component {
                                 .set(snapshot.val()+1)
                                 .then(() => {
                                     this.setState({isUserCreated: true, user: tempUser});
-                                }).catch(em => console.log(em));
-                        }).catch(e => console.log(e));
-                }).catch(er => console.log(er));      
+                                }).catch(em => console.log(em.message));
+                        }).catch(e => console.log(e.message));
+                }).catch(er => console.log(er.message));      
         }else{
             alert("Enter Valid Mobile Number without country code");
             this.setState({tempMobile: ''});
