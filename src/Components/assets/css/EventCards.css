@@ -29,7 +29,7 @@
     padding: 30px;
 }
 
-.checkout-form h3,p {
+.checkout-form h3, .checkout-form p{
     text-align: center;
     font-weight: bold;
     color: white;
