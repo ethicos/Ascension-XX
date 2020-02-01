@@ -11,7 +11,9 @@ class EventCards extends Component {
         super(props);
         this.state = { 
             events: null,
-            selected_events: []
+            cart: [],
+            totalPayable: 0,
+            payMethod: 'Online'
          }
     }
 
@@ -23,19 +25,27 @@ class EventCards extends Component {
     }
 
     eventAddedListener = (eid) => {
-        let event_regs = this.state.selected_events;
+        let event_regs = this.state.cart;
         event_regs.push(eid);
-        this.setState({selected_events: event_regs});
-        console.log(this.state.selected_events);  
+        this.setState({cart: event_regs});
+        console.log(this.state.cart);  
     }
 
     eventRemovedListener = (eid) => {
-        let event_regs = this.state.selected_events;
+        let event_regs = this.state.cart;
         const index = event_regs.indexOf(eid);
         if (index > -1) {
             event_regs.splice(index, 1);
         }
-        console.log(this.state.selected_events); 
+        console.log(this.state.cart); 
+    }
+
+    togglePaymentHandler = () => {
+        if (this.state.payMethod === 'Online') {
+            this.setState({payMethod: 'At Desk'});
+        }else {
+            this.setState({payMethod: 'Online'});
+        }
     }
 
     render() {
@@ -62,6 +72,20 @@ class EventCards extends Component {
                     {cardComponent}
                 </div>
                 <GoDown />
+                <div className="checkout-form" id="bottom">
+                    <h3>Checkout</h3>
+                    <p>Payment Method : {this.state.payMethod}</p>
+                    <div class="outer">
+                        <span class="switcher switcher-2">
+                            <input 
+                                type="checkbox" 
+                                id="switcher-2" 
+                                onClick={this.togglePaymentHandler}/>
+                            <label for="switcher-2"></label>
+                        </span>
+                    </div>  
+                    <button class="proceed-button">Proceed</button>
+                </div>
             </div>
             : null
          );

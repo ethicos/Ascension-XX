@@ -19,3 +19,157 @@
 .participant-data h4, h6 {
     text-align: center;
 }
+
+.checkout-form {
+    width: 80%;
+    margin: 100px auto 100px;
+    background: #A90C35;
+    border-radius: 25px;
+    box-shadow: 2px 3px 4px #bbb;
+    padding: 30px;
+}
+
+.checkout-form h3,p {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* CHECKBOX */
+
+.outer {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+  .outer span.switcher {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+  }
+  .outer span.switcher input {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #1E1E1E;
+    outline: none;
+  }
+  .outer span.switcher input:before, .outer span.switcher input:after {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    color: #FFFFFF;
+  }
+  .outer span.switcher input:before {
+    content: 'AT Desk';
+    left: 20px;
+  }
+  .outer span.switcher input:after {
+    content: 'ONLINE';
+    right: 20px;
+  }
+  .outer span.switcher label {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 20px;
+  }
+  .outer span.switcher.switcher-2 {
+    overflow: hidden;
+  }
+  .outer span.switcher.switcher-2 input {
+    -webkit-transition: background-color 0s .5s;
+    transition: background-color 0s .5s;
+  }
+  .outer span.switcher.switcher-2 input:before {
+    color: #1E1E1E;
+  }
+  .outer span.switcher.switcher-2 input:after {
+    color: #FFFFFF;
+  }
+  .outer span.switcher.switcher-2 input:checked {
+    background-color: #FFFFFF;
+  }
+  .outer span.switcher.switcher-2 input:checked + label {
+    background: #FFFFFF;
+    -webkit-animation: turn-on .5s ease-out;
+            animation: turn-on .5s ease-out;
+  }
+  @-webkit-keyframes turn-on {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 0%;
+    }
+  }
+  @keyframes turn-on {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 0%;
+    }
+  }
+  .outer span.switcher.switcher-2 input:not(:checked) {
+    background: #1E1E1E;
+  }
+  .outer span.switcher.switcher-2 input:not(:checked) + label {
+    background: #1E1E1E;
+    -webkit-animation: turn-off .5s ease-out;
+            animation: turn-off .5s ease-out;
+  }
+  @-webkit-keyframes turn-off {
+    0% {
+      right: 100%;
+    }
+    100% {
+      right: 0%;
+    }
+  }
+  @keyframes turn-off {
+    0% {
+      right: 100%;
+    }
+    100% {
+      right: 0%;
+    }
+  }
+  .outer span.switcher.switcher-2 label {
+    top: 0px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+  }
+  
+  /* CHECKBOX */
+
+.proceed-button {
+  padding: 10px;
+  background-color: #FFF;
+  display: block;
+  width: 95px;
+  margin: 20px auto;
+  border-radius: 15px;
+  border: none;
+}
+
+.proceed-button:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
