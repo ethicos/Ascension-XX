@@ -17,7 +17,7 @@ class Registration extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            isSignedIn: false,
+            isSignedIn: !!firebase.auth().currentUser,
             isUserCreated: false,
             user: null,
             tempCollege: '',

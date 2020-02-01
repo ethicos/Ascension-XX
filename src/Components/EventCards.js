@@ -20,9 +20,7 @@ class EventCards extends Component {
     componentDidMount = () => {
         firebase.database().ref('/events')
             .once('value').then((snapshot) => {
-                this.setState({events: snapshot.val()});
-                console.log("Events populated");
-                
+                this.setState({events: snapshot.val()});                
             }).catch(e => console.log(e.code));
     }
 
@@ -59,15 +57,18 @@ class EventCards extends Component {
             firebase.database().ref('/participants/'+this.props.user.uid).update({
                 events: this.state.cart
             }).then(() => {
+                let count = 0;
                 this.state.cart.forEach(eid => {
+                    count++;
                     firebase.database().ref('/event_participation/'+eid).push(this.props.user.uid);
+                    if (count === this.state.cart.length) {
+                        window.location.reload();
+                    }
                 })
-                // window.location.href = '/events/general';
             }).catch(e => console.log(e.message));
         }else {
             alert("Select Events First!!");
         }
-        
     }
 
     render() { 
