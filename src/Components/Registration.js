@@ -18,7 +18,7 @@ class Registration extends Component {
         super(props);
         this.state = { 
             isSignedIn: false,
-            isUserCreated: true,
+            isUserCreated: false,
             user: null,
             tempCollege: '',
             tempMobile: '',
@@ -47,10 +47,9 @@ class Registration extends Component {
                         document.getElementById("loader").style.display = "none";
                         document.getElementById("root").style.display = "block";
                         if (snapshot.val() !== null) {
-                            this.setState({user: snapshot.val()});
+                            this.setState({user: snapshot.val(), isUserCreated: true});
                         }else{
-                            this.setState({tempName: user.displayName});
-                            this.setState({isUserCreated: false});
+                            this.setState({tempName: user.displayName, isUserCreated: false});
                         }
                     }).catch(e => console.log(e.message));
             }
@@ -144,7 +143,7 @@ class Registration extends Component {
                             firebaseAuth={firebase.auth()}/>
                     </div>
                 </Modal>
-                <Modal show={!this.state.isUserCreated}  modalClosed={this.modalClosedHandler}>
+                <Modal show={this.state.isSignedIn && !this.state.isUserCreated}  modalClosed={this.modalClosedHandler}>
                     <div className="ModalInner">
                         <Logo size={0}/>
                         <h3>Fill Your Personal Details</h3>
