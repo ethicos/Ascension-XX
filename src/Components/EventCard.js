@@ -50,10 +50,12 @@ class EventCard extends Component {
                         </p>
                         <p className="learn-more" onClick={this.learnMoreHandler}>Learn More...</p>
                         {
-                            !this.state.isClicked ? 
-                                <button onClick={this.addToCartHandler}>add to cart</button>
-                            :
-                                <button className="clicked" onClick={this.removeFromCartHandler}>Remove</button>
+                            !this.props.registered ?      
+                                !this.state.isClicked ? 
+                                    <button onClick={this.addToCartHandler}>add to cart</button>
+                                :
+                                    <button className="clicked" onClick={this.removeFromCartHandler}>Remove</button>
+                            : <button className="registered">registered</button>
                         }
                     </div>
                 </div>

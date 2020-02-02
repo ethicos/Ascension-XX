@@ -14,7 +14,7 @@ class EventCards extends Component {
             cart: [],
             totalPayable: 0,
             payMethod: 'Online'
-         }
+        }
     }
 
     componentDidMount = () => {
@@ -77,16 +77,42 @@ class EventCards extends Component {
     }
 
     render() { 
-        let cardComponent = null;
+        let dat = this.props.user !== null ? this.props.user.events : null;
+        let nonRegisteredEvents = null;
+        let registeredEvents = null;
         if (this.state.events !== null){
-            cardComponent = Object.keys(this.state.events)
+            nonRegisteredEvents = Object.keys(this.state.events)
                             .map(evKey => {
-                                return <EventCard 
+                                if (dat !== null && dat !== undefined) {
+                                    if (!dat.includes(evKey)) {
+                                        return <EventCard
+                                            registered={false} 
                                             data={this.state.events[evKey]} 
                                             key={evKey}
                                             eventAddedListener={this.eventAddedListener}
                                             eventRemovedListener={this.eventRemovedListener}/>
+                                    }else {
+                                        return null
+                                    }
+                                }else {
+                                    return <EventCard
+                                            registered={false} 
+                                            data={this.state.events[evKey]} 
+                                            key={evKey}
+                                            eventAddedListener={this.eventAddedListener}
+                                            eventRemovedListener={this.eventRemovedListener}/>
+                                }   
                             });
+            if (dat !== null && dat !== undefined) {
+                registeredEvents = dat.map(evKey => {
+                    return <EventCard
+                            registered={true} 
+                            data={this.state.events[evKey]} 
+                            key={evKey}
+                            eventAddedListener={this.eventAddedListener}
+                            eventRemovedListener={this.eventRemovedListener}/>
+                });
+            }
         }
         
         return ( 
@@ -97,7 +123,8 @@ class EventCards extends Component {
                     <h6>{this.props.user !== null ? 'Your Dyuthi Id : '+this.props.user.dyuthi_id: ''}</h6>
                 </div>
                 <div className="row">
-                    {cardComponent}
+                    {registeredEvents}
+                    {nonRegisteredEvents}
                 </div>
                 <GoDown />
                 <div className="checkout-form" id="bottom">

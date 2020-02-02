@@ -33,6 +33,16 @@
     color: #A90C35 !important;
 }
 
+.registered:hover {
+    background-color: #A90C35 !important;
+    color: white !important;
+    cursor: not-allowed;
+}
+
+.registered:focus {
+    outline: none;
+}
+
 .learn-more {
     font-size: smaller;
     color: #1D8DF0;
