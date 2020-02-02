@@ -33,7 +33,9 @@ class EventCards extends Component {
     eventAddedListener = (eid) => {
         let event_regs = this.state.cart;
         event_regs.push(eid);
-        this.setState({cart: event_regs});
+        let tempPay = this.state.totalPayable;
+        tempPay += this.state.events[eid].fee;
+        this.setState({cart: event_regs, totalPayable: tempPay});
     }
 
     eventRemovedListener = (eid) => {
@@ -42,6 +44,9 @@ class EventCards extends Component {
         if (index > -1) {
             event_regs.splice(index, 1);
         }
+        let tempPay = this.state.totalPayable;
+        tempPay -= this.state.events[eid].fee;
+        this.setState({cart: event_regs, totalPayable: tempPay});
     }
 
     togglePaymentHandler = () => {
@@ -97,6 +102,7 @@ class EventCards extends Component {
                 <GoDown />
                 <div className="checkout-form" id="bottom">
                     <h3>Checkout</h3>
+                    <p>Total Amount : {this.state.totalPayable}</p>
                     <p>Payment Method : {this.state.payMethod}</p>
                     <div class="outer">
                         <span class="switcher switcher-2">
@@ -107,6 +113,7 @@ class EventCards extends Component {
                             <label for="switcher-2"></label>
                         </span>
                     </div>  
+                    <p className="disclaimer">*For Team Events only team leader has to register</p>
                     <button class="proceed-button" onClick={this.checkoutHandler}>Confirm Checkout</button>
                 </div>
             </div>
