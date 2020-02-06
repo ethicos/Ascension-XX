@@ -102,27 +102,22 @@ class Registration extends Component {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
             const currentUser = firebase.auth().currentUser;
-            firebase.database().ref('/participant_count').once('value')
-                .then((snapshot) => {
-                    let dyId = snapshot.val()+1;
-                    dyId = this.formatDyuthiId(dyId);
-                    const tempUser = {
-                        uid: currentUser.uid,
-                        dyuthi_id: dyId,
-                        name: this.state.tempName,
-                        email: currentUser.email,
-                        mobile: this.state.tempMobile,
-                        college: this.state.tempCollege
-                    }
-                    firebase.database().ref('/participants/'+currentUser.uid)
-                        .set(tempUser).then(() => {
-                            firebase.database().ref('/participant_count')
-                                .set(snapshot.val()+1)
-                                .then(() => {
-                                    this.setState({isUserCreated: true, user: tempUser});
-                                }).catch(em => console.log(em.message));
-                        }).catch(e => console.log(e.message));
-                }).catch(er => console.log(er.message));      
+            firebase.database().ref('/participant_count').transaction((count) => {
+                let dyId = count+1;
+                dyId = this.formatDyuthiId(dyId);
+                const tempUser = {
+                    uid: currentUser.uid,
+                    dyuthi_id: dyId,
+                    name: this.state.tempName,
+                    email: currentUser.email,
+                    mobile: this.state.tempMobile,
+                    college: this.state.tempCollege
+                };
+                firebase.database().ref('/participants/'+currentUser.uid).set(tempUser).then(() => {
+                    this.setState({isUserCreated: true, user: tempUser});
+                }).catch(e => console.log(e.message));
+                return count+1;
+            });
         }else{
             alert("Enter Valid Mobile Number without country code");
             this.setState({tempMobile: ''});
