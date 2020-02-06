@@ -65,7 +65,11 @@ class EventCards extends Component {
                 let count = 0;
                 this.state.cart.forEach(eid => {
                     count++;
-                    firebase.database().ref('/event_participation/'+eid).push(this.props.user.uid);
+                    firebase.database().ref('/event_participation/'+eid).push({
+                        uid : this.props.user.uid,
+                        eventname: this.state.events[eid].eventname,
+                        timestamp: Date.now()
+                    });
                     if (count === this.state.cart.length) {
                         window.location.reload();
                     }
