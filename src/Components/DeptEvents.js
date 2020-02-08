@@ -14,89 +14,15 @@ import './assets/css/animate.css';
 class DeptEvents extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            events: [
-                {
-                    dept: 'Computer Science',
-                    events: [
-                        {
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },
-                        {
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },
-                        {
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },
-                    ]
-                },
-                {
-                    dept: 'Mechanical',
-                    events: [
-                        {
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },{
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },{
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },{
-                            title: "Last Man Standing",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/nucleya1.jpg?alt=media&token=a6b1db0e-f956-466d-97eb-3636542c1400"
-                        },{
-                            title: "Dungeons of dyuthi",
-                            desc: "Nisi ad aliquip exercitation eu aute sunt. Occaecat eiusmod Lorem velit commodo nostrud. Quis aliquip in pariatur minim duis mollit.",
-                            poster: "https://firebasestorage.googleapis.com/v0/b/dyuthi-bd052.appspot.com/o/inst.jpg?alt=media&token=53de5c2d-3f21-4986-9e34-21b9fa1b0a5c"
-                        },
-                    ]
-                }
-            ]
-        }
         this.getEvents = this.getEvents.bind(this);
     }
     getEvents(){
         let view = [];
         let row = [];
         let dept = [];
-        for( let deptEvent of this.state.events){
+        for( let dep in this.props.events){
             // view.push()
-            for( let event of deptEvent.events){
+            for( let event of this.props.events[dep]){
                 row.push(<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <EventItem 
                             event={event}
@@ -115,7 +41,7 @@ class DeptEvents extends Component {
                             </div>);
                 row = [];
             }
-            dept.push(<h3 className="dept-title">{deptEvent.dept}</h3>);
+            dept.push(<h3 className="dept-title">{dep}</h3>);
             dept.push(<div className="events">{view}</div>);
             view = []
         }
@@ -126,14 +52,14 @@ class DeptEvents extends Component {
         this.props.updateCurrentPage(1);
     }
     render() { 
-        return (
-            <h3 className="page-title">coming soon</h3>
-        )
-        // return ( 
-        //     <div className="dept-events fade-in">
-        //         {this.getEvents()}
-        //     </div>
-        //  );
+        // return (
+        //     <h3 className="page-title">coming soon</h3>
+        // )
+        return ( 
+            <div className="dept-events fade-in">
+                {this.getEvents()}
+            </div>
+         );
     }
 }
  

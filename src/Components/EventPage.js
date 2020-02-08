@@ -3,6 +3,7 @@ import {
     Switch,
     Link,
     Route} from "react-router-dom";
+import firebase from 'firebase';
 
 import TabbedLayout from './TabbedLayout';
 
@@ -18,12 +19,15 @@ class EventPage extends Component {
         this.state = { 
             currentPage: 0,
             isModalOpen: false,
+            deptEvents: [],
+            genEvents: [],
             modalEvent: {
                 title: '',
                 desc: ''
             } }
         this.toggleModal = this.toggleModal.bind(this);
         this.updateCurrentPage = this.updateCurrentPage.bind(this);
+        this.fetchEvents = this.fetchEvents.bind(this);
     }
     toggleModal(event){
         console.log("toggle")
@@ -43,6 +47,9 @@ class EventPage extends Component {
             currentPage: pageNo
         });
     }
+    componentDidMount(){
+        this.fetchEvents();
+    }
     render() { 
         return ( 
             <div>
@@ -52,16 +59,19 @@ class EventPage extends Component {
                     show={this.state.isModalOpen}
                     onClose={this.toggleModal}
                     event={this.state.modalEvent}/>
+                <h3 className="page-title" id="loading">loading...</h3>
                 <Switch>
                     <Route exact path="/events/general">
                         <GenEvents 
                             modalToggle={this.toggleModal}
-                            updateCurrentPage={this.updateCurrentPage}/>
+                            updateCurrentPage={this.updateCurrentPage}
+                            events={this.state.genEvents}/>
                     </Route>
                     <Route exact path="/events/dept">
                         <DeptEvents
                             modalToggle={this.toggleModal}
-                            updateCurrentPage={this.updateCurrentPage}/>
+                            updateCurrentPage={this.updateCurrentPage}
+                            events={this.state.deptEvents}/>
                     </Route>
                     {this.props.isMobile? <Route exact path="/events/workshops">
                                             <Workshops
@@ -72,6 +82,48 @@ class EventPage extends Component {
                 </Switch>
             </div>
          );
+    }
+    fetchEvents(){
+        var database = firebase.database();
+        database.ref("/events/").once('value').then( (snapshot)=>{
+            const snaps = snapshot.val();
+            var data = [];
+            var genEvents = [];
+            var deptEvents = {};
+            for( let row in snaps){
+                let event = snaps[row]
+                data.push(event);
+                if(event.is_department){
+                    let dept = event.department;
+                    if(dept in Object.keys(deptEvents)){
+                        deptEvents[dept].push(event);
+                    }else{
+                        deptEvents[dept] = [event,];
+                    }
+                }else if(event.is_department == "" && event.department == ""){
+                    // do nothing
+                }else{
+                    genEvents.push(event);
+                }
+            }
+            if(data.length <= 0){
+                this.setState({
+                    deptEvents: [],
+                    genEvents: []
+                });
+                document.getElementById("loading").innerText = "Coming Soon";
+                return;
+            }else{
+                var sortedDeptEvents = Object.keys(deptEvents).forEach((d)=>{})
+                this.setState({
+                    deptEvents: deptEvents,
+                    genEvents: genEvents
+                });
+            }
+            console.log("gen", genEvents);
+            console.log("dept", deptEvents);
+            document.getElementById("loading").style.display = "none";
+        })
     }
 }
  

@@ -38,6 +38,12 @@
 .event-contact > span{
     display: block;
 }
+.event-rounds{
+    font-size: 2vh;
+}
+.event-rounds > p{
+    margin: 0 0 0 1vh;
+}
 
 .closeBtn{
     position: relative;
