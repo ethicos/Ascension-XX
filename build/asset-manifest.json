@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.ae65cee7.chunk.css",
-    "main.js": "/static/js/main.7793bfa8.chunk.js",
-    "main.js.map": "/static/js/main.7793bfa8.chunk.js.map",
+    "main.css": "/static/css/main.b5c6fdae.chunk.css",
+    "main.js": "/static/js/main.499081c6.chunk.js",
+    "main.js.map": "/static/js/main.499081c6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.db521de0.js",
     "runtime-main.js.map": "/static/js/runtime-main.db521de0.js.map",
-    "static/js/2.aa09da00.chunk.js": "/static/js/2.aa09da00.chunk.js",
-    "static/js/2.aa09da00.chunk.js.map": "/static/js/2.aa09da00.chunk.js.map",
+    "static/js/2.aa81e35d.chunk.js": "/static/js/2.aa81e35d.chunk.js",
+    "static/js/2.aa81e35d.chunk.js.map": "/static/js/2.aa81e35d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2c63f4260e8af587b61eb8f204a689d0.js": "/precache-manifest.2c63f4260e8af587b61eb8f204a689d0.js",
+    "precache-manifest.0367d37c4e047d4e57f6cf0ce1790737.js": "/precache-manifest.0367d37c4e047d4e57f6cf0ce1790737.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.ae65cee7.chunk.css.map": "/static/css/main.ae65cee7.chunk.css.map",
-    "static/js/2.aa09da00.chunk.js.LICENSE": "/static/js/2.aa09da00.chunk.js.LICENSE",
+    "static/css/main.b5c6fdae.chunk.css.map": "/static/css/main.b5c6fdae.chunk.css.map",
+    "static/js/2.aa81e35d.chunk.js.LICENSE": "/static/js/2.aa81e35d.chunk.js.LICENSE",
     "static/media/3d.jpg": "/static/media/3d.8c059b50.jpg",
     "static/media/Google.svg": "/static/media/Google.3ec228d3.svg",
     "static/media/ai.jpg": "/static/media/ai.7ba7d8fa.jpg",
@@ -34,6 +34,7 @@
     "static/media/lagori-pc.jpg": "/static/media/lagori-pc.a6c26501.jpg",
     "static/media/lagori.jpg": "/static/media/lagori.f3235b13.jpg",
     "static/media/logo.png": "/static/media/logo.e22fa062.png",
+    "static/media/no-poster.png": "/static/media/no-poster.8a19c8fc.png",
     "static/media/proshow.png": "/static/media/proshow.20cb5d2a.png",
     "static/media/snapchat.png": "/static/media/snapchat.4ab59bf6.png",
     "static/media/sooraj santhosh.jpg": "/static/media/sooraj santhosh.be61e758.jpg",
@@ -43,8 +44,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.db521de0.js",
-    "static/js/2.aa09da00.chunk.js",
-    "static/css/main.ae65cee7.chunk.css",
-    "static/js/main.7793bfa8.chunk.js"
+    "static/js/2.aa81e35d.chunk.js",
+    "static/css/main.b5c6fdae.chunk.css",
+    "static/js/main.499081c6.chunk.js"
   ]
 }

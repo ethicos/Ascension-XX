@@ -10,7 +10,6 @@ class EventItem extends Component {
         super(props);
     }
     render() { 
-        console.log(this.props.event);
         return ( 
             <div className="event-item" onClick={()=>this.props.modalToggle(this.props.event)}>
                 <img src={this.props.event.posterUrl==""?noPoster:this.props.event.posterUrl} className="event-poster fade-in"/>

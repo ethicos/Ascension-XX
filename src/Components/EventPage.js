@@ -28,9 +28,9 @@ class EventPage extends Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.updateCurrentPage = this.updateCurrentPage.bind(this);
         this.fetchEvents = this.fetchEvents.bind(this);
+        this.sortEvents = this.sortEvents.bind(this);
     }
     toggleModal(event){
-        console.log("toggle")
         if(event==null){
             this.setState({
                 isModalOpen: !this.state.isModalOpen
@@ -59,19 +59,24 @@ class EventPage extends Component {
                     show={this.state.isModalOpen}
                     onClose={this.toggleModal}
                     event={this.state.modalEvent}/>
-                <h3 className="page-title" id="loading">loading...</h3>
                 <Switch>
                     <Route exact path="/events/general">
-                        <GenEvents 
-                            modalToggle={this.toggleModal}
-                            updateCurrentPage={this.updateCurrentPage}
-                            events={this.state.genEvents}/>
+                        <div>
+                            <h3 className="page-title" id="loading"></h3>
+                            <GenEvents 
+                                modalToggle={this.toggleModal}
+                                updateCurrentPage={this.updateCurrentPage}
+                                events={this.state.genEvents}/>
+                        </div>
                     </Route>
                     <Route exact path="/events/dept">
-                        <DeptEvents
-                            modalToggle={this.toggleModal}
-                            updateCurrentPage={this.updateCurrentPage}
-                            events={this.state.deptEvents}/>
+                        <div>
+                            <h3 className="page-title" id="loading"></h3>
+                            <DeptEvents
+                                modalToggle={this.toggleModal}
+                                updateCurrentPage={this.updateCurrentPage}
+                                events={this.state.deptEvents}/>
+                        </div>
                     </Route>
                     {this.props.isMobile? <Route exact path="/events/workshops">
                                             <Workshops
@@ -85,6 +90,16 @@ class EventPage extends Component {
     }
     fetchEvents(){
         var database = firebase.database();
+        const depts = {
+            mech: "Mechanical",
+            ce: "Civil",
+            eee: "Electrical",
+            chem: "Chemical",
+            prod: "Production", 
+            cse: "Computer Science", 
+            ec: "Electronics",
+            arch: "Architecture" 
+        }
         database.ref("/events/").once('value').then( (snapshot)=>{
             const snaps = snapshot.val();
             var data = [];
@@ -95,10 +110,11 @@ class EventPage extends Component {
                 data.push(event);
                 if(event.is_department){
                     let dept = event.department;
-                    if(dept in Object.keys(deptEvents)){
-                        deptEvents[dept].push(event);
+                    let deptName = depts[dept.toLowerCase()]
+                    if(deptName in Object.keys(deptEvents)){
+                        deptEvents[deptName].push(event);
                     }else{
-                        deptEvents[dept] = [event,];
+                        deptEvents[deptName] = [event,];
                     }
                 }else if(event.is_department == "" && event.department == ""){
                     // do nothing
@@ -114,16 +130,26 @@ class EventPage extends Component {
                 document.getElementById("loading").innerText = "Coming Soon";
                 return;
             }else{
-                var sortedDeptEvents = Object.keys(deptEvents).forEach((d)=>{})
+                var sortedDeptEvents = this.sortEvents(deptEvents)
                 this.setState({
-                    deptEvents: deptEvents,
+                    deptEvents: sortedDeptEvents,
                     genEvents: genEvents
                 });
             }
-            console.log("gen", genEvents);
-            console.log("dept", deptEvents);
-            document.getElementById("loading").style.display = "none";
+            // console.log("gen", genEvents);
+            // console.log("dept", deptEvents);
+            // document.getElementById("loading").style.display = "none";
         })
+    }
+    sortEvents(eventList){
+        let deptList = Object.keys(eventList)
+        let sortedList = new Object()
+        deptList.sort()
+        for( let dept of deptList){
+            console.log(dept)
+            sortedList[dept] = eventList[dept]
+        }
+        return sortedList;
     }
 }
  
