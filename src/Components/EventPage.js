@@ -105,17 +105,20 @@ class EventPage extends Component {
             var data = [];
             var genEvents = [];
             var deptEvents = {};
+            var count = 0;
             for( let row in snaps){
                 let event = snaps[row]
                 data.push(event);
                 if(event.is_department){
                     let dept = event.department;
                     let deptName = depts[dept.toLowerCase()]
-                    if(deptName in Object.keys(deptEvents)){
+                    if(Object.keys(deptEvents).indexOf(deptName) >= 0){
                         deptEvents[deptName].push(event);
                     }else{
                         deptEvents[deptName] = [event,];
                     }
+                    if( deptName === "Computer Science")
+                        count += 1
                 }else if(event.is_department == "" && event.department == ""){
                     // do nothing
                 }else{
@@ -145,8 +148,10 @@ class EventPage extends Component {
         let deptList = Object.keys(eventList)
         let sortedList = new Object()
         deptList.sort()
+
         for( let dept of deptList){
-            console.log(dept)
+            if( dept === "Computer Science"){
+            }
             sortedList[dept] = eventList[dept]
         }
         return sortedList;
