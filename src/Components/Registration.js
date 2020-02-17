@@ -8,6 +8,7 @@ import fireconfig from '../config/firebase.config';
 import Aux from './Aux';
 import Modal from './Modal';
 import Logo from './Logo';
+import EventCards from './EventCards';
 import './assets/css/Registration.css';
 
 firebase.initializeApp(fireconfig);
@@ -16,8 +17,8 @@ class Registration extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            isSignedIn: false,
-            isUserCreated: true,
+            isSignedIn: !!firebase.auth().currentUser,
+            isUserCreated: false,
             user: null,
             tempCollege: '',
             tempMobile: '',
@@ -39,15 +40,18 @@ class Registration extends Component {
         firebase.auth().onAuthStateChanged(user => {
             this.setState({isSignedIn: !!user});
             if (!!user){
+                document.getElementById("root").style.display = "none";
+                document.getElementById("loader").style.display = "block";
                 firebase.database().ref('/participants/'+user.uid)
                     .once('value').then((snapshot) => {
+                        document.getElementById("loader").style.display = "none";
+                        document.getElementById("root").style.display = "block";
                         if (snapshot.val() !== null) {
-                            this.setState({user: snapshot.val()});
+                            this.setState({user: snapshot.val(), isUserCreated: true});
                         }else{
-                            this.setState({tempName: user.displayName});
-                            this.setState({isUserCreated: false});
+                            this.setState({tempName: user.displayName, isUserCreated: false});
                         }
-                    }).catch(e => console.log(e));
+                    }).catch(e => console.log(e.message));
             }
         })
     }
@@ -78,25 +82,42 @@ class Registration extends Component {
         this.setState({tempName: tpNm});
     }
 
+    formatDyuthiId = (did) => {
+        let final;
+        const digs = did.toString().length;
+        switch (digs) {
+            case 1:
+                final = 'DYT00'+did;
+                break;
+            case 2:
+                final = 'DYT0'+did;
+                break;
+            default:
+                final = 'DYT'+did;
+        }
+        return final;
+    }
+
     formSubmitHandler = (event) => {
         const regex = /^\d{10}$/;
         if (regex.test(this.state.tempMobile)) {
             const currentUser = firebase.auth().currentUser;
-            firebase.database().ref('/participants').once('value')
-                .then((snapshot) => {
-                    let dyId = Object.keys(snapshot.val()).length+1;
-                    dyId = 'DY'+dyId.toString().padStart(4, '0');
-                    firebase.database().ref('/participants/'+currentUser.uid)
-                        .set({
-                            dyuthi_id: dyId,
-                            name: this.state.tempName,
-                            email: currentUser.email,
-                            mobile: this.state.tempMobile,
-                            college: this.state.tempCollege
-                        }).then((data) => {
-                            this.setState({isUserCreated: true});
-                        }).catch(e => console.log(e));
-                }).catch(er => console.log(er));      
+            firebase.database().ref('/participant_count').transaction((count) => {
+                let dyId = count+1;
+                dyId = this.formatDyuthiId(dyId);
+                const tempUser = {
+                    uid: currentUser.uid,
+                    dyuthi_id: dyId,
+                    name: this.state.tempName,
+                    email: currentUser.email,
+                    mobile: this.state.tempMobile,
+                    college: this.state.tempCollege
+                };
+                firebase.database().ref('/participants/'+currentUser.uid).set(tempUser).then(() => {
+                    this.setState({isUserCreated: true, user: tempUser});
+                }).catch(e => console.log(e.message));
+                return count+1;
+            });
         }else{
             alert("Enter Valid Mobile Number without country code");
             this.setState({tempMobile: ''});
@@ -117,7 +138,7 @@ class Registration extends Component {
                             firebaseAuth={firebase.auth()}/>
                     </div>
                 </Modal>
-                <Modal show={!this.state.isUserCreated}>
+                <Modal show={this.state.isSignedIn && !this.state.isUserCreated}  modalClosed={this.modalClosedHandler}>
                     <div className="ModalInner">
                         <Logo size={0}/>
                         <h3>Fill Your Personal Details</h3>
@@ -144,6 +165,9 @@ class Registration extends Component {
                         </form>
                     </div>
                 </Modal>
+                <EventCards 
+                    show={this.state.isUserCreated}
+                    user={this.state.user}/>
             </Aux>
          );
     }

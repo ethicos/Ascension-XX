@@ -1,0 +1,86 @@
+.EventCard {
+    flex: 0 0 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    border-radius: 15px;
+}
+
+.EventCard img{
+    max-width: 100%;
+}
+
+.EventCard .text {
+    padding: 20px 20px 20px;
+    text-align: center;
+}
+
+.EventCard .text > button {
+    background: #A90C35;
+    border: 1px solid #A90C35;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.EventCard .text > button:hover {
+    background: white;
+    color: #A90C35;
+}
+
+.clicked {
+    background: white !important;
+    color: #A90C35 !important;
+}
+
+.registered:hover {
+    background-color: #A90C35 !important;
+    color: white !important;
+    cursor: not-allowed;
+}
+
+.registered:focus {
+    outline: none;
+}
+
+.learn-more {
+    font-size: smaller;
+    color: #1D8DF0;
+    cursor: pointer;
+}
+
+.learn-more:hover {
+    font-weight: bold;
+}
+
+.modal-inner {
+    padding: 5px;
+}
+
+.modal-inner h3{
+    text-align: center;
+}
+
+.event-description {
+    overflow-y: scroll;
+    max-height: 320px;
+}
+
+.one-line {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.one-line div {
+    display: inline-block;
+}
+
+.left {
+    text-align: left;
+    width: 50%;
+}
+
+.right {
+    text-align: right;
+    width: 50%;
+}
