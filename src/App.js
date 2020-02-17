@@ -16,18 +16,9 @@ import About from "./Components/About";
 class App extends React.Component {
     constructor(){
         super();
-        this.state = {
-            loaded: false
-        };
-        this.setLoaded = this.setLoaded.bind(this);
-    }
-    setLoaded(st){
-        this.setState({
-            loaded: st
-        });
     }
     componentDidMount(){
-        document.getElementById("loader").style.display = "none";
+        
     }
     render(){
         const isMobile = window.innerWidth <= 1024;

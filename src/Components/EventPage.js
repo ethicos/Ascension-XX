@@ -98,7 +98,8 @@ class EventPage extends Component {
             prod: "Production", 
             cse: "Computer Science", 
             ec: "Electronics",
-            arch: "Architecture" 
+            arch: "Architecture" ,
+            mca: "MCA"
         }
         database.ref("/events/").once('value').then( (snapshot)=>{
             const snaps = snapshot.val();
@@ -150,8 +151,6 @@ class EventPage extends Component {
         deptList.sort()
 
         for( let dept of deptList){
-            if( dept === "Computer Science"){
-            }
             sortedList[dept] = eventList[dept]
         }
         return sortedList;
