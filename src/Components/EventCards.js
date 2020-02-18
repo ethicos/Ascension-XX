@@ -59,23 +59,32 @@ class EventCards extends Component {
 
     checkoutHandler = () => {
         if (this.state.cart.length !== 0) {
-            firebase.database().ref('/participants/'+this.props.user.uid).update({
-                events: this.state.cart
-            }).then(() => {
-                let count = 0;
-                this.state.cart.forEach(eid => {
-                    count++;
-                    firebase.database().ref('/event_participation/'+eid).push({
-                        uid : this.props.user.uid,
-                        eventname: this.state.events[eid].eventname,
-                        timestamp: Date.now(),
-                        username: this.props.user.name
-                    });
-                    if (count === this.state.cart.length) {
-                        window.location.reload();
+            firebase.database().ref('/participants/'+this.props.user.uid).once('value')
+                .then((snapshot) => {
+                    let evs;
+                    if (snapshot.val().events === undefined){
+                        evs = this.state.cart;
+                    }else{
+                        evs = [...snapshot.val().events, ...this.state.cart];
                     }
-                })
-            }).catch(e => console.log(e.message));
+                    firebase.database().ref('/participants/'+this.props.user.uid).update({
+                        events: evs
+                    }).then(() => {
+                        let count = 0;
+                        this.state.cart.forEach(eid => {
+                            count++;
+                            firebase.database().ref('/event_participation/'+eid).push({
+                                uid : this.props.user.uid,
+                                eventname: this.state.events[eid].eventname,
+                                timestamp: Date.now(),
+                                username: this.props.user.name
+                            });
+                            if (count === this.state.cart.length) {
+                                window.location.reload();
+                            }
+                        })
+                    }).catch(e => console.log(e.message));
+                }).catch(em => console.log(em.message));     
         }else {
             alert("Select Events First!!");
         }
