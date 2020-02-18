@@ -37,8 +37,8 @@ class ModalBox extends React.Component {
                   <span>{this.props.event.contactPerson}</span>
                   <span>{this.props.event.contactNo}</span>
                 </div>:
-                <></>
-                // <Link to="/events/register">Register Now</Link>
+                // <></>
+                <Link to="/events/register">Register Now</Link>
               }
             </div>
           </div>
