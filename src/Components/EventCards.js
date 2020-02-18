@@ -134,11 +134,24 @@ class EventCards extends Component {
             <div className="EventCards">
                 <div className="participant-data">
                     <h4>{this.props.user !== null ? 'Hello '+this.props.user.name : ''}</h4>
-                    <h6>{this.props.user !== null ? 'Your Dyuthi Id : '+this.props.user.dyuthi_id: ''}</h6>
+                    {this.props.user !== null?
+                    <h6>Your Dyuthi Id : <span className="non-dyuthi"><b>{this.props.user.dyuthi_id}</b></span></h6>:
+                    <></>}
                 </div>
-                <div className="row">
-                    {registeredEvents}
-                    {nonRegisteredEvents}
+                <br/>
+                <br/>
+
+                
+                <div class="container">
+                    <h4>Registered Events</h4>
+                    <div class="row">
+                        {registeredEvents}
+                    </div>
+                    <br/><br/><br/>
+                    <h4>Other Events</h4>
+                    <div className="row">
+                        {nonRegisteredEvents}
+                    </div>
                 </div>
                 <GoDown />
                 <div className="checkout-form" id="bottom">

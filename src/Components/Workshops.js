@@ -6,6 +6,8 @@ import './assets/css/animate.css';
 import hacking from './assets/images/hacking-workshop.jpg';
 import ai from './assets/images/ai.jpg';
 import wrkshop3d from './assets/images/3d.jpg';
+import web from './assets/images/web.jpg';
+import android from './assets/images/android.jpg';
 
 class Workshops extends React.Component {
     constructor(props){
@@ -32,6 +34,20 @@ class Workshops extends React.Component {
                         posterUrl: wrkshop3d,
                         contactPerson: "Vijay A",
                         contactNo: "+91 94477 09775"
+                    },{
+                        eventname: "Web Development",
+                        fee: "Registration fee: ₹ 300",
+                        desc: "Development’ will be conducted, which will cover all the core concepts-using Django framework and including basics of HTML and CSS-and the participants will be equipped to make a demo website by the end of the session. The workshop on *Web Development* will be conducted by the Ideator on February 21st.Contact Abhijith Radhakrishnan-7907977470 for further details. The registration fee is Rs.300. Interested candidates also visit the following link- <a hre=\"https://forms.gle/RUz3VZD9DnNKA5hD9\">https://forms.gle/RUz3VZD9DnNKA5hD9</a>",
+                        posterUrl: web,
+                        contactPerson: "Abhijith Radhakrishnan",
+                        contactNo: "+91 79079 77470"
+                    },{
+                        eventname: "Hacking Android Applications",
+                        fee: "Registration fee: ₹ 300",
+                        desc: "Development’ will be conducted, which will cover all the core concepts-using Django framework and including basics of HTML and CSS-and the participants will be equipped to make a demo website by the end of the session.The workshop on *Web Development* will be conducted by the Ideator on February 21st.Contact Abhijith Radhakrishnan-7907977470 for further details. The registration fee is Rs.300. Interested candidates also visit the following link-<a href=\"https://forms.gle/RUz3VZD9DnNKA5hD9\">https://forms.gle/RUz3VZD9DnNKA5hD9</a>",
+                        posterUrl: android,
+                        contactPerson: "Cyriac Biju",
+                        contactNo: "+91 80784 60133"
                     }]
         }
         this.getEvents = this.getEvents.bind(this);

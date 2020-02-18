@@ -37,16 +37,18 @@ class EventCard extends Component {
     render() { 
         return ( 
             <Aux>
+                
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="EventCard">
                     <div class="text">
-                        <h3>
+                        <h3 className="event-reg-title">
                             {this.props.data.eventname}
                         </h3>
                         {/* <h5>
                             {this.props.data.dept}
                         </h5> */}
                         <p>Fee: 
-                            {this.props.data.fee}
+                            ₹ {this.props.data.fee}
                         </p>
                         <p className="learn-more" onClick={this.learnMoreHandler}>Learn More...</p>
                         {
@@ -57,6 +59,7 @@ class EventCard extends Component {
                                     <button className="clicked" onClick={this.removeFromCartHandler}>Remove</button>
                             : <button className="registered">registered</button>
                         }
+                    </div>
                     </div>
                 </div>
                 <Modal show={this.state.isModalActive} modalClosed={this.modalClosedHandler}>
