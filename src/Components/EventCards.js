@@ -13,7 +13,9 @@ class EventCards extends Component {
             events: null,
             cart: [],
             totalPayable: 0,
-            payMethod: 'Online'
+            payMethod: 'Online',
+            comboAvailed: false,
+            alertPopup: false
         }
     }
 
@@ -39,6 +41,11 @@ class EventCards extends Component {
             if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
                 if (comboPrice < 400){
                     comboPrice += Number(this.state.events[evid].fee);
+                }else{
+                    if(!this.state.comboAvailed){
+                        this.setState({comboAvailed: true});
+                        alert("You are getting a combo");
+                    }
                 }
             }else {
                 totPay += Number(this.state.events[evid].fee);
