@@ -33,9 +33,19 @@ class EventCards extends Component {
     eventAddedListener = (eid) => {
         let event_regs = this.state.cart;
         event_regs.push(eid);
-        let tempPay = Number(this.state.totalPayable);
-        tempPay += Number(this.state.events[eid].fee);
-        this.setState({cart: event_regs, totalPayable: tempPay});
+        let totPay = 0;
+        let comboPrice = 0;
+        event_regs.forEach(evid => {
+            if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
+                if (comboPrice < 400){
+                    comboPrice += Number(this.state.events[evid].fee);
+                }
+            }else {
+                totPay += Number(this.state.events[evid].fee);
+            }
+        })
+        totPay += comboPrice;
+        this.setState({cart: event_regs, totalPayable: totPay});
     }
 
     eventRemovedListener = (eid) => {
@@ -44,9 +54,19 @@ class EventCards extends Component {
         if (index > -1) {
             event_regs.splice(index, 1);
         }
-        let tempPay = this.state.totalPayable;
-        tempPay -= this.state.events[eid].fee;
-        this.setState({cart: event_regs, totalPayable: tempPay});
+        let totPay = 0;
+        let comboPrice = 0;
+        event_regs.forEach(evid => {
+            if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
+                if (comboPrice < 400){
+                    comboPrice += Number(this.state.events[evid].fee);
+                }
+            }else {
+                totPay += Number(this.state.events[evid].fee);
+            }
+        })
+        totPay += comboPrice;
+        this.setState({cart: event_regs, totalPayable: totPay});
     }
 
     togglePaymentHandler = () => {
