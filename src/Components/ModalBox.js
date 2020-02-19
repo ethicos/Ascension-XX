@@ -8,6 +8,11 @@ class ModalBox extends React.Component {
     constructor(){
       super();
       this.getEventDesc = this.getEventDesc.bind(this);
+      this.parseDesc = this.parseDesc.bind(this);
+    }
+    parseDesc(desc){
+      let newDesc = desc.replace(/\n/g, "<br/>");
+      return newDesc;
     }
     render() {
       // Render nothing if the "show" prop is false
@@ -24,7 +29,7 @@ class ModalBox extends React.Component {
             <h3>{this.props.event.eventname}</h3>
             <p>
                 <span className="fee-sec">Registration Fee: ₹{this.props.event.fee}</span>
-                <span dangerouslySetInnerHTML={{__html: this.props.event.desc}} />
+                <span dangerouslySetInnerHTML={{__html: this.parseDesc(this.props.event.desc)}} />
                 {!this.props.isWorkshop?
                   <span className="event-rounds" dangerouslySetInnerHTML={{__html: this.getEventDesc(this.props.event)}}/>:
                   <></>
