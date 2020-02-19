@@ -4,6 +4,7 @@ import firebase from 'firebase';
 
 import EventCard from './EventCard';
 import GoDown from './GoDown';
+import Swal from 'sweetalert2';
 import './assets/css/EventCards.css';
 
 class EventCards extends Component {
@@ -44,7 +45,12 @@ class EventCards extends Component {
                 }else{
                     if(!this.state.comboAvailed){
                         this.setState({comboAvailed: true});
-                        alert("You are getting a combo");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Combo Activated',
+                            text: 'You\'ve got a combo by selecting events of ₹150 and ₹100 worth ₹400+ you won\'t be charged further for these categories during this purchase',
+                            confirmButtonColor: '#A90C35'
+                        })                         
                     }
                 }
             }else {
@@ -113,7 +119,12 @@ class EventCards extends Component {
                     }).catch(e => console.log(e.message));
                 }).catch(em => console.log(em.message));     
         }else {
-            alert("Select Events First!!");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Select an event First',
+                confirmButtonColor: '#A90C35'
+            })              
         }
     }
 
