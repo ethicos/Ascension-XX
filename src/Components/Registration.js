@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import Swal from 'sweetalert2';
 
 import fireconfig from '../config/firebase.config';
 
@@ -119,7 +120,12 @@ class Registration extends Component {
                 return count+1;
             });
         }else{
-            alert("Enter Valid Mobile Number without country code");
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Mobile Number',
+                text: 'Enter valid mobile number without country code',
+                confirmButtonColor: '#A90C35'
+            });              
             this.setState({tempMobile: ''});
         }
         event.preventDefault();

@@ -4,6 +4,7 @@ import firebase from 'firebase';
 
 import EventCard from './EventCard';
 import GoDown from './GoDown';
+import Swal from 'sweetalert2';
 import './assets/css/EventCards.css';
 
 class EventCards extends Component {
@@ -13,7 +14,9 @@ class EventCards extends Component {
             events: null,
             cart: [],
             totalPayable: 0,
-            payMethod: 'Online'
+            payMethod: 'Online',
+            comboAvailed: false,
+            alertPopup: false
         }
     }
 
@@ -33,9 +36,29 @@ class EventCards extends Component {
     eventAddedListener = (eid) => {
         let event_regs = this.state.cart;
         event_regs.push(eid);
-        let tempPay = Number(this.state.totalPayable);
-        tempPay += Number(this.state.events[eid].fee);
-        this.setState({cart: event_regs, totalPayable: tempPay});
+        let totPay = 0;
+        let comboPrice = 0;
+        event_regs.forEach(evid => {
+            if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
+                if (comboPrice < 400){
+                    comboPrice += Number(this.state.events[evid].fee);
+                }else{
+                    if(!this.state.comboAvailed){
+                        this.setState({comboAvailed: true});
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Combo Activated',
+                            text: 'You\'ve got a combo by selecting events of ₹150 and ₹100 worth ₹400+ you won\'t be charged further for these categories during this purchase',
+                            confirmButtonColor: '#A90C35'
+                        })                         
+                    }
+                }
+            }else {
+                totPay += Number(this.state.events[evid].fee);
+            }
+        })
+        totPay += comboPrice;
+        this.setState({cart: event_regs, totalPayable: totPay});
     }
 
     eventRemovedListener = (eid) => {
@@ -44,9 +67,19 @@ class EventCards extends Component {
         if (index > -1) {
             event_regs.splice(index, 1);
         }
-        let tempPay = this.state.totalPayable;
-        tempPay -= this.state.events[eid].fee;
-        this.setState({cart: event_regs, totalPayable: tempPay});
+        let totPay = 0;
+        let comboPrice = 0;
+        event_regs.forEach(evid => {
+            if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
+                if (comboPrice < 400){
+                    comboPrice += Number(this.state.events[evid].fee);
+                }
+            }else {
+                totPay += Number(this.state.events[evid].fee);
+            }
+        })
+        totPay += comboPrice;
+        this.setState({cart: event_regs, totalPayable: totPay});
     }
 
     togglePaymentHandler = () => {
@@ -86,7 +119,12 @@ class EventCards extends Component {
                     }).catch(e => console.log(e.message));
                 }).catch(em => console.log(em.message));     
         }else {
-            alert("Select Events First!!");
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Select an event First',
+                confirmButtonColor: '#A90C35'
+            })              
         }
     }
 
