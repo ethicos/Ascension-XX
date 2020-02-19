@@ -42,21 +42,23 @@ class EventCards extends Component {
             if(this.state.events[evid].fee === "100" || this.state.events[evid].fee === "150"){
                 if (comboPrice < 400){
                     comboPrice += Number(this.state.events[evid].fee);
-                }else{
-                    if(!this.state.comboAvailed){
-                        this.setState({comboAvailed: true});
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Combo Activated',
-                            text: 'You\'ve got a combo by selecting events of ₹150 and ₹100 worth ₹400+ you won\'t be charged further for these categories during this purchase',
-                            confirmButtonColor: '#A90C35'
-                        })                         
-                    }
                 }
             }else {
                 totPay += Number(this.state.events[evid].fee);
             }
         })
+        if (comboPrice > 400){
+            comboPrice = 400;
+            if(!this.state.comboAvailed){
+                this.setState({comboAvailed: true});
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Combo Activated',
+                    text: 'You\'ve got a combo by selecting events of ₹150 and ₹100 worth ₹400+ you won\'t be charged further for these categories during this purchase',
+                    confirmButtonColor: '#A90C35'
+                })                         
+            }
+        }
         totPay += comboPrice;
         this.setState({cart: event_regs, totalPayable: totPay});
     }
@@ -78,6 +80,9 @@ class EventCards extends Component {
                 totPay += Number(this.state.events[evid].fee);
             }
         })
+        if (comboPrice > 400){
+            comboPrice = 400;
+        }
         totPay += comboPrice;
         this.setState({cart: event_regs, totalPayable: totPay});
     }
