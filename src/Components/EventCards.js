@@ -43,6 +43,17 @@ class EventCards extends Component {
                 if (comboPrice < 400){
                     comboPrice += Number(this.state.events[evid].fee);
                 }
+                else{
+                    if(!this.state.comboAvailed){
+                        this.setState({comboAvailed: true});
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Combo Activated',
+                            text: 'You\'ve got a combo by selecting events of ₹150 and ₹100 worth ₹400+ you won\'t be charged further for these categories during this purchase',
+                            confirmButtonColor: '#A90C35'
+                        })                         
+                    }  
+                }
             }else {
                 totPay += Number(this.state.events[evid].fee);
             }
