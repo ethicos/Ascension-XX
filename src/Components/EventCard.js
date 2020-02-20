@@ -52,7 +52,7 @@ class EventCard extends Component {
                             </p>
                             <p className="learn-more" onClick={this.learnMoreHandler}>Learn More...</p>
                             {
-                                !!this.props.data.isEventClosed ?
+                                !!this.props.data.is_closed ?
                                     <button className="registered">closed</button>
                                 :
                                     !this.props.registered ?      
