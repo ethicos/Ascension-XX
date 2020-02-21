@@ -222,7 +222,7 @@ class EventCards extends Component {
                             <label for="switcher-2"></label>
                         </span>
                     </div>   */}
-                    <p className="disclaimer">*For Team Events only team leader has to register</p>
+                    <p className="disclaimer"></p>
                     <button class="proceed-button" onClick={this.checkoutHandler}>Confirm Checkout</button>
                 </div>
             </div>
