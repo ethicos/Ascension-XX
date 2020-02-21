@@ -515,7 +515,7 @@ const jQuery = $;
 //
 // })( jQuery );
 
-var proshow_names = ['Julia Bliss' , 'sooraj santhosh' , 'anne amie', 'lagori'];
+var proshow_names = ['Mari Ferrari' , 'sooraj santhosh' , 'anne amie', 'lagori'];
 var proshow_des = ['dj night' , 'Live concert' , 'live concert', 'live concert']
 var current = 1;
 ;(function ($) {
