@@ -62,9 +62,9 @@ class ModalBox extends React.Component {
         const padTime = (l)=>{ if(l<10){ return "0" + l} else { return l} }
         if ( splt[0] > 12 )
           return padTime(parseInt(splt[0]) - 12) + ":" + splt[1] + " PM"
-        else if( splt[0] == 12)
+        else if( splt[0] === 12)
             return  "12:" + splt[1] + " PM"
-        else if( splt[0] == "00"){
+        else if( splt[0] === "00"){
           return "12:" + splt[1] + " AM"
         }
         return t + " AM";

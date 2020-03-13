@@ -6,9 +6,9 @@ import EventPage from './EventPage';
 import './assets/css/animate.css';
 
 class Events extends React.Component {
-    constructor(){
-        super();
-    }
+    // constructor(){
+    //     super();
+    // }
     componentDidMount(){
         this.props.setCurrentLink("events");
     }

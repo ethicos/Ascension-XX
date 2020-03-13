@@ -11,7 +11,7 @@ let ProShowMobile = function () {
         <div>
             <div className="proshow-heading">
                 {/*{isMobile?<h2>Proshows</h2>:<h2>sdfsdjf</h2>}*/}
-                <h2>Proshows</h2>
+                <h2>Attractions</h2>
 
             </div>
             <section id="dg-container" className="proshow-container">
@@ -20,10 +20,10 @@ let ProShowMobile = function () {
                 <div className="carousel">
 
                     {/*{isMobile ? <ProShowMobile/>:<ProshowPC/> }*/}
-                    <img src={green} alt="Anne Amie"/>
-                    <img src={lagori} alt="Lagori"/>
-                    <img src={maari} alt="Mari Ferrari"/>
-                    <img src={pink} alt="Suraj Santhosh"/>
+                    <img src={green} alt="nerdinia"/>
+                    <img src={lagori} alt="debate"/>
+                    <img src={maari} alt="culturals"/>
+                    <img src={pink} alt="Ascension"/>
 
                 </div>
             </section>

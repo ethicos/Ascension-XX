@@ -61,10 +61,10 @@ class Home extends React.Component {
     render(){
         return (
             <div className="gec-home fade-in" id="home">
-                <p className="dyuthi-date">Feb 20 21 22 23</p>
-                <h1 className="dyuthi-title dyuthi-title-dark">dyuthi <span className="xx">XX</span></h1>
-                <p className="dyuthi-info">The National Level Multi Fest <br/>
-                Organised by GEC Thrissur</p>
+                <p className="dyuthi-date">Apr 20 21 22 </p>
+                <h1 className="dyuthi-title dyuthi-title-dark">Ascension <span className="xx">XX</span></h1>
+                <p className="dyuthi-info">LEADING THE WAY; MAKING A DIFFERENCE;<br/>
+                LIGHTING THE FUTURE; </p>
 
 
                 {!this.props.loaded ?

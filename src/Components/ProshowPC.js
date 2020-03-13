@@ -16,7 +16,7 @@ import React from "react";
 //
 import ss from './assets/images/sooraj santhosh.jpg';
 import anne from './assets/images/anne_amie.jpeg';
-import yellow from './assets/images/yello.png';
+//import yellow from './assets/images/yello.png';
 import lagori from './assets/images/lagori-pc.jpg';
 import maari from './assets/images/mari_horiz.jpg';
 import ProShowMobile from "./ProShowMobile";
@@ -32,8 +32,8 @@ let ProShowPC = function () {
         // </div>
         <div>
             <div className="proshow-heading">
-                <h2 id="proshow-h2">Suraj Santhosh </h2>
-                <h5 style={{marginTop:'-5px'}} id="proshow-sub">Live concert</h5>
+                <h2 id="proshow-h2">Ascension 2020</h2>
+                <h5 style={{marginTop:'-5px'}} id="proshow-sub"></h5>
             </div>
             <section id="dg-container" className="proshow-container">
 
@@ -41,10 +41,10 @@ let ProShowPC = function () {
                 <div className="carousel">
 
                     {/*{isMobile ? <ProShowMobile/>:<ProshowPC/> }*/}
-                    <img src={ss} alt="Sooraj Santhosh"/>
-                    <img src={anne} alt="Anne Amie"/>
-                    <img src={lagori} alt="Lagori"/>
-                    <img src={maari} alt="Mri Ferrari"/>
+                    <img src={ss} alt="Ascension"/>
+                    <img src={anne} alt="Nerdinia"/>
+                    <img src={lagori} alt="debate"/>
+                    <img src={maari} alt="culturals"/>
 
                 </div>
             </section>

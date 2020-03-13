@@ -5,9 +5,9 @@ import fullGec from './assets/images/full-gec.svg';
 import './assets/css/animate.css';
 
 class Contact extends React.Component {
-    constructor(){
-        super();
-    }
+    // constructor(){
+    //     super();
+    // }
     componentDidMount(){
         this.props.setCurrentLink("contact");
     }
@@ -31,44 +31,49 @@ class Contact extends React.Component {
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Mohammed Arshad P"
-                                    des="Chairman"
-                                    number="+91 96562 25585"/>
+                                    name="GOUTHAM KRISHNA"
+                                    des="Chairman pradyotha student counsil"
+                                    number="+91 9446481885"/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Aashminath K M"
-                                    des="Vice Chairperson"
-                                    number="+91 83019 15150"/>
+                                    name="HIMA MEGHA MS"
+                                    
+                                    number="+91 8921299713"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Adhil Falah"
-                                    des="Gen. Secretary"
-                                    number="+91 90486 63434"/>
+                                    name="NORSHILA RIYA"
+                                    
+                                    number="+91 9495250733"/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Roshan Tomy"
-                                    des="Fine Arts Secretary"
-                                    number="+91 95396 02566"/>
+                                    name="TOM RAPHY"
+                                    
+                                    number="+91 7909112610"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <ContactCard 
-                                    name="Sayooj P"
-                                    des="Sponsorship Committee Convener"
-                                    number="+91 98461 35482"/>
+                                    name="MOHAMMED SADIQE"
+                                    
+                                    number="+91 9744872986  "/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                
+                                <ContactCard 
+                                    name="ARCHANA"
+                                    
+                                    number="+91 8078878921"/>
                             </div>
                         </div>
+
                         <br/>
                     </div>
+
                     {this.props.isMobile?
                         <></>:
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -79,21 +84,21 @@ class Contact extends React.Component {
                 <div class="row contact-footer">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <span className="contact-email">
-                            <a href="mailto:dyuthi@gectcr.ac.in" parent="_blank">
-                                dyuthi<span className="non-dyuthi">@</span>gectcr.ac.in
+                            <a href="mailto:ascension2020@gmail.com" parent="_blank">
+                                ascension2020<span className="non-dyuthi">@</span>gmail.com
                             </a>
                         </span>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <span className="contact-email">
-                            <a href="https://instagram.com/dyuthilive" parent="_blank">
-                                <span className="non-dyuthi">@</span>dyuthilive
+                            <a href="https://www.instagram.com/ascension20_20/" parent="_blank">
+                                <span className="non-dyuthi">@</span>ascension2020
                             </a>
                         </span>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <span className="contact-email">
-                            <a href="https://www.facebook.com/dyuthigec/">dyuthigec</a>
+                            <a href="https://m.facebook.com/Ascension-2020-106003614311313/">Ascension2020</a>
                         </span>
                     </div>
                 </div>

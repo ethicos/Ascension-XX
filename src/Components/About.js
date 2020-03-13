@@ -26,17 +26,13 @@ class About extends React.Component {
                             <img src={gecArch} className="gec-arch"/>   }
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <h2 className="about-title">Describing the vibe is <br/> the toughest part !!</h2>
+                        <h2 className="about-title">ASCENSION 2020<br/></h2>
                         <p className="about-desc">
-                        Dyuthi is one of the most prominent and celebrated platforms of the year, attracting the talented and energetic youth from all over the South.
+                        A Medical fiesta aimed at endowing oppurtunities for medical intellects to learn from the experts and to refine their skills through an array of workshops and challenges while instilling professionalism and good ethics<br></br><br></br>
 
-                        It is 'the' spot where all kinds of students from anywhere and everywhere congregates to explore, innovate and create.
-                         
-                        This time, students get to showcase not just their winsome cultural talents, but also their adept technical flair, ensuring that every student gets to portray his inner talents, be what it may.
 
-                        For students all over Kerala, Dyuthi has become the beacon for an exuberant rendezvous of art and technology.
 
-                        With this diverse multitude honing in, GEC becomes a gala of  competence and energy, creating memorable moments to treasure enduringly.</p>
+PK Das Institute of Medical Sciences is a reputed super specialty and general hospital with 750 beds situated at ottapalam in Kerala. the hospital is in close proximity to the city centres and located on a picturesque location near the banks of Nila, a river of great significance in Kerala`s history and culture.PK DAS INSTITUTE OF MEDICAL SCIENCES is a state-of-the-art super- speciality and general hospital with 750 beds which aims to provide world-class healthcare at the least possible cost to all patients. A seal of medical excellence, PK DAS INSTITUTE OF MEDICAL SCIENCES is named after its founder Late P. K. Das, F.I.E., F.I. Mech. E., M.S. Engg., A.F.R.Ae.S. (London), C.Engg. an academician par excellence, a renowned industrialist and a great philanthropist. The hospital is part of the Nehru Group of institutions, a name synonymous with quality higher education in south India. PK DAS INSTITUTE OF MEDICAL SCIENCES offers a level of expertise and a standard of clinical excellence which are world class and at par with the topmost healthcare centers in India and abroad – attracting leading consultants from around the world and becoming the hospital of choice for both patients and healthcare providers</p>
                     </div>
                 </div>
             </div>

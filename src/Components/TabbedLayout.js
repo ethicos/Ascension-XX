@@ -19,10 +19,10 @@ class TabbedLayout extends Component {
                     <h1 className="event-title-phone">Events</h1>
                     <div className="tab-row">
                         <span className={tabGenClassName}>
-                            <Link to="/events/general">Gen. Events</Link>
+                            <Link to="/events/general"></Link>
                         </span>       
                         <span className={tabDeptClassName}>
-                            <Link to="/events/dept">Dept. Events</Link>
+                            <Link to="/events/dept">Schedules</Link>
                         </span>
                         <span className={tabWrkshpClassName}>
                             <Link to="/events/workshops">Workshops</Link>
@@ -34,14 +34,10 @@ class TabbedLayout extends Component {
             return ( 
                 <div>
                     <div className="tab-row">
-                        <Link to="/events/general">
-                            <span className={tabGenClassName}>
-                                General Events
-                            </span>    
-                        </Link>
+                        
                         <Link to="/events/dept">
                             <span className={tabDeptClassName}>
-                                Department Events
+                                Schedule
                             </span>
                         </Link>
                     </div>

@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+//import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 import Home from './Home';
 import About from './About';
@@ -14,14 +14,14 @@ import Events from './Events';
 import Contact from './Contact';
 import Logo from './Logo';
 
-import about from './assets/images/about.png';
-import aboutActive from './assets/images/about-active.png';
-import events from './assets/images/events.png';
-import eventsActive from './assets/images/events-active.png';
-import proshow from './assets/images/proshow.png';
-import proshowActive from './assets/images/proshow-active.png';
-import contact from './assets/images/contact.png';
-import contactActive from './assets/images/contact-active.png';
+// import about from './assets/images/about.png';
+// import aboutActive from './assets/images/about-active.png';
+// import events from './assets/images/events.png';
+// import eventsActive from './assets/images/events-active.png';
+// import proshow from './assets/images/proshow.png';
+// import proshowActive from './assets/images/proshow-active.png';
+// import contact from './assets/images/contact.png';
+// import contactActive from './assets/images/contact-active.png';
 
 import './assets/css/bottom-nav.css';
 import './assets/css/animate.css';
@@ -50,7 +50,7 @@ class BottomNav extends React.Component {
     for(let e of elements){
       e.parentNode.classList.remove("active");
     }
-    if( linkText == "home"){
+    if( linkText === "home"){
         let logoBtn = document.getElementById("logo-sec");
         if( logoBtn.classList.contains("slide-up")){
             logoBtn.classList.remove("slide-up");
@@ -67,7 +67,7 @@ class BottomNav extends React.Component {
         logoBtn.style.display = "inline";
     }
     let el = document.getElementById(linkText);
-    if( el == null )
+    if( el === null )
         return;
     
     // let parent = el.childNodes[0];
@@ -83,7 +83,7 @@ class BottomNav extends React.Component {
                                 <span id="about" className="bottom-nav-text">About</span>
                             </Link>
                             <Link to="/proshows">
-                                <span id="proshows" className="bottom-nav-text">Proshows</span>
+                                <span id="proshows" className="bottom-nav-text">Attractions</span>
                             </Link>
                             <span className="logo-sec slide-up" id="logo-sec">
                                 <Link to="/">

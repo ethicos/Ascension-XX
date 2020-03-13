@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+//import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 import Home from './Home';
 import About from './About';
@@ -41,7 +41,7 @@ class Nav extends React.Component {
     for(let e of elements){
       e.classList.remove("active");
     }
-    if( linkText == "home")
+    if( linkText === "home")
       return;
     let el = document.getElementById(linkText);
     let parent = el.parentElement;
@@ -54,19 +54,19 @@ class Nav extends React.Component {
               <ul>
                   <li>
                     <Link to="/about" 
-                          className={window.location.pathname == "/about"?"active":""}>
+                          className={window.location.pathname === "/about"?"active":""}>
                             <span class="link" id="about">ABOUT</span>
                           </Link>
                   </li>
                   <li>
                     <Link to="/proshows"
-                          className={window.location.pathname == "/proshows"?"active":""}>
+                          className={window.location.pathname === "/proshows"?"active":""}>
                             <span class="link" id="proshows">PRO SHOWS</span>
                           </Link>
                   </li>
                   <li>
                     <Link to="/workshops"
-                          className={window.location.pathname == "/workshops"?"active":""}>
+                          className={window.location.pathname === "/workshops"?"active":""}>
                             <span class="link" id="workshops">WORKSHOPS</span>
                           </Link>
                   </li>
@@ -80,13 +80,13 @@ class Nav extends React.Component {
                     </li>
                   <li>
                     <Link to="/sponsors"
-                          className={window.location.pathname == "/sponsors"?"active":""}>
+                          className={window.location.pathname === "/sponsors"?"active":""}>
                             <span class="link" id="sponsors">SPONSORS</span>
                           </Link>
                     </li>
                   <li>
                     <Link to="/contact"
-                          className={window.location.pathname == "/contact"?"active":""}>
+                          className={window.location.pathname === "/contact"?"active":""}>
                             <span class="link" id="contact">CONTACT</span>
                           </Link>
                     </li>

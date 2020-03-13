@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './assets/images/logo.png';
+//import logo from './assets/images/logo.png';
 import snap from './assets/images/snapchat.png';
 import './assets/css/sponsors.css';
 import './assets/css/animate.css';
-import arch from './assets/images/arch.svg';
+//import arch from './assets/images/arch.svg';
 class Sponsors extends React.Component {
     constructor() {
         super();
