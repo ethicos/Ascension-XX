@@ -9,6 +9,9 @@ import cloud from './assets/images/cl1.png';
 import cloud1 from './assets/images/cl2.png';
 import cloud2 from './assets/images/cl3.png';
 import cloud3 from './assets/images/cl4.png';
+import './assets/css/events.css';
+
+import { Link } from 'react-router-dom';
 
 
 // function Home(){
@@ -65,6 +68,16 @@ class Home extends React.Component {
                 <h1 className="dyuthi-title dyuthi-title-dark">Ascension <span className="xx">XX</span></h1>
                 <p className="dyuthi-info">LEADING THE WAY; MAKING A DIFFERENCE;<br/>
                 LIGHTING THE FUTURE; </p>
+
+                <div className="tab-row">
+                         <br></br>
+                         <br></br>
+                        <span >
+                            <Link to="/Registration"
+                          className={window.location.pathname === "/Registration"?"active":""}>
+                            <span className="link" id="sponsors">REGISTER</span></Link>
+                        </span>
+                    </div>
 
 
                 {!this.props.loaded ?

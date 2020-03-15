@@ -9,11 +9,7 @@ let ProShowMobile = function () {
 
     return(
         <div>
-            <div className="proshow-heading">
-                {/*{isMobile?<h2>Proshows</h2>:<h2>sdfsdjf</h2>}*/}
-                <h2>Attractions</h2>
-
-            </div>
+            
             <section id="dg-container" className="proshow-container">
 
 

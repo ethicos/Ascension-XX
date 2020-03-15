@@ -10,7 +10,8 @@ import {
 import Home from './Home';
 import About from './About';
 import Proshows from './Proshows';
-import Events from './Events';
+import EventPage from './EventPage';
+
 import Contact from './Contact';
 import './assets/css/nav.css';
 import Logo from './Logo';
@@ -61,7 +62,7 @@ class Nav extends React.Component {
                   <li>
                     <Link to="/proshows"
                           className={window.location.pathname === "/proshows"?"active":""}>
-                            <span class="link" id="proshows">PRO SHOWS</span>
+                            <span class="link" id="proshows">HIGHLIGHTS</span>
                           </Link>
                   </li>
                   <li>
@@ -74,20 +75,22 @@ class Nav extends React.Component {
                   <Link to="/"><Logo size={0} isInline={true}/> </Link>
                   </li>
                   <li>
-                    <Link to="/events/general">
-                            <span class="link" id="events">EVENTS</span>
+                    <Link to="/eventpage" className={window.location.pathname === "/eventpage"?"active":""}>
+                            <span className="link" id="eventpage">EVENTS</span>
                           </Link>
                     </li>
                   <li>
                     <Link to="/sponsors"
                           className={window.location.pathname === "/sponsors"?"active":""}>
-                            <span class="link" id="sponsors">SPONSORS</span>
+                            <span className="link" id="sponsors">SPONSORS</span>
                           </Link>
                     </li>
+                    <li>
+                    
+                    </li>
                   <li>
-                    <Link to="/contact"
-                          className={window.location.pathname === "/contact"?"active":""}>
-                            <span class="link" id="contact">CONTACT</span>
+                    <Link to="/contact" className={window.location.pathname === "/contact"?"active":""}>
+                            <span className="link" id="contact">CONTACT</span>
                           </Link>
                     </li>
               </ul>
@@ -106,9 +109,10 @@ class Nav extends React.Component {
             <Route path="/workshops">
               <Workshops setCurrentLink={this.setCurrentLink}/>
             </Route>
-            <Route path="/events">
-              <Events setCurrentLink={this.setCurrentLink}/>
+            <Route path="/eventpage">
+              <EventPage setCurrentLink={this.setCurrentLink}/>
             </Route>
+            
             <Route path="/sponsors">
               <Sponsors setCurrentLink={this.setCurrentLink}/>
             </Route>

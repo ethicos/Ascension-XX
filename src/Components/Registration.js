@@ -1,182 +1,166 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import firebase from 'firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import Swal from 'sweetalert2';
+import Firebase from "firebase";
+import config from "./config";
 
-import fireconfig from '../config/firebase.config';
+class Registration extends React.Component {
+  constructor(props) {
+    super(props);
+    Firebase.initializeApp(config);
 
-import Aux from './Aux';
-import Modal from './Modal';
-import Logo from './Logo';
-import EventCards from './EventCards';
-import './assets/css/Registration.css';
+    this.state = {
+      developers: []
+    };
+  }
 
-firebase.initializeApp(fireconfig);
+  componentDidMount() {
+    this.getUserData();
+  }
 
-class Registration extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            isSignedIn: !!firebase.auth().currentUser,
-            isUserCreated: false,
-            user: null,
-            tempCollege: '',
-            tempMobile: '',
-            tempName: ''
-         }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      this.writeUserData();
+    }
+  }
+
+  writeUserData = () => {
+    Firebase.database()
+      .ref("/")
+      .set(this.state);
+    console.log("DATA SAVED");
+  };
+
+  getUserData = () => {
+    let ref = Firebase.database().ref("/");
+    ref.on("value", snapshot => {
+      const state = snapshot.val();
+      this.setState(state);
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    let name = this.refs.name.value;
+    let role = this.refs.role.value;
+    let uid = this.refs.uid.value;
+
+    if (uid && name && role) {
+      const { developers } = this.state;
+      const devIndex = developers.findIndex(data => {
+        return data.uid === uid;
+      });
+      developers[devIndex].name = name;
+      developers[devIndex].role = role;
+      this.setState({ developers });
+    } else if (name && role) {
+      const uid = new Date().getTime().toString();
+      const { developers } = this.state;
+      developers.push({ uid, name, role });
+      this.setState({ developers });
     }
 
-    uiConfig = {
-        signInFlow: "redirect",
-        signInOptions: [
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        ],
-        callbacks: {
-          signInSuccess: () => false
-        }
-    }
+    this.refs.name.value = "";
+    this.refs.role.value = "";
+    this.refs.uid.value = "";
+  };
 
-    componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            this.setState({isSignedIn: !!user});
-            if (!!user){
-                document.getElementById("root").style.display = "none";
-                document.getElementById("loader").style.display = "block";
-                firebase.database().ref('/participants/'+user.uid)
-                    .once('value').then((snapshot) => {
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("root").style.display = "block";
-                        if (snapshot.val() !== null) {
-                            this.setState({user: snapshot.val(), isUserCreated: true});
-                        }else{
-                            this.setState({tempName: user.displayName, isUserCreated: false});
-                        }
-                    }).catch(e => console.log(e.message));
-            }
-        })
-    }
+  removeData = developer => {
+    const { developers } = this.state;
+    const newState = developers.filter(data => {
+      return data.uid !== developer.uid;
+    });
+    this.setState({ developers: newState });
+  };
 
-    modalClosedHandler = () => {
-        window.location.href = '/events/general';
-    }
+  updateData = developer => {
+    this.refs.uid.value = developer.uid;
+    this.refs.name.value = developer.name;
+    this.refs.role.value = developer.role;
+  };
 
-    capitalize = (str) => {
-        let splitStr = str.toLowerCase().split(' ');
-        for (let i = 0; i < splitStr.length; i++){
-            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-        }
-        return splitStr.join(' ');
-    }
-
-    collegeNameChangeHandler = (event) => {
-        let tpClg = this.capitalize(event.target.value);
-        this.setState({tempCollege: tpClg});
-    }
-
-    mobileNumberChangeHandler = (event) => {
-        this.setState({tempMobile: event.target.value});
-    }
-
-    nameChangeHandler = (event) => {
-        let tpNm = this.capitalize(event.target.value);
-        this.setState({tempName: tpNm});
-    }
-
-    formatDyuthiId = (did) => {
-        let final;
-        const digs = did.toString().length;
-        switch (digs) {
-            case 1:
-                final = 'DYT00'+did;
-                break;
-            case 2:
-                final = 'DYT0'+did;
-                break;
-            default:
-                final = 'DYT'+did;
-        }
-        return final;
-    }
-
-    formSubmitHandler = (event) => {
-        const regex = /^\d{10}$/;
-        if (regex.test(this.state.tempMobile)) {
-            const currentUser = firebase.auth().currentUser;
-            firebase.database().ref('/participant_count').transaction((count) => {
-                let dyId = count+1;
-                dyId = this.formatDyuthiId(dyId);
-                const tempUser = {
-                    uid: currentUser.uid,
-                    dyuthi_id: dyId,
-                    name: this.state.tempName,
-                    email: currentUser.email,
-                    mobile: this.state.tempMobile,
-                    college: this.state.tempCollege
-                };
-                firebase.database().ref('/participants/'+currentUser.uid).set(tempUser).then(() => {
-                    this.setState({isUserCreated: true, user: tempUser});
-                }).catch(e => console.log(e.message));
-                return count+1;
-            });
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Mobile Number',
-                text: 'Enter valid mobile number without country code',
-                confirmButtonColor: '#A90C35'
-            });              
-            this.setState({tempMobile: ''});
-        }
-        event.preventDefault();
-    }
-
-    render() { 
-        return ( 
-            <Aux>
-                <Modal show={!this.state.isSignedIn} modalClosed={this.modalClosedHandler}>
-                    <div className="ModalInner">
-                        <Logo size={0}/>
-                        <h3>Login to Dyuthi</h3>
-                        <span>Login to Dyuthi with your Google Account for Event Registration</span>
-                        <StyledFirebaseAuth 
-                            uiConfig={this.uiConfig}
-                            firebaseAuth={firebase.auth()}/>
-                    </div>
-                </Modal>
-                <Modal show={this.state.isSignedIn && !this.state.isUserCreated}  modalClosed={this.modalClosedHandler}>
-                    <div className="ModalInner">
-                        <Logo size={0}/>
-                        <h3>Fill Your Personal Details</h3>
-                        <form className="SignupForm">
-                            <input 
-                                type="text" 
-                                placeholder="Your Name"
-                                value={this.state.tempName} 
-                                onChange={this.nameChangeHandler}/>
-                            <input 
-                                type="text" 
-                                placeholder="Enter College Name"
-                                value={this.state.tempCollege} 
-                                onChange={this.collegeNameChangeHandler}/>
-                            <input 
-                                type="tel" 
-                                placeholder="Enter Mobile Number"
-                                value={this.state.tempMobile}
-                                onChange={this.mobileNumberChangeHandler}/>
-                            <input 
-                                type="submit" 
-                                value="Submit" 
-                                onClick={this.formSubmitHandler}/>
-                        </form>
-                    </div>
-                </Modal>
-                <EventCards 
-                    show={this.state.isUserCreated}
-                    user={this.state.user}/>
-            </Aux>
-         );
-    }
+  render() {
+    const { developers } = this.state;
+    return (
+      <React.Fragment>
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-12">
+              <h1>Firebase Development Team</h1>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12">
+              {developers.map(developer => (
+                <div
+                  key={developer.uid}
+                  className="card float-left"
+                  style={{ width: "18rem", marginRight: "1rem" }}
+                >
+                  <div className="card-body">
+                    <h5 className="card-title">{developer.name}</h5>
+                    <p className="card-text">{developer.role}</p>
+                    <button
+                      onClick={() => this.removeData(developer)}
+                      className="btn btn-link"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => this.updateData(developer)}
+                      className="btn btn-link"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12">
+              <h1>Add new team member here</h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-row">
+                  <input type="hidden" ref="uid" />
+                  <div className="form-group col-md-6">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      ref="name"
+                      className="form-control"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label>Role</label>
+                    <input
+                      type="text"
+                      ref="role"
+                      className="form-control"
+                      placeholder="Role"
+                    />
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Save
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12">
+              <h3>
+                Tutorial{" "}
+                <a href="https://sebhastian.com/react-firebase-real-time-database-guide">
+                  here
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
- 
+
 export default Registration;

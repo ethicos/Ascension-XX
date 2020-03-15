@@ -1,36 +1,62 @@
-import React, { Component } from 'react';
-import {
-    Switch,
-    Link,
-    Route} from "react-router-dom";
-import firebase from 'firebase';
-
+import React from 'react';
+import EventItem from './EventItem';
+import ModalBox from './ModalBox';
+import './assets/css/events.css';
+import './assets/css/animate.css';
+import hacking from './assets/images/hacking-workshop.jpg';
+import ai from './assets/images/ai.jpg';
+import wrkshop3d from './assets/images/3d.jpg';
+import web from './assets/images/web.jpg';
+import android from './assets/images/android.jpg';
 import TabbedLayout from './TabbedLayout';
 
-import './assets/css/events.css';
-import GenEvents from './GenEvents';
-import DeptEvents from './DeptEvents';
-import Workshops from './Workshops';
-import ModalBox from './ModalBox';
-
-class EventPage extends Component {
-    constructor(props) {
+class EventPage extends React.Component {
+    constructor(props){
         super(props);
-        this.state = { 
-            currentPage: 0,
-            isModalOpen: false,
-            deptEvents: [],
-            genEvents: [],
-            modalEvent: {
-                title: '',
-                desc: ''
-            } }
+        this.state = {
+            events: [{
+                        eventname: "day 1",
+                        fee: "",
+                        desc: "",
+                        posterUrl: hacking,
+                        contactPerson: "",
+                        contactNo: ""
+                    },{
+                        eventname: "day 2",
+                        fee: "",
+                        desc: "",
+                        posterUrl: ai,
+                        contactPerson: "",
+                        contactNo: ""
+                    },{
+                        eventname: "day 2",
+                        fee: "",
+                        desc: "",
+                        posterUrl: wrkshop3d,
+                        contactPerson: "",
+                        contactNo: ""
+                    },{
+                        eventname: "day 3",
+                        fee: "",
+                        desc: "",
+                        posterUrl: web,
+                        contactPerson: "",
+                        contactNo: ""
+                    },{
+                       eventname: "day 3",
+                        fee: "",
+                        desc: "",
+                        posterUrl: android,
+                        contactPerson: "",
+                        contactNo: ""
+                        
+                    }]
+        }
+        this.getEvents = this.getEvents.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.updateCurrentPage = this.updateCurrentPage.bind(this);
-        this.fetchEvents = this.fetchEvents.bind(this);
-        this.sortEvents = this.sortEvents.bind(this);
     }
     toggleModal(event){
+        console.log("toggle")
         if(event==null){
             this.setState({
                 isModalOpen: !this.state.isModalOpen
@@ -42,119 +68,49 @@ class EventPage extends Component {
             });
         }
     }
-    updateCurrentPage(pageNo){
-        this.setState({
-            currentPage: pageNo
-        });
+    getEvents(){
+        let view = [];
+        let row = [];
+        for( let event of this.state.events){
+            row.push(<div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <EventItem 
+                            event={event}
+                            modalToggle={this.toggleModal}/>
+                    </div>);
+            if(row.length == 3){
+                view.push(<div className="row">
+                            {row}        
+                        </div>);
+                row = [];
+            }
+        }
+        if(row.length != 0){
+            view.push(<div className="row">
+                            {row}        
+                        </div>);
+            row = [];
+        }
+        return view;
     }
     componentDidMount(){
-        this.fetchEvents();
+        if( this.props.isMobile ){
+            this.props.updateCurrentPage(2);
+        }else{
+            this.props.setCurrentLink("eventpage");
+        }   
     }
-    render() { 
-        return ( 
-            <div>
-                <TabbedLayout currentPage={this.state.currentPage}
-                             isMobile={this.props.isMobile} />
-                <ModalBox 
-                    show={this.state.isModalOpen}
-                    onClose={this.toggleModal}
-                    event={this.state.modalEvent}/>
-                <Switch>
-                    <Route exact path="/events/general">
-                        <div>
-                            <h3 className="page-title" id="loading"></h3>
-                            <GenEvents 
-                                modalToggle={this.toggleModal}
-                                updateCurrentPage={this.updateCurrentPage}
-                                events={this.state.genEvents}/>
-                        </div>
-                    </Route>
-                    <Route exact path="/events/dept">
-                        <div>
-                            <h3 className="page-title" id="loading"></h3>
-                            <DeptEvents
-                                modalToggle={this.toggleModal}
-                                updateCurrentPage={this.updateCurrentPage}
-                                events={this.state.deptEvents}/>
-                        </div>
-                    </Route>
-                    {this.props.isMobile? <Route exact path="/events/workshops">
-                                            <Workshops
-                                                isMobile={this.props.isMobile}
-                                                updateCurrentPage={this.updateCurrentPage}/>
-                                        </Route>
-                                        : <></>}
-                </Switch>
+    render(){
+        return (
+            <div class="events fade-in">
+                    <ModalBox 
+                        show={this.state.isModalOpen}
+                        onClose={this.toggleModal}
+                        event={this.state.modalEvent}
+                        isWorkshop={true}/>
+                {this.getEvents()}
             </div>
-         );
-    }
-    fetchEvents(){
-        var database = firebase.database();
-        const depts = {
-            mech: "Mechanical",
-            ce: "Civil",
-            eee: "Electrical",
-            chem: "Chemical",
-            prod: "Production", 
-            cse: "Computer Science", 
-            ec: "Electronics",
-            arch: "Architecture" ,
-            mca: "MCA"
-        }
-        database.ref("/events/").once('value').then( (snapshot)=>{
-            const snaps = snapshot.val();
-            var data = [];
-            var genEvents = [];
-            var deptEvents = {};
-            var count = 0;
-            for( let row in snaps){
-                let event = snaps[row]
-                data.push(event);
-                if(event.is_department){
-                    let dept = event.department;
-                    let deptName = depts[dept.toLowerCase()]
-                    if(Object.keys(deptEvents).indexOf(deptName) >= 0){
-                        deptEvents[deptName].push(event);
-                    }else{
-                        deptEvents[deptName] = [event,];
-                    }
-                    if( deptName === "Computer Science")
-                        count += 1
-                }else if(event.is_department == "" && event.department == ""){
-                    // do nothing
-                }else{
-                    genEvents.push(event);
-                }
-            }
-            if(data.length <= 0){
-                this.setState({
-                    deptEvents: [],
-                    genEvents: []
-                });
-                document.getElementById("loading").innerText = "Coming Soon";
-                return;
-            }else{
-                var sortedDeptEvents = this.sortEvents(deptEvents)
-                this.setState({
-                    deptEvents: sortedDeptEvents,
-                    genEvents: genEvents
-                });
-            }
-            // console.log("gen", genEvents);
-            // console.log("dept", deptEvents);
-            // document.getElementById("loading").style.display = "none";
-        })
-    }
-    sortEvents(eventList){
-        let deptList = Object.keys(eventList)
-        let sortedList = new Object()
-        deptList.sort()
-
-        for( let dept of deptList){
-            sortedList[dept] = eventList[dept]
-        }
-        return sortedList;
+        );
     }
 }
- 
+
 export default EventPage;

@@ -93,6 +93,7 @@ class BottomNav extends React.Component {
                             <Link to="/events/general">
                                 <span id="events" className="bottom-nav-text">Events</span>
                             </Link>
+                            
                             <Link to="/contact">
                                 <span id="contact" className="bottom-nav-text">Contact</span>
                             </Link>
@@ -112,6 +113,7 @@ class BottomNav extends React.Component {
                         <Route path="/events">
                             <Events setCurrentLink={this.setCurrentLink} isMobile={true}/>
                         </Route>
+                        
                         <Route path="/contact">
                             <Contact setCurrentLink={this.setCurrentLink} isMobile={true}/>
                         </Route>
